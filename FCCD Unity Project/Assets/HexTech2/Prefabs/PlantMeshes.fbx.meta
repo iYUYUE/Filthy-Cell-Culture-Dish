@@ -1,0 +1,133 @@
+fileFormatVersion: 2
+guid: afcf9ead10e5198468e39bf9929b93ce
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: BigTreeMesh
+    100002: BushMesh
+    100004: GrassMesh
+    100006: //RootNode
+    100008: pPlane1
+    100010: pPlane1 1
+    100012: pPlane1 2
+    100014: pPlane2
+    100016: pPlane2 1
+    100018: pPlane2 2
+    100020: pPlane3
+    100022: pPlane3 1
+    100024: pPlane3 2
+    100026: pPlane4
+    100028: pPlane4 1
+    100030: pPlane4 2
+    100032: TreeMesh
+    400000: BigTreeMesh
+    400002: BushMesh
+    400004: GrassMesh
+    400006: //RootNode
+    400008: pPlane1
+    400010: pPlane1 1
+    400012: pPlane1 2
+    400014: pPlane2
+    400016: pPlane2 1
+    400018: pPlane2 2
+    400020: pPlane3
+    400022: pPlane3 1
+    400024: pPlane3 2
+    400026: pPlane4
+    400028: pPlane4 1
+    400030: pPlane4 2
+    400032: TreeMesh
+    2300000: GrassMesh
+    2300002: pPlane1
+    2300004: pPlane1 1
+    2300006: pPlane1 2
+    2300008: pPlane2
+    2300010: pPlane2 1
+    2300012: pPlane2 2
+    2300014: pPlane3
+    2300016: pPlane3 1
+    2300018: pPlane3 2
+    2300020: pPlane4
+    2300022: pPlane4 1
+    2300024: pPlane4 2
+    3300000: GrassMesh
+    3300002: pPlane1
+    3300004: pPlane1 1
+    3300006: pPlane1 2
+    3300008: pPlane2
+    3300010: pPlane2 1
+    3300012: pPlane2 2
+    3300014: pPlane3
+    3300016: pPlane3 1
+    3300018: pPlane3 2
+    3300020: pPlane4
+    3300022: pPlane4 1
+    3300024: pPlane4 2
+    4300000: pPlane1
+    4300002: pPlane2
+    4300004: pPlane3
+    4300006: pPlane4
+    4300008: pPlane1
+    4300010: pPlane2
+    4300012: pPlane3
+    4300014: pPlane4
+    4300016: pPlane1
+    4300018: pPlane2
+    4300020: pPlane3
+    4300022: pPlane4
+    4300024: GrassMesh
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
