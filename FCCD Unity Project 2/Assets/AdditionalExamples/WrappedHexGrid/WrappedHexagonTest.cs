@@ -6,7 +6,7 @@ using UnityEngine;
 public class WrappedHexagonTest : GLMonoBehaviour
 {
 	public GameObject cellPrefab;
-
+	private bool on = true;
 	private WrappedGrid<GameObject, PointyHexPoint> grid;
 	private IMap3D<PointyHexPoint> map; 
 
@@ -20,6 +20,15 @@ public class WrappedHexagonTest : GLMonoBehaviour
 			.To3DXY();
 
 		grid.Fill(MakeCell);
+	}
+
+	public void switchOff() {
+		on = false;
+	}
+
+	public void switchOn() {
+		on = true;
+		print (on);
 	}
 
 	private GameObject MakeCell(PointyHexPoint point)
@@ -58,6 +67,8 @@ public class WrappedHexagonTest : GLMonoBehaviour
 
 	public void Update()
 	{
+		if (!on)
+			return;
 		if (Input.GetMouseButtonDown(0))
 		{
 			//grid.Apply(ResetCellColor);
