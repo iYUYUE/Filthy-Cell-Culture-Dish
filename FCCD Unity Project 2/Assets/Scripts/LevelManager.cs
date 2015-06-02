@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour {
 			NumberOfPlays = PlayerPrefs.GetInt(LevelName + "NumberOfPlays");
 		else NumberOfPlays = 0;
 
-		GameManager.instance.LastLevelName = LevelName;
+		GameStartManager.instance.LastLevelName = LevelName;
 
 
 	//	if(!PlayerPrefs.HasKey(LevelName + "ParScore"))

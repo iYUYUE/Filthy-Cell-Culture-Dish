@@ -87,10 +87,11 @@ public class ButtonEvent : MonoBehaviour {
 				transform.localScale = originalLocalScale;
 
 				if(SceneLoader){
-					if(transform.parent.name.Length == 1){
-						GameManager.instance.SendMessage("StartLvl", transform.parent.parent.parent.name[0].ToString() + transform.parent.parent.parent.name[1].ToString() + transform.parent.name);
-					}
-					else GameManager.instance.SendMessage("StartLvl", transform.parent.name);
+//					if(transform.parent.name.Length == 1){
+//						GameStartManager.instance.SendMessage("StartLvl", transform.parent.parent.parent.name[0].ToString() + transform.parent.parent.parent.name[1].ToString() + transform.parent.name);
+//					}
+//					else GameStartManager.instance.SendMessage("StartLvl", transform.parent.name);
+					GameStartManager.instance.SendMessage("StartLvl", "WrappedHexGrid");
 				}
 				else{
 					if(receiver == null) //if no receiver we just kind of spam things :/

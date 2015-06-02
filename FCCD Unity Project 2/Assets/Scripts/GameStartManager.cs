@@ -3,9 +3,9 @@ using System.Collections;
 
 
 //this class is for all `game level' functions, like volume controls, options, etc.
-public class GameManager : MonoBehaviour {
+public class GameStartManager : MonoBehaviour {
 
-	public static GameManager instance;
+	public static GameStartManager instance;
 	public AudioSource MusicSource;
 	public string MainMenuString;
 
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour {
 
 
 		//make sure only one gamemanager loads ever
-		if(GameManager.instance == null) instance = this;
+		if(GameStartManager.instance == null) instance = this;
 		if(instance != this) Destroy(gameObject);
 
 		MusicSource = GetComponent<AudioSource>();

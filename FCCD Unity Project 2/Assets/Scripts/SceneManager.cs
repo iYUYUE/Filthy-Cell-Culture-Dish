@@ -61,7 +61,7 @@ public class SceneManager : MonoBehaviour {
 								VolSFXButton.receiver = gameObject;
 						}
 				}
-		if(GameManager.instance != null){
+		if(GameStartManager.instance != null){
 			VolMusic();
 			VolMusic();
 			VolSFX();
@@ -195,7 +195,7 @@ public class SceneManager : MonoBehaviour {
 			PlayerPrefs.SetInt("LastLevelPlayed", levelNum);
 		iTween.CameraFadeTo(1,0.15f);
 		yield return new WaitForSeconds (0.15f);
-		Application.LoadLevel(GameManager.instance.MainMenuString);
+		Application.LoadLevel(GameStartManager.instance.MainMenuString);
 	}
 
 
@@ -224,28 +224,28 @@ public class SceneManager : MonoBehaviour {
 
 	// toggle music on/off. modifies the text on the button
 	void VolMusic(){
-		if(GameManager.instance.VolumeMusic > 0)
+		if(GameStartManager.instance.VolumeMusic > 0)
 		{
-			GameManager.instance.VolumeMusic = 0;
+			GameStartManager.instance.VolumeMusic = 0;
 			if(VolMusicButton  != null) VolMusicButton.text.text = "Music off";
 		}
 		else
 		{	
-			GameManager.instance.VolumeMusic = 1;
+			GameStartManager.instance.VolumeMusic = 1;
 			if(VolMusicButton  != null) VolMusicButton.text.text = "Music on";
 		}
 	}
 
 	//toggle sfx on/off
 	void VolSFX(){
-		if(GameManager.instance.VolumeFX > 0)
+		if(GameStartManager.instance.VolumeFX > 0)
 		{
-			GameManager.instance.VolumeFX = 0;
+			GameStartManager.instance.VolumeFX = 0;
 			if(VolSFXButton  != null) VolSFXButton.text.text = "SFX off";
 		}
 		else
 		{	
-			GameManager.instance.VolumeFX = 1;
+			GameStartManager.instance.VolumeFX = 1;
 			if(VolSFXButton  != null) VolSFXButton.text.text = "SFX on";
 		}
 	}
