@@ -12,7 +12,7 @@ public class WrappedHexagonTest : GLMonoBehaviour
 
 	public void Start()
 	{
-		grid = PointyHexGrid<GameObject>.HorizontallyWrappedRectangle(5, 5);
+		grid = PointyHexGrid<GameObject>.HorizontallyWrappedRectangle(12, 5);
 		
 		map = new PointyHexMap(cellPrefab.GetComponent<SpriteCell>().Dimensions)
 			.WithWindow(new Rect(0, 0, 0, 0))
