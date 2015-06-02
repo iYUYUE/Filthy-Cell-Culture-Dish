@@ -354,7 +354,7 @@ MonoBehaviour:
   SaveMaps: 0
   IsElevationMap: 0
   TieredMap: 0
-  MapTexture: {fileID: 2800000, guid: 4afbe2adcbbd2ed45b974c7747685cee, type: 3}
+  MapTexture: {fileID: 2800000, guid: 80123bd4e46a1484d9eb144d32f9ffc1, type: 3}
   MapColors:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
