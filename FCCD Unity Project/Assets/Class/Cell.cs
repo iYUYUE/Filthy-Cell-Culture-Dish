@@ -32,6 +32,10 @@ namespace AssemblyCSharp
 		private List<Cell> getNeighbors(){
 			return null;
 		}
+
+		public int getPop(Player pl) {
+			return this.pops.TryGetValue(pl);
+		}
 	}
 }
 
