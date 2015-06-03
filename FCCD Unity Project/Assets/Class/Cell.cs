@@ -62,6 +62,9 @@ namespace AssemblyCSharp
 		}
 
 		public void explore(Player pl){
+			if (Global.explored)
+				return;
+			Global.explored = false;
 			pops[pl] += this.growthChecker((int) (Formula.GrowthRate(pl.getGrowthValue()) * (double) ((Formula.GrowthCap(pl.getGrowthValue()) - pops[pl]) * pops[pl])), pl);
 		}
 

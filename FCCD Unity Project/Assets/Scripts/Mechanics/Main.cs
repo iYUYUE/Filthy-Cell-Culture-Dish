@@ -31,17 +31,34 @@ public class Main : GLMonoBehaviour
 			Global.players.Add(new Player(ExampleUtils.Colors[i]));
 		}
 	}
+
+	void InitializeGlobal ()
+	{
+		AddPlayers ();
+		Global.techCost = new int[5,Global.numTech];
+		for (int i =0; i<5; i++) {
+			int j = 0;
+			Global.techCost[i,j] = 10;
+			for (j++;j<Global.numTech;j++){
+				Global.techCost[i,j] = Global.techCost[i,j-1]*1.5;
+			}
+		}
+	}
 	
 	public void Start()
 	{
 		BuildGrid();
+<<<<<<< HEAD
 		AddPlayers ();
 		historyPoint = new DiamondPoint (-1, -1);
+=======
+		InitializeGlobal ();
+>>>>>>> d15f5c37f957e3fa8c7fa8a45191a3b69e157a66
 	}
 	
 	private void BuildGrid()
 	{
-		Global.grid =DiamondGrid<SpriteCell>.ThinRectangle(5, 5);
+		Global.grid =DiamondGrid<SpriteCell>.ThinRectangle(10, 5);
 		grid = Global.grid;
 		
 		map = new DiamondMap(cellPrefab.Dimensions)
@@ -66,7 +83,7 @@ public class Main : GLMonoBehaviour
 			var OurCell = new Cell(point);
 		}
 	}
-	
+
 	public void Update()
 	{
 		Vector2 worldPosition = GridBuilderUtils.ScreenToWorld(root, Input.mousePosition);
