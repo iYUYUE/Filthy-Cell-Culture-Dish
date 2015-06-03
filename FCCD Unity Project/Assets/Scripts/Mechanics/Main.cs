@@ -26,7 +26,7 @@ using Gamelogic.Grids.Examples;
 	void AddPlayers ()
 	{
 		for (int i = 0; i<Global.numberOfPlayers; i++) {
-			Global.players.Add(new Player(ExampleUtils.Colors[i]));
+			Global.players.Add(new Player());
 		}
 	}
 
