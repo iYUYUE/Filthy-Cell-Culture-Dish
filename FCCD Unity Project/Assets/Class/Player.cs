@@ -9,18 +9,21 @@
 //------------------------------------------------------------------------------
 
 using System;
+using UnityEngine;
 namespace AssemblyCSharp {
 	public class Player {
 		private int netPop;
 		private int numCell;
+		private Color color;
 		private bool[] isPeace;
 		//whether tech get Upgrade last turn
 		private bool techUp;
 		//techAndProgree[Global.Techs.Exploration][0] the level techAndProgree[Global.Techs.Exploration][1] progress
 		private int[,] techAndProgress;
 		private int techOnResearch;
-		public Player ()
+		public Player (Color c)
 		{
+			color = c;
 			isPeace = new bool[Global.players.Count];
 			techAndProgress = new int[5,2];
 			techUp = false;

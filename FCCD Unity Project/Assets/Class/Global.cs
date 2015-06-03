@@ -20,7 +20,7 @@ namespace AssemblyCSharp
 		public readonly static int ATTACKING = 2;
 		public readonly static int DEFENSING = 3;
 		public readonly static int ULTIMATE = 4;
-
+		public static int numberOfPlayers = 2;
 		public readonly static int numTech = 50;
 		public readonly static int baseCapacity = 100;
 
