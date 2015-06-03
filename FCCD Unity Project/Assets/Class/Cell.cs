@@ -54,6 +54,16 @@ namespace AssemblyCSharp
 				}
 			}
 
+			UpdateColor ();
+		}
+
+		public void UpdateColor() {
+			List<Color> colorList = new List<Color> ();
+			// Update Color
+			foreach (Player player in this.getPlayerList())
+				colorList.Add (Formula.ColorLighter(player.getColor(), ((float)this.getPop (player)/(float)Formula.GrowthCap (player.getGrowthValue ()))));
+			
+			Global.grid [point].GetComponent<SpriteCell> ().Color = Formula.ColorMixer(colorList);
 		}
 
 		public int PopDance(Player Player1, Player PlayerX, int Pop1, int PopX) {
@@ -66,6 +76,7 @@ namespace AssemblyCSharp
 				return;
 			Global.explored = false;
 			pops[pl] += this.growthChecker((int) (Formula.GrowthRate(pl.getGrowthValue()) * (double) ((Formula.GrowthCap(pl.getGrowthValue()) - pops[pl]) * pops[pl])), pl);
+			UpdateColor ();
 		}
 
 		private List<Cell> getNeighbors(){
