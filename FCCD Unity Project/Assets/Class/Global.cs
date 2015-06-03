@@ -41,6 +41,8 @@ namespace AssemblyCSharp
 
 		public static int largestPop = 0;
 		public static int largestTerritory = 0;
+		public static Player largestPopPlayer;
+		public static Player largestCellPlayer;
 
 
 		
@@ -53,6 +55,18 @@ namespace AssemblyCSharp
 		}
 
 		public static void updateDemo(){
+			int tmpPop = 0;
+			int tmpCell = 0;
+			foreach (Player player in players) {
+				if (tmpPop < player.getPop ()) {
+					tmpPop = player.getPop ();
+					largestPopPlayer = player;
+				}
+				if (tmpCell < player.getCells ()) {
+					tmpCell = player.getCells ();
+					largestCellPlayer = player;
+				}
+			}
 		}
 
 		static void gameOver ()
