@@ -43,7 +43,6 @@ namespace Gamelogic.Grids.Editor.Internal
 			EditorApplication.hierarchyWindowItemOnGUI =
 				(EditorApplication.HierarchyWindowItemCallback)
 					Delegate.Combine(EditorApplication.hierarchyWindowItemOnGUI, hiearchyItemCallback);
-
 		}
 
 		private static void DrawHierarchyIcon(int instanceID, Rect selectionRect)

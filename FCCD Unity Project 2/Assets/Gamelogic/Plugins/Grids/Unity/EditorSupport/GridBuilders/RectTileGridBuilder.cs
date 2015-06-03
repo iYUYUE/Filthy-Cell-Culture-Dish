@@ -36,7 +36,8 @@ namespace Gamelogic.Grids
 		[Serializable]
 		public enum MapType
 		{
-			Rect
+			Rect,
+			Custom
 		}
 		#endregion
 
@@ -139,6 +140,9 @@ namespace Gamelogic.Grids
 
 					windowedHexMap = new RectMap(cellDimensions.HadamardMul(CellSpacingFactor))
 						.WithWindow(centerRect);
+					break;
+				case MapType.Custom:
+					windowedHexMap = GetCustomMap();
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();

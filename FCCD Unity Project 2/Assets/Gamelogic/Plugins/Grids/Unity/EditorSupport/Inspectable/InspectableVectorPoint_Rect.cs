@@ -17,6 +17,16 @@ namespace Gamelogic.Grids
 			y = point.Y;
 		}
 
+		/**
+			@version1_11
+		*/
+
+		public InspectableVectorPoint(DiamondPoint point)
+		{
+			x = point.X;
+			y = point.Y;
+		}
+
 		public RectPoint GetRectPoint()
 		{
 			return new RectPoint(x, y);

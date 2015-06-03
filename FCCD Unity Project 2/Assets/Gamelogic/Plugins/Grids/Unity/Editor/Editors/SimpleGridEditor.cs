@@ -6,6 +6,7 @@
 
 using Gamelogic.Editor;
 using UnityEditor;
+using UnityEditorInternal;
 using UnityEngine;
 
 namespace Gamelogic.Grids.Editor.Internal
@@ -39,6 +40,8 @@ namespace Gamelogic.Grids.Editor.Internal
 		private GLSerializedProperty colorsProp;
 		private GLSerializedProperty colorFunctionProp;
 
+		private ReorderableList colorList;
+
 		public void OnEnable()
 		{
 			updateTypeProp = FindProperty("updateType");
@@ -59,11 +62,27 @@ namespace Gamelogic.Grids.Editor.Internal
 			useColorProp = FindProperty("useColor");
 			colorsProp = FindProperty("colors");
 			colorFunctionProp = FindProperty("colorFunction");
+
+			colorList = new ReorderableList(serializedObject, colorsProp.SerializedProperty, true, true, true, true);
+			
+			colorList.drawHeaderCallback += rect => GUI.Label(rect, "Colors");
+
+			colorList.drawElementCallback += (rect, index, active, focused) =>
+			{
+				rect.height = 16;
+				rect.y += 2;
+				if (index >= colorsProp.SerializedProperty.arraySize) return;
+				var color = colorsProp.SerializedProperty.GetArrayElementAtIndex(index).colorValue;
+				
+				color = EditorGUI.ColorField(rect, color);
+
+				colorsProp.SerializedProperty.GetArrayElementAtIndex(index).colorValue = color;
+			};
+
 		}
 
 		public override void OnInspectorGUI()
 		{
-
 			serializedObject.Update();
 
 			EditorGUILayout.BeginHorizontal();
@@ -148,7 +167,10 @@ namespace Gamelogic.Grids.Editor.Internal
 
 			if (useColorProp.boolValue)
 			{
-				AddField(colorsProp);
+				//AddField(colorsProp);
+
+				colorList.DoLayoutList();
+
 				AddField(colorFunctionProp);
 			}
 

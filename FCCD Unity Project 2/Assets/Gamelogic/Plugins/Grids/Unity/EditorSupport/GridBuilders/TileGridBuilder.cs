@@ -58,6 +58,7 @@ namespace Gamelogic.Grids
 
 		[SerializeField]
 		[Tooltip("The colors to use to color cells.")]
+		[ContextMenuItem("Reset", "ResetColors")]
 		protected Color[] colors = GridBuilderUtils.DefaultColors;
 
 		[SerializeField]
@@ -222,15 +223,6 @@ namespace Gamelogic.Grids
 			{
 				if (!__CompilerHints.__CompilerHint__Rect()) return;
 				if (!__CompilerHints.__CompilerHint__Diamond()) return;
-				if (!__CompilerHints.__CompilerHint__PointyHex()) return;
-				if (!__CompilerHints.__CompilerHint__FlatHex()) return;
-
-				if (!__CompilerHints.__CompilerHint__PointyTri()) return;
-				if (!__CompilerHints.__CompilerHint__FlatTri()) return;
-				if (!__CompilerHints.__CompilerHint__PointyRhomb()) return;
-				if (!__CompilerHints.__CompilerHint__FlatRhomb()) return;
-
-				if (!__CompilerHints.__CompilerHint__Cairo()) return;
 			}
 #endif
 			if (cellPrefab == null)
@@ -340,8 +332,8 @@ namespace Gamelogic.Grids
 
 				cell.name = point.ToString();
 
-				int spliceCount = point.SpliceCount();
-				int index = point.RenderIndex();
+				int spliceCount = point.SpliceCount;
+				int index = point.SpliceIndex;
 
 				cell.SetAngle(-360f/spliceCount*index);
 
@@ -423,20 +415,6 @@ namespace Gamelogic.Grids
 			}
 		}
 
-		protected WindowedMap<TPoint> GetCustomMap()
-		{
-			var mapBuilder = GetComponent<CustomMapBuilder>();
-
-			if (mapBuilder == null)
-			{
-				Debug.LogError("You must have a CustomMapBuilder component attached to your grid if you want to use a custom grid");
-
-				return null;
-			}
-
-			return mapBuilder.CreateWindowedMap<TPoint>();
-		}
-
 		protected IGrid<TileCell, TPoint> GetCustomGrid()
 		{
 			var shapeBuilder = GetComponent<CustomGridBuilder>();
@@ -459,6 +437,13 @@ namespace Gamelogic.Grids
 			}
 
 			return newGrid;
+		}
+		#endregion
+
+		#region Inspector
+		private void ResetColors()
+		{
+			colors = GridBuilderUtils.DefaultColors;
 		}
 		#endregion
 	}

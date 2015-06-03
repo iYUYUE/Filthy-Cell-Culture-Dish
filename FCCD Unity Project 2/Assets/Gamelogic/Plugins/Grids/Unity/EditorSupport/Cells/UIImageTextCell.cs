@@ -41,5 +41,14 @@ namespace Gamelogic.Grids
 			get { return UIText.text; }
 			set { UIText.text = value; }
 		}
+
+		/**
+			@version1_10_1
+		*/
+		public Color TextColor
+		{
+			get { return UIText.color; }
+			set { UIText.color = value; }
+		}
 	}
 }

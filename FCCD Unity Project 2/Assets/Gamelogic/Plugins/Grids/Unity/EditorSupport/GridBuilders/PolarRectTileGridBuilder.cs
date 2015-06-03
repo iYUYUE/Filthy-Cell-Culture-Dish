@@ -46,9 +46,20 @@ namespace Gamelogic.Grids
 
 		#region Properties
 
-		public new WrappedGrid<MeshTileCell, RectPoint> Grid
+		/**
+			Returns the grid builder attached to the same game object as this
+			grid behaviour.
+
+			(It's provided, but you will mostly need only the Grid and Map.)
+		*/
+		/*public TileGridBuilder<RectPoint> GridBuilder
 		{
-			get { return (WrappedGrid<MeshTileCell, RectPoint>)base.Grid; }
+			get { return GetComponent<TileGridBuilder<RectPoint>>(); }
+		}*/
+
+		public new WrappedGrid<TileCell, RectPoint> Grid
+		{
+			get { return (WrappedGrid<TileCell, RectPoint>) grid; }
 		}
 
 		public new IMap3D<RectPoint> Map

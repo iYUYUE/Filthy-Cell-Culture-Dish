@@ -32,7 +32,8 @@ namespace Gamelogic.Grids
 		[Serializable]
 		public enum MapType
 		{
-			Diamond
+			Diamond,
+			Custom
 		}
 
 		#endregion
@@ -149,6 +150,9 @@ namespace Gamelogic.Grids
 
 					windowedHexMap = new DiamondMap(cellDimensions.HadamardMul(CellSpacingFactor))
 						.WithWindow(centerRect);
+					break;
+				case MapType.Custom:
+					windowedHexMap = GetCustomMap();
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();

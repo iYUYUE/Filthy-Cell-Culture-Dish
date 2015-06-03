@@ -78,5 +78,19 @@ namespace Gamelogic.Grids
 				grid[point].SendMessage(message, SendMessageOptions.DontRequireReceiver);
 			}
 		}
+
+		protected WindowedMap<TPoint> GetCustomMap()
+		{
+			var mapBuilder = GetComponent<CustomMapBuilder>();
+
+			if (mapBuilder == null)
+			{
+				Debug.LogError("You must have a CustomMapBuilder component attached to your grid if you want to use a custom grid");
+
+				return null;
+			}
+
+			return mapBuilder.CreateWindowedMap<TPoint>();
+		}
 	}
 }

@@ -1,0 +1,111 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Reflection" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll" #>
+<#@ assembly name="C:/Users/Herman Tulleken/Documents/Code/Grids/Library/ScriptAssemblies/Assembly-CSharp.dll" #> 
+<#@ import namespace="Gamelogic.Grids" #>
+<#@ include file="../TemplateFileManagerV2.1.ttinclude" #>
+<#@ include file="Helper.tt" #>
+<#	
+	var manager = TemplateFileManager.Create(this);
+#>
+<#
+
+	manager.StartNewFile("Grid.cs");
+#>
+#if !IgnoreHexLib
+<#@ include file="../Grid.tt" #>
+#endif
+<#
+	manager.StartNewFile("HexAlgorithm.cs");
+#>
+#if !IgnoreHexLib
+<#@ include file="../HexAlgorithm.tt" #>
+#endif
+<#
+	manager.StartNewFile("HexPoint.cs");
+#>
+#if !IgnoreHexLib
+<#@ include file="../HexPoint.tt" #>
+#endif
+<#
+	manager.StartNewFile("Op.cs");
+#>
+#if !IgnoreHexLib
+<#@ include file="../Op.tt" #>
+#endif
+<#
+	manager.StartNewFile("Point.cs");
+#>
+#if !IgnoreHexLib
+<#@ include file="../Point.tt" #>
+#endif
+<#
+	manager.StartNewFile("ShapeInfo.cs");
+#>
+#if !IgnoreHexLib
+<#@ include file="../ShapeInfo.tt" #>
+#endif
+<#
+	manager.StartNewFile("SplicedGrid.cs");
+#>
+#if !IgnoreHexLib
+<#@ include file="../SplicedGrid.tt" #>
+#endif
+<#
+	manager.StartNewFile("SplicedOp.cs");
+#>
+#if !IgnoreHexLib
+<#@ include file="../SplicedOp.tt" #>
+#endif
+<#
+	manager.StartNewFile("SplicedPoint.cs");
+#>
+#if !IgnoreHexLib
+<#@ include file="../SplicedPoint.tt" #>
+#endif
+<#
+	manager.StartNewFile("UniformGrid.cs");
+#>
+#if !IgnoreHexLib
+<#@ include file="../UniformGrid.tt" #>
+#endif
+<#
+	manager.StartNewFile("VertexEdgeGrid.cs");
+#>
+#if !IgnoreHexLib
+<#@ include file="../VertexEdgeGrid.tt" #>
+#endif
+
+<#
+	manager.StartNewFile("CompilerHints.cs");
+#>
+#if !IgnoreHexLib
+<#@ include file="../CompilerHints.tt" #>
+#endif
+<#
+	manager.StartNewFile("CompilerHints_GL.cs");
+#>
+#if !IgnoreHexLib
+<#@ include file="../CompilerHints_GL.tt" #>
+#endif
+<#
+	manager.StartNewFile("ShapeAbbreviations.cs");
+#>
+#if !IgnoreHexLib
+<#@ include file="../ShapeAbbreviations.tt" #>
+#endif
+<#
+	manager.Process();
+#>
+<#+
+	bool IsSplicedGrid(string name)
+	{
+		return SplicedGrids.Contains(name);
+	}
+#>

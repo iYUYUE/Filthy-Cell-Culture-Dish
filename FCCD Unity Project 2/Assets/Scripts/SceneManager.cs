@@ -24,7 +24,7 @@ public class SceneManager : MonoBehaviour {
 	public ButtonEvent VolSFXButton;
 
 	[HideInInspector]
-	public GameManager GameManager;
+	public GameStartManager GameManager;
 	[HideInInspector]
 	public GameObject MainCamObj;
 
