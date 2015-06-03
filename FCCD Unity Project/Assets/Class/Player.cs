@@ -7,6 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 using System;
 namespace AssemblyCSharp {
 	public class Player {
@@ -58,6 +59,22 @@ namespace AssemblyCSharp {
 
 		public bool isPeaceWith(Player pl) {
 			return isPeace [Global.players.IndexOf (pl)];
+		}
+
+		public int getGrowthValue() {
+			return techAndProgress [0, 0];
+		}
+
+		public int getExplorationValue() {
+			return techAndProgress [1, 0];
+		}
+
+		public int getAttackValue() {
+			return techAndProgress [2, 0];
+		}
+
+		public int getDefenseValue() {
+			return techAndProgress [3, 0];
 		}
 	}
 }
