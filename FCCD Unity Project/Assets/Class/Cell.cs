@@ -33,8 +33,8 @@ namespace AssemblyCSharp
 			return null;
 		}
 
-		public int getPop(Player pl) {
-			return this.pops.TryGetValue(pl);
+		public bool getPop(Player pl, int pop) {
+			return this.pops.TryGetValue(pl,pop);
 		}
 	}
 }
