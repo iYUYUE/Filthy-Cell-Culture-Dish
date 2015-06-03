@@ -26,6 +26,7 @@ using Gamelogic.Grids.Examples;
 		public void Start()
 		{
 			BuildGrid();
+		Global.players.Add (new Player ());
 		}
 
 		private void BuildGrid()
@@ -68,6 +69,7 @@ using Gamelogic.Grids.Examples;
 				{
 					//Toggle the highlight
 					grid[point].HighlightOn = !grid[point].HighlightOn;
+				Debug.Log(Global.players.Count);
 				}
 			}
 		}
