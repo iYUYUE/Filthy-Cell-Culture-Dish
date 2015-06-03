@@ -98,6 +98,9 @@ public class Main : GLMonoBehaviour
 				//Toggle the highlight
 				grid [point].GetComponent<SpriteCell> ().Color = LighterColor(grid [point].GetComponent<SpriteCell> ().Color);
 				//			Debug.Log(Global.currentPlayer);
+				if (!Global.explored &&Input.GetMouseButtonDown(0)){
+					point.cell.explore(Global.players[Global.currentPlayer]);
+				}
 			} else {
 				historyPoint = new DiamondPoint (-1, -1);
 			}
