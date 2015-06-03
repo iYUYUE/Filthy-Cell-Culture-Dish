@@ -54,9 +54,13 @@ namespace AssemblyCSharp {
 				techUp = true;
 			}
 		}
-
+		
 		public bool researhDone() {
 			return techUp;
+		}
+		
+		public void setTechUp(bool up) {
+			techUp = up;
 		}
 
 		public bool isPeaceWith(Player pl) {

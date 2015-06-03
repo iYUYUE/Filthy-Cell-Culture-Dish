@@ -23,6 +23,7 @@ namespace AssemblyCSharp
 		public static int numberOfPlayers = 2;
 		public readonly static int numTech = 50;
 		public readonly static int baseCapacity = 100;
+		public static bool explored;
 
 		public static int[,] techCost;
 		public static DiamondGrid<SpriteCell> grid;

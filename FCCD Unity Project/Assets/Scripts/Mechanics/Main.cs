@@ -32,19 +32,14 @@ using Gamelogic.Grids.Examples;
 
 		public void Start()
 		{
-<<<<<<< HEAD
 		BuildGrid();
 		AddPlayers ();
-=======
 			BuildGrid();
-		Global.players.Add (new Player ());
-		//Global.players.Add (new Player ());
->>>>>>> origin/master
 		}
 
 		private void BuildGrid()
 		{
-		Global.grid =DiamondGrid<SpriteCell>.ThinRectangle(20, 10);
+		Global.grid =DiamondGrid<SpriteCell>.ThinRectangle(5, 5);
 		grid = Global.grid;
 
 			map = new DiamondMap(cellPrefab.Dimensions)
