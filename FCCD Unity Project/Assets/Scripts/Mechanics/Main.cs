@@ -36,6 +36,7 @@ public class Main : GLMonoBehaviour
 	{
 		BuildGrid();
 		AddPlayers ();
+		historyPoint = new DiamondPoint (-1, -1);
 	}
 	
 	private void BuildGrid()
@@ -73,16 +74,26 @@ public class Main : GLMonoBehaviour
 		DiamondPoint point = map[worldPosition];
 
 		if (historyPoint != point) {
-
-			grid [historyPoint].GetComponent<SpriteCell> ().Color = historyColor;
+			if(grid.Contains (historyPoint))
+				grid [historyPoint].GetComponent<SpriteCell> ().Color = historyColor;
 		
 			if (grid.Contains (point)) {
 				historyPoint = point;
 				historyColor = grid [point].GetComponent<SpriteCell> ().Color;
 				//Toggle the highlight
-				grid [point].GetComponent<SpriteCell> ().Color = Global.players [Global.currentPlayer].getColor ();
+				grid [point].GetComponent<SpriteCell> ().Color = LighterColor(grid [point].GetComponent<SpriteCell> ().Color);
 				//			Debug.Log(Global.currentPlayer);
+			} else {
+				historyPoint = new DiamondPoint (-1, -1);
 			}
 		}
+	}
+
+	private Color LighterColor(Color origin) {
+		float rate = 1.1f;
+		float newr = (origin.r * rate > 1.0f) ? 1.0f : origin.r * rate;
+		float newg = (origin.g * rate > 1.0f) ? 1.0f : origin.r * rate;
+		float newb = (origin.b * rate > 1.0f) ? 1.0f : origin.r * rate;
+		return new Color(newr, newg, newb);
 	}
 }
