@@ -34,7 +34,7 @@ namespace AssemblyCSharp
 		}
 
 		public bool getPop(Player pl, int pop) {
-			return this.pops.TryGetValue(pl,pop);
+			return this.pops.TryGetValue(pl, out pop);
 		}
 	}
 }
