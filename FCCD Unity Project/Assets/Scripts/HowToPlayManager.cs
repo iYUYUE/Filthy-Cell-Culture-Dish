@@ -73,7 +73,7 @@ public class HowToPlayManager : MonoBehaviour {
 	IEnumerator Finished(){
 		iTween.CameraFadeTo(1,0.15f);
 		yield return new WaitForSeconds (0.15f);
-		Application.LoadLevel(GameManager.instance.MainMenuString);
+		Application.LoadLevel(GameStartManager.instance.MainMenuString);
 	}
 
 	void EnterRoom(int No){
