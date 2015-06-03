@@ -12,6 +12,7 @@ public class Nexturn : MonoBehaviour {
 
 
 	public void nextTurn(){
+		Debug.Log(Global.numberOfPlayers);
 		if (!Global.explored||Global.players[Global.currentPlayer].researhDone()) 
 			return;
 		Global.currentPlayer = (Global.currentPlayer + 1)% Global.numberOfPlayers;
@@ -22,7 +23,6 @@ public class Nexturn : MonoBehaviour {
 		}
 
 		Global.explored = false;
-		Debug.Log(Global.numberOfPlayers);
 
 	}
 }
