@@ -48,12 +48,8 @@ public class Main : GLMonoBehaviour
 	public void Start()
 	{
 		BuildGrid();
-<<<<<<< HEAD
-		AddPlayers ();
 		historyPoint = new DiamondPoint (-1, -1);
-=======
 		InitializeGlobal ();
->>>>>>> d15f5c37f957e3fa8c7fa8a45191a3b69e157a66
 	}
 	
 	private void BuildGrid()
