@@ -8,12 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using System;
-namespace AssemblyCSharp
-{
-	public class Player
-	{
+namespace AssemblyCSharp {
+	public class Player {
 		private int netPop;
 		private int numCell;
+		private bool[] isPeace;
 		//whether tech get Upgrade last turn
 		private bool techUp;
 		//techAndProgree[Global.Techs.Exploration][0] the level techAndProgree[Global.Techs.Exploration][1] progress
@@ -21,6 +20,7 @@ namespace AssemblyCSharp
 		private int techOnResearch;
 		public Player ()
 		{
+			isPeace = new bool[Global.players.Count];
 			techAndProgress = new int[5,2];
 			techUp = false;
 			netPop = 0;
@@ -32,10 +32,9 @@ namespace AssemblyCSharp
 			netPop = 0;
 			numCell = 0;
 
-			System.Collections.IEnumerator en = Global.grid.GetEnumerator();
 
-			while(en.MoveNext()) {
-				Cell cell = (Cell) en.Current;
+			foreach (Gamelogic.Grids.DiamondPoint point in Global.grid) {
+				Cell cell = point.cell;
 				int tmpPop = cell.getPop(this);
 				if(tmpPop != 0) numCell++;
 				netPop += tmpPop;
@@ -51,6 +50,14 @@ namespace AssemblyCSharp
 				techAndProgress[techOnResearch,1] = 0;
 				techUp = true;
 			}
+		}
+
+		public bool researhDone() {
+			return techUp;
+		}
+
+		public bool isPeaceWith(Player pl) {
+			return isPeace [Global.players.IndexOf (pl)];
 		}
 	}
 }
