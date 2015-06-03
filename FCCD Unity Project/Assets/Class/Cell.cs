@@ -19,11 +19,12 @@ namespace AssemblyCSharp
 	{
 		private DiamondPoint point;
 		private Dictionary<Player ,int> pops;
-
 		public Cell (DiamondPoint DP)
 		{
 			point = DP;
 			point.cell = this;
+//			Debug.Log(point.cell);
+			pops = new Dictionary<Player ,int>();
 		}
 
 		public void update(){
@@ -75,7 +76,10 @@ namespace AssemblyCSharp
 			if (Global.explored)
 				return;
 			Global.explored = false;
-			pops[pl] += this.growthChecker((int) (Formula.GrowthRate(pl.getGrowthValue()) * (double) ((Formula.GrowthCap(pl.getGrowthValue()) - pops[pl]) * pops[pl])), pl);
+			if (!this.getPlayerList ().Contains (pl))
+				pops.Add(pl, Global.baseCapacity / 10);
+			else
+				pops[pl] += this.growthChecker((int) (Formula.GrowthRate(pl.getGrowthValue()) * (double) ((Formula.GrowthCap(pl.getGrowthValue()) - pops[pl]) * pops[pl])), pl);
 			UpdateColor ();
 		}
 

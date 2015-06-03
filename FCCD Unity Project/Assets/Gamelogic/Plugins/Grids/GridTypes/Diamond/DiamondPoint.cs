@@ -20,7 +20,6 @@ namespace Gamelogic.Grids
 		@ingroup Points
 	*/
 	[Serializable]
-	[Immutable]
 	public partial struct DiamondPoint :
 		IGridPoint<DiamondPoint>,
 		IVectorPoint<DiamondPoint>

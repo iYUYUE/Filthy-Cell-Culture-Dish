@@ -9,6 +9,7 @@ using AssemblyCSharp;
 using Gamelogic;
 using Gamelogic.Grids;
 using Gamelogic.Grids.Examples;
+using System.Collections.Generic;
 /**
 		This example shows how to use a diamond grid.
 	
@@ -48,6 +49,7 @@ public class Main : GLMonoBehaviour
 	
 	public void Start()
 	{
+		Global.binder = new Dictionary<DiamondPoint, Cell>();
 		BuildGrid();
 		historyPoint = new DiamondPoint (-1, -1);
 		InitializeGlobal ();
@@ -62,32 +64,48 @@ public class Main : GLMonoBehaviour
 			.WithWindow(ExampleUtils.ScreenRect)
 				.AlignMiddleCenter(grid)
 				.To3DXY();
-		
+		int count = 0;
 		foreach (DiamondPoint point in grid)
 		{
 			var cell = Instantiate(cellPrefab);
 			Vector3 worldPoint = map[point];
-			
+
 			cell.transform.parent = root.transform;
 			cell.transform.localScale = Vector3.one;
 			cell.transform.localPosition = worldPoint;
 			
-			cell.Color = ExampleUtils.Colors[ExampleUtils.Colors.Length-1];
-			cell.Color = ExampleUtils.Colors[0];
+			cell.Color = ExampleUtils.Colors[4];
 			cell.name = point.ToString();
-			
-			grid[point] = cell;
-			
-			var OurCell = new Cell(point);
-		}
-	}
 
+			grid[point] = cell;
+
+			
+			Cell OurCell = new Cell(point);
+
+			Global.binder.Add (point, OurCell);
+//			Debug.Log("HAHA");
+//		Debug.Log(point);
+	//		Debug.Log(OurCell.getPoint().cell);
+	//		point.cell = OurCell;
+		}
+
+//		foreach (var item in Global.binder)
+//			Debug.Log(item.Key);
+
+	}
 	public void Update()
 	{
 		Vector2 worldPosition = GridBuilderUtils.ScreenToWorld(root, Input.mousePosition);
 		
 		DiamondPoint point = map[worldPosition];
-
+		if (!Global.explored &&Input.GetMouseButtonDown(0)&&grid.Contains (point)){
+//			Debug.Log("haha: "+point);
+			Cell tempCell;
+			Global.binder.TryGetValue (point, out tempCell);
+			
+			tempCell.explore(Global.players[Global.currentPlayer]);
+			Global.explored = true;
+		}
 		if (historyPoint != point) {
 			if(grid.Contains (historyPoint))
 				grid [historyPoint].GetComponent<SpriteCell> ().Color = historyColor;
@@ -98,9 +116,6 @@ public class Main : GLMonoBehaviour
 				//Toggle the highlight
 				grid [point].GetComponent<SpriteCell> ().Color = LighterColor(grid [point].GetComponent<SpriteCell> ().Color);
 				//			Debug.Log(Global.currentPlayer);
-				if (!Global.explored &&Input.GetMouseButtonDown(0)){
-					point.cell.explore(Global.players[Global.currentPlayer]);
-				}
 			} else {
 				historyPoint = new DiamondPoint (-1, -1);
 			}
