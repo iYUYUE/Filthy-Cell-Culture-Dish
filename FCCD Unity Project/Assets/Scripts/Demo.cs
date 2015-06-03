@@ -14,7 +14,7 @@ namespace AssemblyCSharp {
 		
 		// Update is called once per frame
 		void Update () {
-			//selfPopAmount.text = Global.players[Global.currentPlayer].getPop().ToString();
+			selfPopAmount.text = Global.players[Global.currentPlayer].getPop().ToString();
 			globalLargestPop.text = Global.largestPop.ToString();
 		}
 	}
