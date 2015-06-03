@@ -20,11 +20,14 @@ namespace AssemblyCSharp
 		public readonly static int ATTACKING = 2;
 		public readonly static int DEFENSING = 3;
 		public readonly static int ULTIMATE = 4;
+		public static int WIDTH =10;
+		public static int HEIGHT =5;
+		public static int maxTurn = 100;
 		public static Boolean explored = true;
 		public static int numberOfPlayers = 2;
-		public readonly static int numTech = 50;
+		public readonly static int numTech = 5;
 		public readonly static int baseCapacity = 100;
-
+		public static int winPop;
 		public static int[,] techCost;
 
 		public static DiamondGrid<SpriteCell> grid;
@@ -39,13 +42,36 @@ namespace AssemblyCSharp
 		public static int largestTerritory = 0;
 
 
+		
+		public static void updateCells(){
+			foreach (Gamelogic.Grids.DiamondPoint point in Global.grid) {
+				point.cell.update();
+			}
+		}
 
 		public static void updateDemo(){
 		}
 
+		static void gameOver ()
+		{
+			throw new NotImplementedException ();
+		}
+
 		public static void updateWinStatus(){
 			foreach (Player pl in players) {
-
+				if (pl.getUltimateValue()==numTech-1||pl.getPop()>=winPop) {
+					winner = pl;
+					gameOver();
+				}
+			}
+			winner = players [0];
+			if (numTurns == maxTurn) {
+				foreach (Player pl in players) {
+					if (pl.getPop()>winner.getPop()) {
+						winner = pl;
+					}
+				}
+				gameOver();
 			}
 		}
 	}

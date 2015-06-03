@@ -84,7 +84,10 @@ namespace AssemblyCSharp {
 		public int getDefenseValue() {
 			return techAndProgress [Global.DEFENSING, 0];
 		}
-
+		
+		public int getUltimateValue() {
+			return techAndProgress [Global.ULTIMATE, 0];
+		}
 		public int getPop() {
 			return netPop;
 		}
