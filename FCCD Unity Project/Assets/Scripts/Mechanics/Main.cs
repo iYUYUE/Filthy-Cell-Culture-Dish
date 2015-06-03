@@ -55,7 +55,7 @@ public class Main : GLMonoBehaviour
 			cell.transform.localScale = Vector3.one;
 			cell.transform.localPosition = worldPoint;
 			
-			cell.Color = ExampleUtils.Colors[4];
+			cell.Color = ExampleUtils.Colors[ExampleUtils.Colors.Length-1];
 			cell.name = point.ToString();
 			
 			grid[point] = cell;

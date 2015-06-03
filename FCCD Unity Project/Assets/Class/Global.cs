@@ -26,6 +26,7 @@ namespace AssemblyCSharp
 		public readonly static int baseCapacity = 100;
 
 		public static int[,] techCost;
+
 		public static DiamondGrid<SpriteCell> grid;
 //		public static Dictionary<DiamondPoint ,int> pops;
 		public static int numTurns = 0;
