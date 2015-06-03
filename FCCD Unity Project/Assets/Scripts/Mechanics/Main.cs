@@ -40,7 +40,7 @@ public class Main : GLMonoBehaviour
 			int j = 0;
 			Global.techCost[i,j] = 10;
 			for (j++;j<Global.numTech;j++){
-				Global.techCost[i,j] = Global.techCost[i,j-1]*1.5;
+				Global.techCost[i,j] = (int)((double)Global.techCost[i,j-1]*1.5);
 			}
 		}
 	}
