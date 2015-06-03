@@ -26,19 +26,33 @@ namespace AssemblyCSharp
 		}
 
 		public void update(){
+			// Search Players Nearby
+			HashSet<Player> PlayerNearBy = new HashSet<Player> ();
+			foreach (Cell neighbor in this.getNeighbors()) {
+				foreach (Player player in neighbor.getPlayerList())
+					PlayerNearBy.Add(player);		
+			}
+			// Add New Players
+			foreach (Player player in PlayerNearBy) {
+				if(!this.getPlayerList().Contains(player))
+					pops.Add (player, Global.baseCapacity / 10);
+			
+			}
+			// Update Population
 			foreach (var pop in pops)
 			{
-				pop.Value += Formula.GrowthRate(pop.Key.getGrowthValue()) * (Formula.GrowthRate(pop.Key.GrowthCap()) - pop.Value) * pop.Value;
+				pops[pop.Key] += (int) (Formula.GrowthRate(pop.Key.getGrowthValue()) * (double) ((Formula.GrowthCap(pop.Key.getGrowthValue()) - pop.Value) * pop.Value));
 				foreach (var popX in pops){
 					if(pop.Key.isPeaceWith(popX.Key))
-						pop.Value += PopDance(pop.Key, popX.Key);
+						pops[pop.Key] += PopDance(pop.Key, popX.Key, pops[pop.Key], pops[popX.Key]);
 				}
 			}
 
 		}
 
-		public int PopDance(Player Player1, Player PlayerX) {
-			return 0;
+		public int PopDance(Player Player1, Player PlayerX, int Pop1, int PopX) {
+			return Formula.LosePop(Player1, PlayerX, Pop1, PopX) + 
+				Formula.GainPop(Player1, PlayerX, Pop1, PopX);
 		}
 
 		public void explore(Player pl){
@@ -62,6 +76,13 @@ namespace AssemblyCSharp
 				}
 			}
 
+			return ret;
+		}
+
+		public List<Player> getPlayerList() {
+			List<Player> ret = new List<Player> ();
+			foreach (var pop in pops)
+				ret.Add (pop.Key);
 			return ret;
 		}
 
