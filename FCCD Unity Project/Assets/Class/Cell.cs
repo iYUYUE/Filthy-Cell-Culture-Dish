@@ -55,7 +55,7 @@ namespace AssemblyCSharp
 				}
 				// race distinction
 				if(pops[pop.Key] <= 0)
-					pops.Remove(pop.Key)
+					pops.Remove(pop.Key);
 			}
 
 			UpdateColor ();
