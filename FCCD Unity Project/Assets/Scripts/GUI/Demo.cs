@@ -4,32 +4,34 @@ using System.Collections;
 namespace AssemblyCSharp {
 
 	public class Demo : MonoBehaviour {
-		Text selfPopAmount;
-		Text globalLargestPop;
-		Text selfCellAmount;
-		Text globalLargestCells;
-		Text growthValue;
-		Text expoValue;
-		Text attackValue;
-		Text defenseValue;
-		Text ultimateValue;
+		public Text selfPopAmount;
+		public Text globalLargestPop;
+		public Text selfCellAmount;
+		public Text globalLargestCells;
+		public Text growthValue;
+		public Text expoValue;
+		public Text attackValue;
+		public Text defenseValue;
+		public Text ultimateValue;
+		public Text turnCounter;
 		// Use this for initialization
 		void Start () {
-			selfPopAmount = GetComponent<Text> ();
-			globalLargestPop = GetComponent<Text> ();
-			selfCellAmount = GetComponent<Text> ();
-			globalLargestCells = GetComponent<Text> ();
-			globalLargestCells = GetComponent<Text> ();
-			growthValue = GetComponent<Text> ();
-			expoValue = GetComponent<Text> ();
-			attackValue = GetComponent<Text> ();
-			defenseValue = GetComponent<Text> ();
-			ultimateValue = GetComponent<Text> ();
+//			selfPopAmount = GameObject.Find ("selfPopAmount");
+//			globalLargestPop = GameObject.Find ("globalLargestPop");
+//			selfCellAmount = GameObject.Find ("selfCellAmount");
+//			globalLargestCells = GameObject.Find ("globalLargestCells");
+//			growthValue = GameObject.Find ("growthValue");
+//			expoValue = GameObject.Find ("expoValue");
+//			attackValue = GameObject.Find ("attackValue");
+//			defenseValue = GameObject.Find ("defenseValue");
+//			ultimateValue = GameObject.Find ("ultimateValue");
+//			turnCounter = GameObject.Find ("turnCounter");
 
 		}
 		
 		// Update is called once per frame
 		void Update () {
+			turnCounter.text = "Turn " + Global.numTurns.ToString ();
 			selfPopAmount.text = Global.players[Global.currentPlayer].getPop ().ToString ();
 			globalLargestPop.text = Global.largestPop.ToString ();
 			selfCellAmount.text = Global.players [Global.currentPlayer].getCells ().ToString ();
@@ -39,6 +41,7 @@ namespace AssemblyCSharp {
 			attackValue.text = Global.players [Global.currentPlayer].getAttackValue ().ToString ();
 			defenseValue.text = Global.players [Global.currentPlayer].getDefenseValue ().ToString ();
 			ultimateValue.text = Global.players [Global.currentPlayer].getUltimateValue ().ToString ();
+
 		}
 	}
 }
