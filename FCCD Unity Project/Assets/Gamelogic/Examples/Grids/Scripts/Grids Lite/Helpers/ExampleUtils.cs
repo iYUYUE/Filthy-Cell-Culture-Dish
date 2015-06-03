@@ -43,7 +43,8 @@ namespace Gamelogic.Grids.Examples
 			ColorFromInt(255, 252, 193),
 			ColorFromInt(247, 222, 217),
 
-			Color.black
+			Color.black,
+			Color.white
 		};
 
 		public static readonly int ImageWidth = 1024;
