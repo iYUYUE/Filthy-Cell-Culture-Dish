@@ -23,11 +23,11 @@ namespace AssemblyCSharp
 
 		public static int[,] techCost;
 		public static DiamondGrid<SpriteCell> grid;
-		public static Dictionary<DiamondPoint ,int> pops;
+//		public static Dictionary<DiamondPoint ,int> pops;
 		public static int numTurns = 0;
 		public static int currentPlayer;
 		public static List<Player> players = new List<Player>();
-		public static List<Cell> cells = new List<Cell>();
+//		public static List<Cell> cells = new List<Cell>();
 		public static Player winner;
 		public static Player firstPlayer;
 		public static Demo demo;

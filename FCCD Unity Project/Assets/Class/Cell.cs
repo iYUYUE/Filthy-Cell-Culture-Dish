@@ -26,7 +26,19 @@ namespace AssemblyCSharp
 		}
 
 		public void update(){
+			foreach (var pop in pops)
+			{
+				pop.Value += Formula.GrowthRate(pop.Key.getGrowthValue()) * (Formula.GrowthRate(pop.Key.GrowthCap()) - pop.Value) * pop.Value;
+				foreach (var popX in pops){
+					if(pop.Key.isPeaceWith(popX.Key))
+						pop.Value += PopDance(pop.Key, popX.Key);
+				}
+			}
 
+		}
+
+		public int PopDance(Player Player1, Player PlayerX) {
+			return 0;
 		}
 
 		public void explore(Player pl){
