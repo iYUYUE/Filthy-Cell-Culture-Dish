@@ -88,6 +88,7 @@ namespace AssemblyCSharp {
 		public int getUltimateValue() {
 			return techAndProgress [Global.ULTIMATE, 0];
 		}
+
 		public int getPop() {
 			return netPop;
 		}
