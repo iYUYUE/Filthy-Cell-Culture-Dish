@@ -76,7 +76,7 @@ using Gamelogic.Grids.Examples;
 				{
 					//Toggle the highlight
 					grid[point].HighlightOn = !grid[point].HighlightOn;
-				Debug.Log(Global.players.Count);
+//					Debug.Log(Global.players.Count);
 				}
 			}
 		}

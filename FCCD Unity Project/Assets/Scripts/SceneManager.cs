@@ -51,7 +51,9 @@ public class SceneManager : MonoBehaviour {
 		    && Application.loadedLevelName != "Start" 
 		    && Application.loadedLevelName != "HowToPlay" 
 		    && Application.loadedLevelName != "Credits" 
-		    && !Application.loadedLevelName.Contains("Main") ){
+		    && !Application.loadedLevelName.Contains("Main")
+		    && Application.loadedLevelName != "nextTurnButton"
+		    && Application.loadedLevelName != "demoOpenButton"){
 						if (VolMusicButton == null) {
 								VolMusicButton = MainCamObj.transform.FindChild ("PauseMenu").FindChild ("VolMusic").FindChild ("ButtonGUI").GetComponent<ButtonEvent> ();
 								VolMusicButton.receiver = gameObject;
