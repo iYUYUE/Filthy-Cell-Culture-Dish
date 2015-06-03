@@ -61,19 +61,27 @@ namespace AssemblyCSharp {
 		}
 
 		public int getGrowthValue() {
-			return techAndProgress [0, 0];
+			return techAndProgress [Global.GROWTH, 0];
 		}
 
 		public int getExplorationValue() {
-			return techAndProgress [1, 0];
+			return techAndProgress [Global.EXPLORATION, 0];
 		}
 
 		public int getAttackValue() {
-			return techAndProgress [2, 0];
+			return techAndProgress [Global.ATTACKING, 0];
 		}
 
 		public int getDefenseValue() {
-			return techAndProgress [3, 0];
+			return techAndProgress [Global.DEFENSING, 0];
+		}
+
+		public int getPop() {
+			return netPop;
+		}
+
+		public int getCells() {
+			return numCell;
 		}
 	}
 }
