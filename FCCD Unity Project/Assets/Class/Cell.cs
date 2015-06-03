@@ -62,7 +62,10 @@ namespace AssemblyCSharp
 		}
 
 		public void explore(Player pl){
-			pops[pl] += this.growthChecker((int) (Formula.GrowthRate(pl.getGrowthValue()) * (double) ((Formula.GrowthCap(pl.getGrowthValue()) - pops[pl]) * pops[pl])), pl);
+			if (!this.getPlayerList ().Contains (pl))
+				pops.Add(pl, Global.baseCapacity / 10);
+			else
+				pops[pl] += this.growthChecker((int) (Formula.GrowthRate(pl.getGrowthValue()) * (double) ((Formula.GrowthCap(pl.getGrowthValue()) - pops[pl]) * pops[pl])), pl);
 		}
 
 		private List<Cell> getNeighbors(){
