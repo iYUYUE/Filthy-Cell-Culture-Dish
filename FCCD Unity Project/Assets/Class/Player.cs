@@ -12,8 +12,8 @@ namespace AssemblyCSharp
 {
 	public class Player
 	{
-		private int netPop=0;
-		private int numCell=0;
+		private int netPop = 0;
+		private int numCell = 0;
 		//whether tech get Upgrade last turn
 		private bool techUp = false;
 		//techAndProgree[Global.Techs.Exploration][0] the level techAndProgree[Global.Techs.Exploration][1] progress
@@ -21,9 +21,20 @@ namespace AssemblyCSharp
 		private int techOnResearch;
 		public Player ()
 		{
-			techAndProgress = new int[5,2];  
+			techAndProgress = new int[5,2];
 		}
-		public void upDate(){
+
+		public void update(){
+			netPop = 0;
+			numCell = 0;
+
+			System.Collections.IEnumerator en = Global.grid.GetEnumerator();
+
+			foreach (Cell cell in en) {
+				int tmpPop = cell.getPop(this);
+				if(tmpPop != 0) numCell++;
+				netPop += tmpPop;
+			}
 		}
 	}
 }
