@@ -53,6 +53,9 @@ namespace AssemblyCSharp
 					if(pop.Key.isPeaceWith(popX.Key))
 						pops[pop.Key] += this.growthChecker(PopDance(pop.Key, popX.Key, pops[pop.Key], pops[popX.Key]), pop.Key);
 				}
+				// race distinction
+				if(pops[pop.Key] <= 0)
+					pops.Remove(pop.Key)
 			}
 
 			UpdateColor ();
