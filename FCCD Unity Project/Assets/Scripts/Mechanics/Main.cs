@@ -34,7 +34,6 @@ using Gamelogic.Grids.Examples;
 		{
 		BuildGrid();
 		AddPlayers ();
-			BuildGrid();
 		}
 
 		private void BuildGrid()
