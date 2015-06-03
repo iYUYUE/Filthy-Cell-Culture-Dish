@@ -61,7 +61,7 @@ namespace AssemblyCSharp
 					largestPopPlayer = player;
 				}
 				if (tmpCell < player.getCells ()) {
-					tmpCell = player.getCells;
+					tmpCell = player.getCells ();
 					largestCellPlayer = player;
 				}
 			}
