@@ -34,21 +34,19 @@ namespace AssemblyCSharp
 		public static List<Player> players = new List<Player>();
 //		public static List<Cell> cells = new List<Cell>();
 		public static Player winner;
-		public static Player firstPlayer;
 
 		public static int largestPop = 0;
 		public static int largestTerritory = 0;
 
-		public Global ()
-		{
-			techCost = new int[5,numTech];
-		}
 
 
 		public static void updateDemo(){
 		}
 
 		public static void updateWinStatus(){
+			foreach (Player pl in players) {
+
+			}
 		}
 	}
 }
