@@ -19,8 +19,9 @@ namespace AssemblyCSharp
 		public readonly static int Attacking=2;
 		public readonly static int Defensive = 3;
 		public readonly static int Ultimate = 4;
+		public readonly static int numTech = 50;
 
-		public static int[][] techCost;
+		public static int[,] techCost;
 		public static DiamondGrid<SpriteCell> grid;
 		public static Dictionary<DiamondPoint ,int> pops;
 		public static int numTurns = 0;
@@ -32,6 +33,7 @@ namespace AssemblyCSharp
 		public static Demo demo;
 		public Global ()
 		{
+			techCost = new int[5,numTech];
 		}
 
 
