@@ -24,6 +24,7 @@ public class NumberInput : MonoBehaviour {
 		try
 		{
 			Global.numberOfPlayers = Int32.Parse(arg0);
+			GameStartManager.instance.SendMessage("StartLvl", "DiamondTest");
 		}
 		catch (FormatException e)
 		{
