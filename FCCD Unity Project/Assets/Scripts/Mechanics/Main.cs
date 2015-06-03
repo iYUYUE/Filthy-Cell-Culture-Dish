@@ -32,8 +32,14 @@ using Gamelogic.Grids.Examples;
 
 		public void Start()
 		{
+<<<<<<< HEAD
 		BuildGrid();
 		AddPlayers ();
+=======
+			BuildGrid();
+		Global.players.Add (new Player ());
+		//Global.players.Add (new Player ());
+>>>>>>> origin/master
 		}
 
 		private void BuildGrid()
