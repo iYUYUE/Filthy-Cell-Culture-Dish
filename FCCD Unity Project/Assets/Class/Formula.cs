@@ -49,6 +49,7 @@ namespace AssemblyCSharp
 			if (r == 0.0f)
 				return new Color(1.0f, 1.0f, 1.0f);
 			float rate = 2.0f - r;
+			rate = (float)Math.Sqrt (rate);
 			float newr = (origin.r * rate > 1.0f) ? 1.0f : origin.r * rate;
 			float newg = (origin.g * rate > 1.0f) ? 1.0f : origin.g * rate;
 			float newb = (origin.b * rate > 1.0f) ? 1.0f : origin.b * rate;
@@ -60,15 +61,22 @@ namespace AssemblyCSharp
 			float newg = 0.0f;
 			float newb = 0.0f;
 			int count = 0;
+
 			foreach (Color color in origins) {
 				newr += color.r;
 				newg += color.g;
 				newb += color.b;
 				count ++;
 			}
+
+			if(count == 0)
+				return new Color(1.0f, 1.0f, 1.0f);
+
 			newr = newr / (float)count;
 			newg = newg / (float)count;
 			newb = newb / (float)count;
+//			Debug.LogError ("newb: "+newb);
+
 			return new Color(newr, newg, newb);
 		}
 
