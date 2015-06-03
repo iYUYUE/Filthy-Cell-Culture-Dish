@@ -91,7 +91,7 @@ public class ButtonEvent : MonoBehaviour {
 //						GameStartManager.instance.SendMessage("StartLvl", transform.parent.parent.parent.name[0].ToString() + transform.parent.parent.parent.name[1].ToString() + transform.parent.name);
 //					}
 //					else GameStartManager.instance.SendMessage("StartLvl", transform.parent.name);
-					GameStartManager.instance.SendMessage("StartLvl", "PlayerChoose");
+					GameStartManager.instance.SendMessage("StartLvl", "DiamondTest");
 				}
 				else{
 					if(receiver == null) //if no receiver we just kind of spam things :/
