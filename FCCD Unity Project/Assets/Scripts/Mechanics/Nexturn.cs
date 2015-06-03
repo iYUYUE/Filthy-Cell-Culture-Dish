@@ -23,7 +23,7 @@ public class Nexturn : MonoBehaviour {
 			Global.updateWinStatus();
 		}
 		
-		Global.explored = true;
+		Global.explored = false;
 		
 	}
 }

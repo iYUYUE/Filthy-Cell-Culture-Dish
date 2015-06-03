@@ -23,7 +23,7 @@ namespace AssemblyCSharp
 		public static int WIDTH =10;
 		public static int HEIGHT =5;
 		public static int maxTurn = 100;
-		public static Boolean explored = true;
+		public static Boolean explored = false;
 		public static int numberOfPlayers = 2;
 		public readonly static int numTech = 5;
 		public readonly static int baseCapacity = 100;
@@ -35,7 +35,7 @@ namespace AssemblyCSharp
 		public static int numTurns = 0;
 		public static int currentPlayer = 0;
 		public static List<Player> players = new List<Player>();
-//		public static List<Cell> cells = new List<Cell>();
+		public static List<Cell> cells = new List<Cell>();
 		public static Player winner;
 
 		public static int largestPop = 0;
@@ -44,7 +44,7 @@ namespace AssemblyCSharp
 
 		
 		public static void updateCells(){
-			foreach (Gamelogic.Grids.DiamondPoint point in Global.grid) {
+			foreach (Gamelogic.Grids.DiamondPoint point in grid) {
 				point.cell.update();
 			}
 		}
