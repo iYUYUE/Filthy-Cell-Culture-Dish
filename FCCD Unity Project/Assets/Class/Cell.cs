@@ -10,6 +10,7 @@
 using System;
 using Gamelogic.Grids;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace AssemblyCSharp
@@ -27,24 +28,28 @@ namespace AssemblyCSharp
 
 		public void update(){
 			// Search Players Nearby
-			HashSet<Player> PlayerNearBy = new HashSet<Player> ();
+			List<Player> PlayerNearBy = new List<Player> ();
 			foreach (Cell neighbor in this.getNeighbors()) {
 				foreach (Player player in neighbor.getPlayerList())
-					PlayerNearBy.Add(player);		
+					if(((double)neighbor.getPop(player) / (double)Formula.GrowthCap(player.getGrowthValue())) > 
+					   Formula.spreadThreshold(player.getExplorationValue()))
+						PlayerNearBy.Add(player);
 			}
+
+			var GroupedNewPlayer = PlayerNearBy.GroupBy(s => s).Select(group => new { Player = group.Key, Count = group.Count() });
 			// Add New Players
-			foreach (Player player in PlayerNearBy) {
-				if(!this.getPlayerList().Contains(player))
-					pops.Add (player, Global.baseCapacity / 10);
+			foreach (var player in GroupedNewPlayer) {
+				if(!this.getPlayerList().Contains(player.Player))
+					pops.Add (player.Player, this.growthChecker(player.Count * Global.baseCapacity / 10), player.Player);
 			
 			}
 			// Update Population
 			foreach (var pop in pops)
 			{
-				pops[pop.Key] += (int) (Formula.GrowthRate(pop.Key.getGrowthValue()) * (double) ((Formula.GrowthCap(pop.Key.getGrowthValue()) - pop.Value) * pop.Value));
+				pops[pop.Key] += this.growthChecker((int) (Formula.GrowthRate(pop.Key.getGrowthValue()) * (double) ((Formula.GrowthCap(pop.Key.getGrowthValue()) - pop.Value) * pop.Value)), pop.Key);
 				foreach (var popX in pops){
 					if(pop.Key.isPeaceWith(popX.Key))
-						pops[pop.Key] += PopDance(pop.Key, popX.Key, pops[pop.Key], pops[popX.Key]);
+						pops[pop.Key] += this.growthChecker(PopDance(pop.Key, popX.Key, pops[pop.Key], pops[popX.Key]), pop.Key);
 				}
 			}
 
@@ -79,6 +84,13 @@ namespace AssemblyCSharp
 			return ret;
 		}
 
+		private int growthChecker(int growth, Player pl) {
+			if ((this.getPop (pl) + growth) <= Formula.GrowthCap (pl.getGrowthValue ()))
+				return growth;
+			else
+				return Formula.GrowthCap (pl.getGrowthValue ()) - this.getPop (pl);
+		}
+
 		public List<Player> getPlayerList() {
 			List<Player> ret = new List<Player> ();
 			foreach (var pop in pops)
@@ -93,6 +105,9 @@ namespace AssemblyCSharp
 			else
 				return -1;
 		}
+
+
+
 	}
 }
 
