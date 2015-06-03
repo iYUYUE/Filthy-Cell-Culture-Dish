@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 using System.Collections;
 using UnityEngine.UI;
+using AssemblyCSharp;
 
 public class NumberInput : MonoBehaviour {
 	public InputField numberInput;
@@ -19,6 +21,14 @@ public class NumberInput : MonoBehaviour {
 	private void SubmitName(string arg0)
 	{
 		Debug.Log("User Number: "+arg0);
+		try
+		{
+			Global.numberOfPlayers = Int32.Parse(arg0);
+		}
+		catch (FormatException e)
+		{
+
+		}
 
 	}
 	
