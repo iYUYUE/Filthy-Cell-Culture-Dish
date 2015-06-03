@@ -22,7 +22,7 @@ public class Nexturn : MonoBehaviour {
 		}
 
 		Global.explored = false;
-		Debug.Log（Global.numberOfPlayers）;
+		Debug.Log(Global.numberOfPlayers);
 
 	}
 }
