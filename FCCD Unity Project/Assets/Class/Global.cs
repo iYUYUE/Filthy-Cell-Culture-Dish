@@ -14,12 +14,14 @@ using Gamelogic.Grids;
 namespace AssemblyCSharp
 {
 	public class Global
-	{	public static int Growth =0;
-		public static int Exploration=0;
-		public static int Attacking=0;
-		public static int Defensive = 0;
-		public static int Ultimate = 0;
-		public static int[][] techCost;
+	{	public readonly static int Growth =0;
+		public readonly static int Exploration=1;
+		public readonly static int Attacking=2;
+		public readonly static int Defensive = 3;
+		public readonly static int Ultimate = 4;
+		public readonly static int numTech = 50;
+
+		public static int[,] techCost;
 		public static DiamondGrid<SpriteCell> grid;
 		public static Dictionary<DiamondPoint ,int> pops;
 		public static int numTurns = 0;
@@ -31,13 +33,14 @@ namespace AssemblyCSharp
 		public static Demo demo;
 		public Global ()
 		{
+			techCost = new int[5,numTech];
 		}
 
 
 		public static void updateDemo(){
 		}
 
-		public static void UpdateWinStatus(){
+		public static void updateWinStatus(){
 		}
 	}
 }
