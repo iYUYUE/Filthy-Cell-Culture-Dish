@@ -31,11 +31,13 @@ namespace AssemblyCSharp {
 		
 		// Update is called once per frame
 		void Update () {
+			globalLargestPop.text = Global.largestPop.ToString ();
+			globalLargestCells.text = Global.largestTerritory.ToString ();
+			UnityEngine.Debug.Log ("pop = " + Global.largestPop.ToString ());
+			UnityEngine.Debug.Log ("cell = " + Global.largestTerritory.ToString ());
 			turnCounter.text = "Turn " + Global.numTurns.ToString ();
 			selfPopAmount.text = Global.players[Global.currentPlayer].getPop ().ToString ();
-			globalLargestPop.text = Global.largestPop.ToString ();
 			selfCellAmount.text = Global.players [Global.currentPlayer].getCells ().ToString ();
-			globalLargestCells.text = Global.largestTerritory.ToString ();
 			growthValue.text = Global.players [Global.currentPlayer].getGrowthValue ().ToString ();
 			expoValue.text = Global.players [Global.currentPlayer].getExplorationValue ().ToString ();
 			attackValue.text = Global.players [Global.currentPlayer].getAttackValue ().ToString ();

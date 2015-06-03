@@ -12,9 +12,10 @@ public class Nexturn : MonoBehaviour {
 	
 	
 	public void nextTurn(){
-		Debug.Log(Global.numberOfPlayers);
+//		Debug.Log(Global.numberOfPlayers);
 		if (!Global.explored||Global.players[Global.currentPlayer].researhDone()) 
 			return;
+		Global.players [Global.currentPlayer].update ();
 		Global.currentPlayer = (Global.currentPlayer + 1)% Global.numberOfPlayers;
 		if (Global.currentPlayer == 0) {
 			Global.numTurns += 1;
