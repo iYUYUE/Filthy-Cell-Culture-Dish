@@ -23,11 +23,18 @@ using Gamelogic.Grids.Examples;
 		private DiamondGrid<SpriteCell> grid;
 		private IMap3D<DiamondPoint> map;
 
+	void AddPlayers ()
+	{
+		for (int i = 0; i<Global.numberOfPlayers; i++) {
+			Global.players.Add(new Player(ExampleUtils.Colors[i]));
+		}
+	}
+
 		public void Start()
 		{
+		BuildGrid();
+		AddPlayers ();
 			BuildGrid();
-		Global.players.Add (new Player ());
-		//Global.players.Add (new Player ());
 		}
 
 		private void BuildGrid()
