@@ -43,6 +43,7 @@ public class Main : GLMonoBehaviour
 				Global.techCost[i,j] = (int)((double)Global.techCost[i,j-1]*1.5);
 			}
 		}
+		Global.winPop =(int)((double)(Global.WIDTH*Global.HEIGHT)*0.5);
 	}
 	
 	public void Start()
@@ -72,6 +73,7 @@ public class Main : GLMonoBehaviour
 			cell.transform.localPosition = worldPoint;
 			
 			cell.Color = ExampleUtils.Colors[ExampleUtils.Colors.Length-1];
+			cell.Color = ExampleUtils.Colors[0];
 			cell.name = point.ToString();
 			
 			grid[point] = cell;

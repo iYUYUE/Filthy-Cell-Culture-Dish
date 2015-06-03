@@ -18,6 +18,7 @@ public class Nexturn : MonoBehaviour {
 		Global.currentPlayer = (Global.currentPlayer + 1)% Global.numberOfPlayers;
 		if (Global.currentPlayer == 0) {
 			Global.numTurns += 1;
+			Global.updateCells();
 			Global.updateDemo();
 			Global.updateWinStatus();
 		}

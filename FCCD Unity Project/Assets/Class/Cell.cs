@@ -53,7 +53,6 @@ namespace AssemblyCSharp
 						pops[pop.Key] += this.growthChecker(PopDance(pop.Key, popX.Key, pops[pop.Key], pops[popX.Key]), pop.Key);
 				}
 			}
-
 		}
 
 		public int PopDance(Player Player1, Player PlayerX, int Pop1, int PopX) {
