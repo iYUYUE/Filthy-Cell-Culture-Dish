@@ -74,7 +74,7 @@ public class Main : GLMonoBehaviour
 		{
 			//Toggle the highlight
 			grid[point].GetComponent<SpriteCell>().Color = Global.players[Global.currentPlayer].getColor();
-			Debug.Log(Global.currentPlayer);
+//			Debug.Log(Global.currentPlayer);
 		}
 	}
 }
