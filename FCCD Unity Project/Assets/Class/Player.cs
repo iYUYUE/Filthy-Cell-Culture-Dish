@@ -24,7 +24,7 @@ namespace AssemblyCSharp {
 		public Player (Color color)
 		{
 			this.color = color;
-			isPeace = new bool[Global.players.Count];
+			isPeace = new bool[Global.numberOfPlayers];
 			techAndProgress = new int[5,2];
 			techUp = false;
 			netPop = 0;

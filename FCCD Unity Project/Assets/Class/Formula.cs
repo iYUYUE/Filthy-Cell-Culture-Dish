@@ -16,10 +16,12 @@ namespace AssemblyCSharp
 	public static class Formula
 	{
 		public static double GrowthRate(int level) {
-			return ((double) level) * 0.1;
+			return ((double) level) * 0.1 + 0.2;
 		}
 
 		public static int GrowthCap(int level) {
+			if (level <= 0)
+				return Global.baseCapacity;
 			return Global.baseCapacity * level * 10;
 		}
 
@@ -45,11 +47,11 @@ namespace AssemblyCSharp
 		// float r range from 0 ~ 1 (100%)
 		public static Color ColorLighter(Color origin, float r) {
 			if (r == 0.0f)
-				return new Color(255.0f, 255.0f, 255.0f);
+				return new Color(1.0f, 1.0f, 1.0f);
 			float rate = 2.0f - r;
 			float newr = (origin.r * rate > 1.0f) ? 1.0f : origin.r * rate;
-			float newg = (origin.g * rate > 1.0f) ? 1.0f : origin.r * rate;
-			float newb = (origin.b * rate > 1.0f) ? 1.0f : origin.r * rate;
+			float newg = (origin.g * rate > 1.0f) ? 1.0f : origin.g * rate;
+			float newb = (origin.b * rate > 1.0f) ? 1.0f : origin.b * rate;
 			return new Color(newr, newg, newb);
 		}
 

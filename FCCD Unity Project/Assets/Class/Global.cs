@@ -46,7 +46,9 @@ namespace AssemblyCSharp
 		
 		public static void updateCells(){
 			foreach (Gamelogic.Grids.DiamondPoint point in grid) {
-				point.cell.update();
+				Cell tempCell;
+				Global.binder.TryGetValue (point, out tempCell);
+				tempCell.update();
 			}
 		}
 

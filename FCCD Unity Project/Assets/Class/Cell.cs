@@ -22,7 +22,7 @@ namespace AssemblyCSharp
 		public Cell (DiamondPoint DP)
 		{
 			point = DP;
-			point.cell = this;
+//			point.cell = this;
 //			Debug.Log(point.cell);
 			pops = new Dictionary<Player ,int>();
 		}
@@ -63,7 +63,9 @@ namespace AssemblyCSharp
 			// Update Color
 			foreach (Player player in this.getPlayerList())
 				colorList.Add (Formula.ColorLighter(player.getColor(), ((float)this.getPop (player)/(float)Formula.GrowthCap (player.getGrowthValue ()))));
-			
+			foreach (Color item in colorList)
+				Debug.Log (item);
+			//			Debug.Log ("ha: "+Formula.ColorMixer(colorList));
 			Global.grid [point].GetComponent<SpriteCell> ().Color = Formula.ColorMixer(colorList);
 		}
 
@@ -96,7 +98,9 @@ namespace AssemblyCSharp
 				}
 				else
 				{
-					ret.Add(neighbor.cell);
+					Cell tempCell;
+					Global.binder.TryGetValue (neighbor, out tempCell);
+					ret.Add(tempCell);
 				}
 			}
 
