@@ -40,13 +40,14 @@ namespace AssemblyCSharp
 			// Add New Players
 			foreach (var player in GroupedNewPlayer) {
 				if(!this.getPlayerList().Contains(player.Player))
-					pops.Add (player.Player, this.growthChecker(player.Count * Global.baseCapacity / 10), player.Player);
+					pops.Add (player.Player, this.growthChecker(player.Count * Global.baseCapacity / 10, player.Player));
 			
 			}
+
 			// Update Population
 			foreach (var pop in pops)
 			{
-				pops[pop.Key] += this.growthChecker((int) (Formula.GrowthRate(pop.Key.getGrowthValue()) * (double) ((Formula.GrowthCap(pop.Key.getGrowthValue()) - pop.Value) * pop.Value)), pop.Key);
+				this.explore(pop.Key);
 				foreach (var popX in pops){
 					if(pop.Key.isPeaceWith(popX.Key))
 						pops[pop.Key] += this.growthChecker(PopDance(pop.Key, popX.Key, pops[pop.Key], pops[popX.Key]), pop.Key);
@@ -61,7 +62,7 @@ namespace AssemblyCSharp
 		}
 
 		public void explore(Player pl){
-
+			pops[pl] += this.growthChecker((int) (Formula.GrowthRate(pl.getGrowthValue()) * (double) ((Formula.GrowthCap(pl.getGrowthValue()) - pops[pl]) * pops[pl])), pl);
 		}
 
 		private List<Cell> getNeighbors(){
