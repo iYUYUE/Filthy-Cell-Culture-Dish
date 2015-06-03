@@ -23,13 +23,17 @@ public class NumberInput : MonoBehaviour {
 		Debug.Log("User Number: "+arg0);
 		try
 		{
-			Global.numberOfPlayers = Int32.Parse(arg0);
+			int playerNumber = Int32.Parse(arg0);
+			if(playerNumber > 1) {
+				Global.numberOfPlayers = playerNumber;
+				GameStartManager.instance.SendMessage("StartLvl", "DiamondTest");
+			}
 		}
 		catch (FormatException e)
 		{
-
+			
 		}
-
+		
 	}
 	
 	// Update is called once per frame
