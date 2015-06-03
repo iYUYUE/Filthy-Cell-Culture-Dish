@@ -32,15 +32,14 @@ namespace AssemblyCSharp {
 			//update number of pops and cells for the current turn
 			netPop = 0;
 			numCell = 0;
-
-
 			foreach (Gamelogic.Grids.DiamondPoint point in Global.grid) {
 				Cell cell = point.cell;
 				int tmpPop = cell.getPop(this);
 				if(tmpPop != 0) numCell++;
 				netPop += tmpPop;
 			}
-			UnityEngine.Debug.Log ("pop = " + netPop + "\tnumCells = " + numCell);
+			UnityEngine.Debug.Log ("Player " + Global.players.IndexOf(this) + "'s pop = " 
+			                       + netPop + "\tnumCells = " + numCell);
 
 			//update teches
 			techAndProgress [techOnResearch, 1] += netPop;

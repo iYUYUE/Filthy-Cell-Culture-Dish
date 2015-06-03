@@ -14,12 +14,13 @@ using Gamelogic.Grids;
 namespace AssemblyCSharp
 {
 	public class Global
-	{	public readonly static int Growth =0;
-		public readonly static int Exploration=1;
-		public readonly static int Attacking=2;
-		public readonly static int Defensive = 3;
-		public readonly static int Ultimate = 4;
+	{	public readonly static int GROWTH =0;
+		public readonly static int EXPLORATION = 1;
+		public readonly static int ATTACKING = 2;
+		public readonly static int DEFENSING = 3;
+		public readonly static int ULTIMATE = 4;
 		public readonly static int numTech = 50;
+		public readonly static int baseCapacity = 100;
 
 		public static int[,] techCost;
 		public static DiamondGrid<SpriteCell> grid;
