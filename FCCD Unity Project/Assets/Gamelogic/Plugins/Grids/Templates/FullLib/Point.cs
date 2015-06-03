@@ -7,6 +7,7 @@
 
 // Auto-generated File
 
+using AssemblyCSharp;
 namespace Gamelogic.Grids
 {
 	public partial struct RectPoint
@@ -538,6 +539,7 @@ namespace Gamelogic.Grids
 		{
 			x = vector.X;
 			y = vector.Y;
+			cell = new Cell ();
 		}
 		#endregion
 

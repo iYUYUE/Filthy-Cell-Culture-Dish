@@ -45,7 +45,7 @@ namespace Gamelogic.Grids.Examples
 				cell.transform.localScale = Vector3.one;
 				cell.transform.localPosition = worldPoint;
 
-				cell.Color = ExampleUtils.Colors[point.GetColor4()];
+				cell.Color = ExampleUtils.Colors[4];
 				cell.name = point.ToString();
 
 				grid[point] = cell;

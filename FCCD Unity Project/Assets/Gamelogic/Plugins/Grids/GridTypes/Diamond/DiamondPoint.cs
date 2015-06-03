@@ -7,6 +7,7 @@
 using System;
 using UnityEngine;
 
+using AssemblyCSharp;
 namespace Gamelogic.Grids
 {
 	/**
@@ -24,6 +25,7 @@ namespace Gamelogic.Grids
 		IGridPoint<DiamondPoint>,
 		IVectorPoint<DiamondPoint>
 	{
+		public Cell cell;
 		#region Constants
 		public static readonly DiamondPoint NorthEast = new DiamondPoint(1, 0);
 		public static readonly DiamondPoint NorthWest = new DiamondPoint(0, 1);
