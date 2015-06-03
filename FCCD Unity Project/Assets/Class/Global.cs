@@ -31,6 +31,7 @@ namespace AssemblyCSharp
 		public static int[,] techCost;
 
 		public static DiamondGrid<SpriteCell> grid;
+		public static Dictionary<DiamondPoint, Cell> binder;
 //		public static Dictionary<DiamondPoint ,int> pops;
 		public static int numTurns = 0;
 		public static int currentPlayer = 0;

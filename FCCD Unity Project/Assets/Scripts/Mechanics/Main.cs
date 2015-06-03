@@ -9,6 +9,7 @@ using AssemblyCSharp;
 using Gamelogic;
 using Gamelogic.Grids;
 using Gamelogic.Grids.Examples;
+using System.Collections.Generic;
 /**
 		This example shows how to use a diamond grid.
 	
@@ -48,6 +49,7 @@ public class Main : GLMonoBehaviour
 	
 	public void Start()
 	{
+		Global.binder = new Dictionary<DiamondPoint, Cell>();
 		BuildGrid();
 		historyPoint = new DiamondPoint (-1, -1);
 		InitializeGlobal ();
@@ -62,6 +64,7 @@ public class Main : GLMonoBehaviour
 			.WithWindow(ExampleUtils.ScreenRect)
 				.AlignMiddleCenter(grid)
 				.To3DXY();
+		int count = 0;
 		foreach (DiamondPoint point in grid)
 		{
 			var cell = Instantiate(cellPrefab);
@@ -79,10 +82,15 @@ public class Main : GLMonoBehaviour
 			
 			Cell OurCell = new Cell(point);
 
-		Debug.Log(point.cell);
+			Global.binder.Add (point, OurCell);
+//			Debug.Log("HAHA");
+//		Debug.Log(point);
 	//		Debug.Log(OurCell.getPoint().cell);
 	//		point.cell = OurCell;
 		}
+
+//		foreach (var item in Global.binder)
+//			Debug.Log(item.Key);
 
 	}
 	public void Update()
@@ -91,10 +99,12 @@ public class Main : GLMonoBehaviour
 		
 		DiamondPoint point = map[worldPosition];
 		if (!Global.explored &&Input.GetMouseButtonDown(0)&&grid.Contains (point)){
-			Debug.Log(point.cell);
-			point.cell.explore(Global.players[Global.currentPlayer]);
+//			Debug.Log("haha: "+point);
+			Cell tempCell;
+			Global.binder.TryGetValue (point, out tempCell);
+			
+			tempCell.explore(Global.players[Global.currentPlayer]);
 			Global.explored = true;
-			Debug.Log(point.cell.getPop(Global.players[Global.currentPlayer]));
 		}
 		if (historyPoint != point) {
 			if(grid.Contains (historyPoint))
