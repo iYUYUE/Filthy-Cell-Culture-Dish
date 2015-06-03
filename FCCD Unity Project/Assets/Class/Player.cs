@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using UnityEngine;
 using System;
 namespace AssemblyCSharp {
 	public class Player {
@@ -15,12 +16,14 @@ namespace AssemblyCSharp {
 		private int numCell;
 		private bool[] isPeace;
 		//whether tech get Upgrade last turn
+		private Color color;
 		private bool techUp;
 		//techAndProgree[Global.Techs.Exploration][0] the level techAndProgree[Global.Techs.Exploration][1] progress
 		private int[,] techAndProgress;
 		private int techOnResearch;
-		public Player ()
+		public Player (Color color)
 		{
+			this.color = color;
 			isPeace = new bool[Global.players.Count];
 			techAndProgress = new int[5,2];
 			techUp = false;
@@ -51,9 +54,15 @@ namespace AssemblyCSharp {
 				techUp = true;
 			}
 		}
-
+		public Color getColor(){
+			return color;
+		}
 		public bool researhDone() {
 			return techUp;
+		}
+
+		public void setTechUp(bool tech){
+			techUp = tech;
 		}
 
 		public bool isPeaceWith(Player pl) {
