@@ -46,6 +46,32 @@ namespace Gamelogic.Grids.Examples
 			Color.black,
 			Color.white
 		};
+		
+		public static Color[] ShadowColors =
+		{
+			ColorFromInt(153, 239, 253),
+			ColorFromInt(228, 244, 54),
+			ColorFromInt(255, 235, 107),
+			ColorFromInt(248, 140, 149),
+			
+			ColorFromInt(42, 192, 217),
+			ColorFromInt(114, 197, 29),
+			ColorFromInt(247, 188, 0),
+			ColorFromInt(215, 55, 82),
+			
+			ColorFromInt(205, 240, 246),
+			ColorFromInt(229, 242, 154),
+			ColorFromInt(255, 241, 153),
+			ColorFromInt(240, 182, 187),
+			
+			ColorFromInt(235, 249, 252),
+			ColorFromInt(241, 249, 204),
+			ColorFromInt(255, 252, 193),
+			ColorFromInt(247, 222, 217),
+			
+			Color.black,
+			Color.white
+		};
 
 		public static readonly int ImageWidth = 1024;
 		public static readonly int ImageHeight = 768;

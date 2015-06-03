@@ -22,6 +22,8 @@ public class Main : GLMonoBehaviour
 	
 	private DiamondGrid<SpriteCell> grid;
 	private IMap3D<DiamondPoint> map;
+	private DiamondPoint historyPoint;
+	private Color historyColor;
 	
 	void AddPlayers ()
 	{
@@ -69,12 +71,18 @@ public class Main : GLMonoBehaviour
 		Vector2 worldPosition = GridBuilderUtils.ScreenToWorld(root, Input.mousePosition);
 		
 		DiamondPoint point = map[worldPosition];
+
+		if (historyPoint != point) {
+
+			grid [historyPoint].GetComponent<SpriteCell> ().Color = historyColor;
 		
-		if (grid.Contains(point))
-		{
-			//Toggle the highlight
-			grid[point].GetComponent<SpriteCell>().Color = Global.players[Global.currentPlayer].getColor();
-			Debug.Log(Global.currentPlayer);
+			if (grid.Contains (point)) {
+				historyPoint = point;
+				historyColor = grid [point].GetComponent<SpriteCell> ().Color;
+				//Toggle the highlight
+				grid [point].GetComponent<SpriteCell> ().Color = Global.players [Global.currentPlayer].getColor ();
+				//			Debug.Log(Global.currentPlayer);
+			}
 		}
 	}
 }
