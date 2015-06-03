@@ -10,6 +10,8 @@
 using System;
 using Gamelogic.Grids;
 using System.Collections.Generic;
+using UnityEngine;
+
 namespace AssemblyCSharp
 {
 	public class Cell
@@ -17,24 +19,46 @@ namespace AssemblyCSharp
 		private DiamondPoint point;
 		private Dictionary<Player ,int> pops;
 
-		public Cell ()
+		public Cell (DiamondPoint DP)
 		{
-			point = new DiamondPoint ();
+			point = DP;
 			point.cell = this;
 		}
 
 		public void update(){
+
 		}
 
 		public void explore(Player pl){
+
 		}
 
 		private List<Cell> getNeighbors(){
-			return null;
+			List<Cell> ret = new List<Cell> ();
+
+			var neighbors = Global.grid.GetNeighbors(point);
+			
+			foreach (DiamondPoint neighbor in neighbors)
+			{
+				if (neighbor == null)
+				{
+					Debug.LogError("cell null");
+				}
+				else
+				{
+					ret.Add(neighbor.cell);
+				}
+			}
+
+			return ret;
 		}
 
-		public bool getPop(Player pl, int pop) {
-			return this.pops.TryGetValue(pl, out pop);
+		public int getPop(Player pl) {
+			int pop;
+			if (this.pops.TryGetValue (pl, out pop))
+				return pop;
+			else
+				return -1;
 		}
 	}
 }

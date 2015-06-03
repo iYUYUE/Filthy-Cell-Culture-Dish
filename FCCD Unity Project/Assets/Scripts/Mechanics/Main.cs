@@ -51,6 +51,8 @@ using Gamelogic.Grids.Examples;
 				cell.name = point.ToString();
 
 				grid[point] = cell;
+				
+				var OurCell = new Cell(point);
 			}
 		}
 

@@ -539,7 +539,7 @@ namespace Gamelogic.Grids
 		{
 			x = vector.X;
 			y = vector.Y;
-			cell = new Cell ();
+			cell = null;
 		}
 		#endregion
 
