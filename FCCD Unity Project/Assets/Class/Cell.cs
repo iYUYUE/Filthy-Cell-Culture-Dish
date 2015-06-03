@@ -24,6 +24,7 @@ namespace AssemblyCSharp
 		{
 			point = DP;
 			point.cell = this;
+			Debug.Log(point.cell);
 		}
 
 		public void update(){
