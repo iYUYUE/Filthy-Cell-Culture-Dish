@@ -57,7 +57,7 @@ public class Main : GLMonoBehaviour
 	
 	private void BuildGrid()
 	{
-		Global.grid =DiamondGrid<SpriteCell>.ThinRectangle(10, 5);
+		Global.grid =DiamondGrid<SpriteCell>.ThinRectangle(Global.WIDTH, Global.HEIGHT);
 		grid = Global.grid;
 		
 		map = new DiamondMap(cellPrefab.Dimensions)
@@ -100,6 +100,8 @@ public class Main : GLMonoBehaviour
 		
 		DiamondPoint point = map[worldPosition];
 		if (!Global.explored &&Input.GetMouseButtonDown(0)&&grid.Contains (point)){
+			if(Global.block)
+				return;
 //			Debug.Log("haha: "+point);
 			Cell tempCell;
 			Global.binder.TryGetValue (point, out tempCell);

@@ -42,6 +42,9 @@ namespace AssemblyCSharp
 			foreach (var player in GroupedNewPlayer) {
 				if(!this.getPlayerList().Contains(player.Player))
 					pops.Add (player.Player, this.growthChecker(player.Count * Global.baseCapacity / 10, player.Player));
+				else
+					pops[player.Player] += this.growthChecker(player.Count * Global.baseCapacity / 10, player.Player);
+
 			
 			}
 
