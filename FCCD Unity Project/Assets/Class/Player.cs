@@ -72,24 +72,64 @@ namespace AssemblyCSharp {
 			return isPeace [Global.players.IndexOf (pl)];
 		}
 
-		public int getGrowthValue() {
+		public int getGrowthLevel() {
 			return techAndProgress [Global.GROWTH, 0];
 		}
 
-		public int getExplorationValue() {
+		public int getExplorationLevel() {
 			return techAndProgress [Global.EXPLORATION, 0];
 		}
 
-		public int getAttackValue() {
+		public int getAttackLevel() {
 			return techAndProgress [Global.ATTACKING, 0];
 		}
 
-		public int getDefenseValue() {
+		public int getDefenseLevel() {
 			return techAndProgress [Global.DEFENSING, 0];
 		}
 		
-		public int getUltimateValue() {
+		public int getUltimateLevel() {
 			return techAndProgress [Global.ULTIMATE, 0];
+		}
+
+		public int getGrowthValue() {
+			return techAndProgress [Global.GROWTH, 1];
+		}
+		
+		public int getExplorationValue() {
+			return techAndProgress [Global.EXPLORATION, 1];
+		}
+		
+		public int getAttackValue() {
+			return techAndProgress [Global.ATTACKING, 1];
+		}
+		
+		public int getDefenseValue() {
+			return techAndProgress [Global.DEFENSING, 1];
+		}
+		
+		public int getUltimateValue() {
+			return techAndProgress [Global.ULTIMATE, 1];
+		}
+
+		public string getGrowthValueForDisplay() {
+			return techAndProgress [Global.GROWTH, 1] + " / " + Global.techCost[Global.GROWTH, 0];
+		}
+		
+		public string getExplorationValueForDisplay() {
+			return techAndProgress [Global.EXPLORATION, 1] + " / " + Global.techCost[Global.EXPLORATION, 0];
+		}
+		
+		public string getAttackValueForDisplay() {
+			return techAndProgress [Global.ATTACKING, 1] + " / " + Global.techCost[Global.ATTACKING, 0];
+		}
+		
+		public string getDefenseValueForDisplay() {
+			return techAndProgress [Global.DEFENSING, 1] + " / " + Global.techCost[Global.DEFENSING, 0];
+		}
+		
+		public string getUltimateValueForDisplay() {
+			return techAndProgress [Global.ULTIMATE, 1] + " / " + Global.techCost[Global.ULTIMATE, 0];
 		}
 
 		public int getPop() {
