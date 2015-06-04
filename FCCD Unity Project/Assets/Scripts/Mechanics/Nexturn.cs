@@ -9,8 +9,11 @@ public class Nexturn : MonoBehaviour {
 	
 	void Start() { MyButton.onClick.AddListener(() => { nextTurn();  });
 	}
-	
-	
+
+	public void Update(){
+		MyButton.interactable = Global.explored;
+	}
+
 	public void nextTurn(){
 //		Debug.Log(Global.numberOfPlayers);
 		if (!Global.explored||Global.players[Global.currentPlayer].researhDone()) 
