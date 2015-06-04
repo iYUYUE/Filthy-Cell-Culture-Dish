@@ -92,23 +92,43 @@ namespace AssemblyCSharp {
 			return techAndProgress [Global.ULTIMATE, 0];
 		}
 
-		public string getGrowthValue() {
+		public int getGrowthValue() {
+			return techAndProgress [Global.GROWTH, 1];
+		}
+		
+		public int getExplorationValue() {
+			return techAndProgress [Global.EXPLORATION, 1];
+		}
+		
+		public int getAttackValue() {
+			return techAndProgress [Global.ATTACKING, 1];
+		}
+		
+		public int getDefenseValue() {
+			return techAndProgress [Global.DEFENSING, 1];
+		}
+		
+		public int getUltimateValue() {
+			return techAndProgress [Global.ULTIMATE, 1];
+		}
+
+		public string getGrowthValueForDisplay() {
 			return techAndProgress [Global.GROWTH, 1] + " / " + Global.techCost[Global.GROWTH, 0];
 		}
 		
-		public string getExplorationValue() {
+		public string getExplorationValueForDisplay() {
 			return techAndProgress [Global.EXPLORATION, 1] + " / " + Global.techCost[Global.EXPLORATION, 0];
 		}
 		
-		public string getAttackValue() {
+		public string getAttackValueForDisplay() {
 			return techAndProgress [Global.ATTACKING, 1] + " / " + Global.techCost[Global.ATTACKING, 0];
 		}
 		
-		public string getDefenseValue() {
+		public string getDefenseValueForDisplay() {
 			return techAndProgress [Global.DEFENSING, 1] + " / " + Global.techCost[Global.DEFENSING, 0];
 		}
 		
-		public string getUltimateValue() {
+		public string getUltimateValueForDisplay() {
 			return techAndProgress [Global.ULTIMATE, 1] + " / " + Global.techCost[Global.ULTIMATE, 0];
 		}
 
