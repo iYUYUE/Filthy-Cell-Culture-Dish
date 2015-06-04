@@ -68,6 +68,10 @@ namespace AssemblyCSharp
 					largestCellPlayer = player;
 				}
 			}
+			largestPop = tmpPop;
+			largestTerritory = tmpCell;
+
+
 		}
 
 		static void gameOver ()

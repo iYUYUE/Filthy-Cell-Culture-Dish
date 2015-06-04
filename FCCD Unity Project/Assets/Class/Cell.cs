@@ -132,7 +132,7 @@ namespace AssemblyCSharp
 			if (this.pops.TryGetValue (pl, out pop))
 				return pop;
 			else
-				return -1;
+				return 0;
 		}
 
 

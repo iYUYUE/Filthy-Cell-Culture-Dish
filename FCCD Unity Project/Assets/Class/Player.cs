@@ -33,14 +33,17 @@ namespace AssemblyCSharp {
 
 		public void update(){
 			//update number of pops and cells for the current turn
-			netPop = 0;
-			numCell = 0;
+			int tmpNetPop = 0;
+			int tmpNumCell = 0;
 			foreach (Gamelogic.Grids.DiamondPoint point in Global.grid) {
-				Cell cell = point.cell;
+				Cell cell;
+				Global.binder.TryGetValue(point, out cell);
 				int tmpPop = cell.getPop(this);
-				if(tmpPop != 0) numCell++;
-				netPop += tmpPop;
+				if(tmpPop >= 0) tmpNumCell++;
+				tmpNetPop += tmpPop;
 			}
+			netPop = tmpNetPop;
+			numCell = tmpNumCell;
 			UnityEngine.Debug.Log ("Player " + Global.players.IndexOf(this) + "'s pop = " 
 			                       + netPop + "\tnumCells = " + numCell);
 
