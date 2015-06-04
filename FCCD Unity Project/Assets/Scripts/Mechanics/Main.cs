@@ -100,6 +100,7 @@ public class Main : GLMonoBehaviour
 		
 		DiamondPoint point = map[worldPosition];
 		if (!Global.explored &&Input.GetMouseButtonDown(0)&&grid.Contains (point)){
+			Debug.Log(Global.block.ToString());
 			if(Global.block)
 				return;
 //			Debug.Log("haha: "+point);

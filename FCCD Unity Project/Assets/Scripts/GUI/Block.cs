@@ -3,18 +3,18 @@ using UnityEngine.UI;
 using System.Collections;
 namespace AssemblyCSharp {
 	public class Block : MonoBehaviour {
-		Button button;
+		public Canvas demoCanvas;
+		public Canvas traitCanvas;
 		// Use this for initialization
 		void Start () {
-			button = GetComponent<Button>();
 		}
 		
 		// Update is called once per frame
 		void Update () {
-			button.onClick.AddListener (() => { 
-				if(Global.block) Global.block = false;
-				else Global.block = true;
-			});
+			if (demoCanvas.isActiveAndEnabled || traitCanvas.isActiveAndEnabled)
+				Global.block = true;
+			else
+				Global.block = false;
 		}
 	}
 }
