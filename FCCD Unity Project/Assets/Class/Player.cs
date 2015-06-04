@@ -72,24 +72,44 @@ namespace AssemblyCSharp {
 			return isPeace [Global.players.IndexOf (pl)];
 		}
 
-		public int getGrowthValue() {
+		public int getGrowthLevel() {
 			return techAndProgress [Global.GROWTH, 0];
 		}
 
-		public int getExplorationValue() {
+		public int getExplorationLevel() {
 			return techAndProgress [Global.EXPLORATION, 0];
 		}
 
-		public int getAttackValue() {
+		public int getAttackLevel() {
 			return techAndProgress [Global.ATTACKING, 0];
 		}
 
-		public int getDefenseValue() {
+		public int getDefenseLevel() {
 			return techAndProgress [Global.DEFENSING, 0];
 		}
 		
-		public int getUltimateValue() {
+		public int getUltimateLevel() {
 			return techAndProgress [Global.ULTIMATE, 0];
+		}
+
+		public string getGrowthValue() {
+			return techAndProgress [Global.GROWTH, 1] + " / " + Global.techCost[Global.GROWTH, 0];
+		}
+		
+		public string getExplorationValue() {
+			return techAndProgress [Global.EXPLORATION, 1] + " / " + Global.techCost[Global.EXPLORATION, 0];
+		}
+		
+		public string getAttackValue() {
+			return techAndProgress [Global.ATTACKING, 1] + " / " + Global.techCost[Global.ATTACKING, 0];
+		}
+		
+		public string getDefenseValue() {
+			return techAndProgress [Global.DEFENSING, 1] + " / " + Global.techCost[Global.DEFENSING, 0];
+		}
+		
+		public string getUltimateValue() {
+			return techAndProgress [Global.ULTIMATE, 1] + " / " + Global.techCost[Global.ULTIMATE, 0];
 		}
 
 		public int getPop() {

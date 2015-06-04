@@ -14,6 +14,11 @@ namespace AssemblyCSharp {
 		public Text defenseValue;
 		public Text ultimateValue;
 		public Text turnCounter;
+		public Text growthLevel;
+		public Text expoLevel;
+		public Text attackLevel;
+		public Text defenseLevel;
+		public Text ultimateLevel;
 		// Use this for initialization
 		void Start () {
 
@@ -31,6 +36,12 @@ namespace AssemblyCSharp {
 			attackValue.text = Global.players [Global.currentPlayer].getAttackValue ().ToString ();
 			defenseValue.text = Global.players [Global.currentPlayer].getDefenseValue ().ToString ();
 			ultimateValue.text = Global.players [Global.currentPlayer].getUltimateValue ().ToString ();
+			growthLevel.text = Global.players [Global.currentPlayer].getGrowthLevel ();
+			expoLevel.text = Global.players [Global.currentPlayer].getExplorationLevel ();
+			attackLevel.text = Global.players [Global.currentPlayer].getAttackLevel ();
+			defenseLevel.text = Global.players [Global.currentPlayer].getDefenseLevel ();
+			ultimateLevel.text = Global.players [Global.currentPlayer].getUltimateLevel ();
+
 
 		}
 	}
