@@ -20,7 +20,17 @@ namespace AssemblyCSharp {
 		private bool techUp;
 		//techAndProgree[Global.Techs.Exploration][0] the level techAndProgree[Global.Techs.Exploration][1] progress
 		private int[,] techAndProgress;
-		private int techOnResearch;
+		private int techOnResearch = -1;
+
+		public int TechOnResearch {
+			get {
+				return techOnResearch;
+			}
+			set {
+				techOnResearch = value;
+			}
+		}
+
 		public Player (Color color)
 		{
 			this.color = color;
@@ -44,17 +54,21 @@ namespace AssemblyCSharp {
 			}
 			netPop = tmpNetPop;
 			numCell = tmpNumCell;
-			UnityEngine.Debug.Log ("Player " + Global.players.IndexOf(this) + "'s pop = " 
-			                       + netPop + "\tnumCells = " + numCell);
+			if (TechOnResearch >= 0) {
+				Debug.Log ("Player " + Global.players.IndexOf (this) + "'s pop = " 
+					+ netPop + "\tnumCells = " + numCell + "\ttech = " + TechOnResearch
+					+ " \ttechLevel = " + techAndProgress [TechOnResearch, 0]);
 
-			//update teches
-			techAndProgress [techOnResearch, 1] += netPop;
-			//tech done
-			if (techAndProgress [techOnResearch, 1] >= 
-				Global.techCost [techOnResearch, techAndProgress [techOnResearch, 0]]) {
-				techAndProgress[techOnResearch,0]++;
-				techAndProgress[techOnResearch,1] = 0;
-				techUp = true;
+				//update teches
+				techAndProgress [techOnResearch, 1] += netPop;
+				//tech done
+				if (techAndProgress [techOnResearch, 1] >= 
+					Global.techCost [techOnResearch, techAndProgress [techOnResearch, 0]]) {
+					techUp = true;
+					techAndProgress [techOnResearch, 0]++;
+					techAndProgress [techOnResearch, 1] = 0;
+					techUp = false;
+				}
 			}
 		}
 		public Color getColor(){

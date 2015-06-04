@@ -8,11 +8,6 @@ namespace AssemblyCSharp {
 		public Text globalLargestPop;
 		public Text selfCellAmount;
 		public Text globalLargestCells;
-		public Text growthValue;
-		public Text expoValue;
-		public Text attackValue;
-		public Text defenseValue;
-		public Text ultimateValue;
 		public Text turnCounter;
 		public Text growthLevel;
 		public Text expoLevel;
@@ -31,11 +26,6 @@ namespace AssemblyCSharp {
 			turnCounter.text = "Turn " + Global.numTurns.ToString ();
 			selfPopAmount.text = Global.players[Global.currentPlayer].getPop ().ToString ();
 			selfCellAmount.text = Global.players [Global.currentPlayer].getCells ().ToString ();
-			growthValue.text = Global.players [Global.currentPlayer].getGrowthValueForDisplay ();
-			expoValue.text = Global.players [Global.currentPlayer].getExplorationValueForDisplay ();
-			attackValue.text = Global.players [Global.currentPlayer].getAttackValueForDisplay ();
-			defenseValue.text = Global.players [Global.currentPlayer].getDefenseValueForDisplay ();
-			ultimateValue.text = Global.players [Global.currentPlayer].getUltimateValueForDisplay ();
 			growthLevel.text = Global.players [Global.currentPlayer].getGrowthLevel ().ToString ();;
 			expoLevel.text = Global.players [Global.currentPlayer].getExplorationLevel ().ToString ();;
 			attackLevel.text = Global.players [Global.currentPlayer].getAttackLevel ().ToString ();;
