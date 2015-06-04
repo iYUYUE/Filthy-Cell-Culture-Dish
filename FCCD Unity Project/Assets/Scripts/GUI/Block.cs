@@ -12,7 +12,8 @@ namespace AssemblyCSharp {
 		// Update is called once per frame
 		void Update () {
 			button.onClick.AddListener (() => { 
-				Global.block = !Global.block;
+				if(Global.block) Global.block = false;
+				else Global.block = true;
 			});
 		}
 	}
