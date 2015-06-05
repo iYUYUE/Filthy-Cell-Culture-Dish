@@ -17,7 +17,6 @@ namespace AssemblyCSharp {
 		private bool[] isPeace;
 		//whether tech get Upgrade last turn
 		private Color color;
-		private bool techUp;
 		private bool techSelected;
 		//techAndProgree[Global.Techs.Exploration][0] the level techAndProgree[Global.Techs.Exploration][1] progress
 		private int[,] techAndProgress;
@@ -46,7 +45,7 @@ namespace AssemblyCSharp {
 			this.color = color;
 			isPeace = new bool[Global.numberOfPlayers];
 			techAndProgress = new int[5,2];
-			techUp = false;
+			techSelected = false;
 			netPop = 0;
 			numCell = 0;
 		}
@@ -74,21 +73,14 @@ namespace AssemblyCSharp {
 				//tech done
 				if (techAndProgress [techOnResearch, 1] >= 
 					Global.techCost [techOnResearch, techAndProgress [techOnResearch, 0]]) {
-					techUp = true;
 					techAndProgress [techOnResearch, 0]++;
 					techAndProgress [techOnResearch, 1] = 0;
+					techSelected = false;
 				}
 			}
 		}
 		public Color getColor(){
 			return color;
-		}
-		public bool researhDone() {
-			return techUp;
-		}
-
-		public void setTechUp(bool tech){
-			techUp = tech;
 		}
 
 		public bool isPeaceWith(Player pl) {

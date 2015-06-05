@@ -73,9 +73,6 @@ namespace AssemblyCSharp
 		}
 
 		public void explore(Player pl){
-			if (Global.players[Global.currentPlayer].researhDone()&&
-			    Global.players[Global.currentPlayer].TechSelected) 
-				return;
 			pops[pl] += this.growthChecker(Formula.ExplorePop(pl), pl);
 			UpdateColor ();
 		}
