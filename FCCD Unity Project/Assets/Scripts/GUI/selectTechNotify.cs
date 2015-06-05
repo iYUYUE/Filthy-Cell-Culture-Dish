@@ -31,7 +31,7 @@ namespace AssemblyCSharp
 				traitButton.image.color = Color.red;
 			} else {
 				nextButtonText.text = "Next Turn";
-				traitButton.image.color = Color.red;
+				traitButton.image.color = Color.white;
 			}
 		}
 	}
