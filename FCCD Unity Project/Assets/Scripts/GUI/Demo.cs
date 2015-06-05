@@ -14,6 +14,8 @@ namespace AssemblyCSharp {
 		public Text attackLevel;
 		public Text defenseLevel;
 		public Text ultimateLevel;
+		public Text popIndicator;
+		public Text cellIndicator;
 		// Use this for initialization
 		void Start () {
 
@@ -21,11 +23,18 @@ namespace AssemblyCSharp {
 		
 		// Update is called once per frame
 		void Update () {
+			//In Game GUI
+			popIndicator.text = "Population: " + Global.players[Global.currentPlayer].getPop ().ToString ();
+			cellIndicator.text = "Cells: " + Global.players [Global.currentPlayer].getCells ().ToString ();
+
+			//Demographics
 			globalLargestPop.text = Global.largestPop.ToString ();
-			globalLargestCells.text = Global.largestTerritory.ToString ();
+			globalLargestCells.text = Global.largestTerritory.ToString () + "/" + Global.binder.Count.ToString ();
 			turnCounter.text = "Turn " + Global.numTurns.ToString ();
 			selfPopAmount.text = Global.players[Global.currentPlayer].getPop ().ToString ();
-			selfCellAmount.text = Global.players [Global.currentPlayer].getCells ().ToString ();
+			selfCellAmount.text = Global.players [Global.currentPlayer].getCells ().ToString () + "/" + Global.binder.Count.ToString ();
+
+			//Traits
 			growthLevel.text = Global.players [Global.currentPlayer].getGrowthLevel ().ToString ();;
 			expoLevel.text = Global.players [Global.currentPlayer].getExplorationLevel ().ToString ();;
 			attackLevel.text = Global.players [Global.currentPlayer].getAttackLevel ().ToString ();;
