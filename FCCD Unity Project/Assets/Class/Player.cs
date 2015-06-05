@@ -18,9 +18,19 @@ namespace AssemblyCSharp {
 		//whether tech get Upgrade last turn
 		private Color color;
 		private bool techUp;
+		private bool techSelected;
 		//techAndProgree[Global.Techs.Exploration][0] the level techAndProgree[Global.Techs.Exploration][1] progress
 		private int[,] techAndProgress;
 		private int techOnResearch = -1;
+
+		public bool TechSelected {
+			get {
+				return techSelected;
+			}
+			set {
+				techSelected = value;
+			}
+		}
 
 		public int TechOnResearch {
 			get {
@@ -49,7 +59,7 @@ namespace AssemblyCSharp {
 				Cell cell;
 				Global.binder.TryGetValue(point, out cell);
 				int tmpPop = cell.getPop(this);
-				if(tmpPop >= 0) tmpNumCell++;
+				if(tmpPop > 0) tmpNumCell++;
 				tmpNetPop += tmpPop;
 			}
 			netPop = tmpNetPop;
@@ -67,7 +77,6 @@ namespace AssemblyCSharp {
 					techUp = true;
 					techAndProgress [techOnResearch, 0]++;
 					techAndProgress [techOnResearch, 1] = 0;
-					techUp = false;
 				}
 			}
 		}

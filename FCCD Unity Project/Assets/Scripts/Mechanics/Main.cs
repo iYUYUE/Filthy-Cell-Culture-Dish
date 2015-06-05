@@ -108,6 +108,7 @@ public class Main : GLMonoBehaviour
 		if (Global.drawAll) {
 			Global.UpdateAllColor ();
 			Global.drawAll = false;
+			return;
 		}
 		if(Global.block)
 			return;
