@@ -16,7 +16,7 @@ namespace AssemblyCSharp
 	public static class Formula
 	{
 		public static int ExplorePop(Player pl){
-			return Global.baseCapacity + pl.getExplorationLevel();
+			return Global.baseCapacity*Global.numTech/10 + pl.getExplorationLevel()* Global.baseCapacity/10;
 		}
 		public static double GrowthRate(int level) {
 			return ((double) level) * 0.1 + 0.2;
@@ -44,7 +44,7 @@ namespace AssemblyCSharp
 			if (level > 6)
 				return 0.3;
 			else
-				return 0.9 - ((double) level) * 0.1;
+				return Global.numTech*0.1 - ((double) level) * 0.1+0.1;
 		}
 
 		// float r range from 0 ~ 1 (100%)
