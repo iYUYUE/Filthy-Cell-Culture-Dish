@@ -20,6 +20,25 @@ namespace AssemblyCSharp
 				attack.image.color = Color.white;
 				defense.image.color = Color.white;
 				ultimate.image.color = Color.white;
+
+				//disable buttons that player reaches maximum level
+				Debug.Log(Global.players [Global.currentPlayer].TechAndProgress [0, 0] + "\t" + Global.numTech);
+				growth.interactable = 
+					(Global.players [Global.currentPlayer].TechAndProgress [0, 0] < Global.numTech) ?
+						true : false;
+				explore.interactable = 
+					(Global.players [Global.currentPlayer].TechAndProgress [1, 0] < Global.numTech) ?
+						true : false;
+				attack.interactable = 
+					(Global.players [Global.currentPlayer].TechAndProgress [2, 0] < Global.numTech) ?
+						true : false;
+				defense.interactable = 
+					(Global.players [Global.currentPlayer].TechAndProgress [3, 0] < Global.numTech) ?
+						true : false;
+				ultimate.interactable = 
+					(Global.players [Global.currentPlayer].TechAndProgress [4, 0] < Global.numTech) ?
+						true : false;
+
 				
 				//get current tech and set its color
 				switch (Global.players[Global.currentPlayer].TechOnResearch) {

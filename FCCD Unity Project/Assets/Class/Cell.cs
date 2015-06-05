@@ -62,7 +62,7 @@ namespace AssemblyCSharp
 			foreach (Player player in this.getPlayerList())
 				colorList.Add (Formula.ColorLighter(player.getColor(), ((float)this.getPop (player)/(float)Formula.GrowthCap (player.getGrowthValue ()))));
 			foreach (Color item in colorList)
-				Debug.Log (item);
+				//Debug.Log (item);
 			//			Debug.Log ("ha: "+Formula.ColorMixer(colorList));
 			Global.grid [point].GetComponent<SpriteCell> ().Color = Formula.ColorMixer(colorList);
 		}

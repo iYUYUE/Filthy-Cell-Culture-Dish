@@ -123,7 +123,7 @@ public class Main : GLMonoBehaviour
 				Global.update ();
 			}
 			if (historyPoint != point) {
-				Debug.Log (Global.players [Global.numberOfPlayers - 1].getPop ());
+				//Debug.Log (Global.players [Global.numberOfPlayers - 1].getPop ());
 				if (grid.Contains (historyPoint))
 					grid [historyPoint].GetComponent<SpriteCell> ().Color = historyColor;
 			
