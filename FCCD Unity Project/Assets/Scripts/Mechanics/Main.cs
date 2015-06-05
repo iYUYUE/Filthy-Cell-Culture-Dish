@@ -125,12 +125,11 @@ public class Main : GLMonoBehaviour
 			Debug.Log (Global.players[Global.numberOfPlayers-1].getPop());
 			if(grid.Contains (historyPoint))
 				grid [historyPoint].GetComponent<SpriteCell> ().HighlightOn = false;
-		
 			if (grid.Contains (point)) {
 				historyPoint = point;
 				//Toggle the highlight
 				grid [point].GetComponent<SpriteCell> ().HighlightOn = true;
-				//			Debug.Log(Global.currentPlayer);
+				//Debug.Log(Global.currentPlayer);
 			} else {
 				historyPoint = new DiamondPoint (-1, -1);
 			}
