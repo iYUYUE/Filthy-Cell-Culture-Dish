@@ -6,6 +6,7 @@
 
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.EventSystems;
 using AssemblyCSharp;
 using Gamelogic;
 using Gamelogic.Grids;
@@ -104,35 +105,36 @@ public class Main : GLMonoBehaviour
 	Thread RunUpdate;
 	public void Update()
 	{
-		
-		if (Global.drawAll) {
-			Global.UpdateAllColor ();
-			Global.drawAll = false;
-			return;
-		}
-		if(Global.block)
-			return;
-		Vector2 worldPosition = GridBuilderUtils.ScreenToWorld(root, Input.mousePosition);
-		DiamondPoint point = map[worldPosition];
-		if (Input.GetMouseButtonDown(0)&&grid.Contains (point)){
-			Cell tempCell;
-			Global.binder.TryGetValue (point, out tempCell);
+		if (!EventSystem.current.IsPointerOverGameObject ()) {
+			if (Global.drawAll) {
+				Global.UpdateAllColor ();
+				Global.drawAll = false;
+				return;
+			}
+			if (Global.block)
+				return;
+			Vector2 worldPosition = GridBuilderUtils.ScreenToWorld (root, Input.mousePosition);
+			DiamondPoint point = map [worldPosition];
+			if (Input.GetMouseButtonDown (0) && grid.Contains (point)) {
+				Cell tempCell;
+				Global.binder.TryGetValue (point, out tempCell);
 
-			tempCell.explore(Global.players[Global.currentPlayer]);
-			SceneView.RepaintAll();
-				Global.update();
-		}
-		if (historyPoint != point) {
-			Debug.Log (Global.players[Global.numberOfPlayers-1].getPop());
-			if(grid.Contains (historyPoint))
-				grid [historyPoint].GetComponent<SpriteCell> ().HighlightOn = false;
-			if (grid.Contains (point)) {
-				historyPoint = point;
-				//Toggle the highlight
-				grid [point].GetComponent<SpriteCell> ().HighlightOn = true;
-				//Debug.Log(Global.currentPlayer);
-			} else {
-				historyPoint = new DiamondPoint (-1, -1);
+				tempCell.explore (Global.players [Global.currentPlayer]);
+				SceneView.RepaintAll ();
+				Global.update ();
+			}
+			if (historyPoint != point) {
+				Debug.Log (Global.players [Global.numberOfPlayers - 1].getPop ());
+				if (grid.Contains (historyPoint))
+					grid [historyPoint].GetComponent<SpriteCell> ().HighlightOn = false;
+				if (grid.Contains (point)) {
+					historyPoint = point;
+					//Toggle the highlight
+					grid [point].GetComponent<SpriteCell> ().HighlightOn = true;
+					//Debug.Log(Global.currentPlayer);
+				} else {
+					historyPoint = new DiamondPoint (-1, -1);
+				}
 			}
 		}
 	}
