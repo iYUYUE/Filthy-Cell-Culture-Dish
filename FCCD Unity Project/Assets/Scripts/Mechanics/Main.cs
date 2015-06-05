@@ -24,11 +24,12 @@ public class Main : GLMonoBehaviour
 {
 	public SpriteCell cellPrefab;
 	public GameObject root;
-	
+	public Camera cam;
 	private DiamondGrid<SpriteCell> grid;
 	private IMap3D<DiamondPoint> map;
 	private DiamondPoint historyPoint;
-
+	private Color historyColor;
+	
 	void AddPlayers ()
 	{
 		for (int i = 0; i<Global.numberOfPlayers; i++) {
@@ -82,8 +83,6 @@ public class Main : GLMonoBehaviour
 			cell.Color = Color.white;
 			cell.name = point.ToString();
 
-//			cell.HighlightOn = true;
-
 			grid[point] = cell;
 
 			/////////////////////////////////////
@@ -91,10 +90,7 @@ public class Main : GLMonoBehaviour
 			Cell OurCell = new Cell(point);
 
 			Global.binder.Add (point, OurCell);
-//			Debug.Log("HAHA");
-//		Debug.Log(point);
-	//		Debug.Log(OurCell.getPoint().cell);
-	//		point.cell = OurCell;
+//			Debug.Log(point);
 		}
 
 //		foreach (var item in Global.binder)
