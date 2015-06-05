@@ -42,9 +42,9 @@ namespace AssemblyCSharp
 			if (level < 0)
 				return 0.9;
 			if (level > 6)
-				return 0.3;
+				return 0.1+0.3;
 			else
-				return Global.numTech*0.1 - ((double) level) * 0.1+0.1;
+				return Global.numTech*0.1 - ((double) level) * 0.1+0.3;
 		}
 
 		// float r range from 0 ~ 1 (100%)

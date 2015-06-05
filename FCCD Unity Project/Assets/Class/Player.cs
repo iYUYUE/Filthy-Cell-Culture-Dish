@@ -12,7 +12,15 @@ namespace AssemblyCSharp {
 		//techAndProgree[Global.Techs.Exploration][0] the level techAndProgree[Global.Techs.Exploration][1] progress
 		private int[,] techAndProgress;
 		private int techOnResearch = -1;
-		
+
+		public int[,] TechAndProgress {
+			get {
+				return techAndProgress;
+			}
+			set {
+				techAndProgress = value;
+			}
+		}
 		public bool TechSelected {
 			get {
 				return techSelected;
@@ -67,6 +75,7 @@ namespace AssemblyCSharp {
 					techAndProgress [techOnResearch, 0]++;
 					techAndProgress [techOnResearch, 1] = 0;
 					techSelected = false;
+					techOnResearch = -1;
 				}
 			}
 		}

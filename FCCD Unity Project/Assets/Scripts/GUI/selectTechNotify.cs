@@ -27,10 +27,10 @@ namespace AssemblyCSharp
 
 		void Update () {
 			if (!Global.players [Global.currentPlayer].TechSelected) {
-				nextButtonText.text = "Select Trait!";
+				nextButtonText.text = "←  Select Trait!";
 				traitButton.image.color = Color.red;
 			} else {
-				nextButtonText.text = "Next Turn";
+				nextButtonText.text = "";
 				traitButton.image.color = Color.white;
 			}
 		}
