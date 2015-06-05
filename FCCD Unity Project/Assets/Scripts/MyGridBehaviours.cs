@@ -9,18 +9,16 @@
 // ------------------------------------------------------------------------------
 using System;
 using Gamelogic.Grids;
-namespace Application
-{
-	public class MyGridBehaviours: GridBehaviour<DiamondPoint>
-	{
-		public MyGridBehaviours ()
-		{
-		}
 
-		public void OnClick()
-		{
+public class MyGridBehaviours: GridBehaviour<DiamondPoint>
+{
+	public MyGridBehaviours ()
+	{
+	}
+
+	public void OnClick()
+	{
 //			Grid[MousePosition].Color = Color.red;
-		}
 	}
 }
 
