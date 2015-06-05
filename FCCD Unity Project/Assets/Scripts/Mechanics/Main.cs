@@ -23,7 +23,7 @@ public class Main : GLMonoBehaviour
 {
 	public SpriteCell cellPrefab;
 	public GameObject root;
-	
+	public Camera cam;
 	private DiamondGrid<SpriteCell> grid;
 	private IMap3D<DiamondPoint> map;
 	private DiamondPoint historyPoint;
@@ -111,7 +111,7 @@ public class Main : GLMonoBehaviour
 		}
 		if(Global.block)
 			return;
-		Vector2 worldPosition = GridBuilderUtils.ScreenToWorld(root, Input.mousePosition);
+		Vector2 worldPosition = GridBuilderUtils.ScreenToWorld(root, Input.mousePosition,cam);
 		DiamondPoint point = map[worldPosition];
 		if (Input.GetMouseButtonDown(0)&&grid.Contains (point)){
 			//		Debug.Log(Global.block.ToString());
