@@ -90,6 +90,19 @@ namespace Gamelogic.Grids
 			return root.transform.InverseTransformPoint(Camera.main.ScreenToWorldPoint(screenPosition));
 		}
 
+		public static Vector3 ScreenToWorld(GameObject root, Vector3 screenPosition,Camera cam)
+		{
+			if (Camera.main == null)
+			{
+				Debug.LogError("No main camera found in scene");
+				
+				return Vector3.zero;
+			}
+			if (cam == null)
+				cam = Camera.main;
+			return root.transform.InverseTransformPoint(cam.ScreenToWorldPoint(screenPosition));
+		}
+
 		public static T Instantiate<T>(T prefab)
 			where T : MonoBehaviour
 		{
