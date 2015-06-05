@@ -38,9 +38,9 @@ namespace AssemblyCSharp
 			}
 			List<Player> keys = new List<Player> (pops.Keys);
 			// Update Population
-			foreach (Player pl in keys)
+			foreach (Player pl in Global.players)
 			{
-				pops[pl]+= growthChecker((int)Formula.GrowthRate(pl.getGrowthLevel())*pops[pl]*(Formula.GrowthCap(pl.getGrowthLevel())-pops[pl]),pl);
+				pops[pl]+= growthChecker((int)(Formula.GrowthRate(pl.getGrowthLevel())*pops[pl]*(Formula.GrowthCap(pl.getGrowthLevel())-pops[pl])),pl);
 				foreach (Player epl in Global.players){
 					if(!pl.isPeaceWith(epl))
 						pops[pl] += this.growthChecker(PopDance(pl, epl, pops[pl], pops[epl]), pl);
@@ -50,6 +50,7 @@ namespace AssemblyCSharp
 					pops[pl] = 0;
 				if(pops[pl] >=Formula.GrowthCap(pl.getGrowthLevel()))
 					pops[pl] =(int)Formula.GrowthCap(pl.getGrowthLevel());
+
 			}
 
 		//	UpdateColor ();
@@ -101,10 +102,10 @@ namespace AssemblyCSharp
 		}
 
 		private int growthChecker(int growth, Player pl) {
-			if ((this.getPop (pl) + growth) <= Formula.GrowthCap (pl.getGrowthValue ()))
+			if ((pops[pl] + growth) <= Formula.GrowthCap (pl.getGrowthLevel ()))
 				return growth;
 			else
-				return Formula.GrowthCap (pl.getGrowthValue ()) - this.getPop (pl);
+				return Formula.GrowthCap (pl.getGrowthLevel()) - pops[pl];
 		}
 
 		public List<Player> getPlayerList() {

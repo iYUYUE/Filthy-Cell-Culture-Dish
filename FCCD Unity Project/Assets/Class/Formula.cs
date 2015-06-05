@@ -19,7 +19,7 @@ namespace AssemblyCSharp
 			return Global.baseCapacity*Global.numTech/10 + pl.getExplorationLevel()* Global.baseCapacity/10;
 		}
 		public static double GrowthRate(int level) {
-			return ((double) level) * 0.1 + 0.2;
+			return ((double) level) * 0.01 + 0.02;
 		}
 
 		public static int GrowthCap(int level) {
