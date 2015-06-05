@@ -89,10 +89,7 @@ public class Main : GLMonoBehaviour
 			Cell OurCell = new Cell(point);
 
 			Global.binder.Add (point, OurCell);
-//			Debug.Log("HAHA");
-//		Debug.Log(point);
-	//		Debug.Log(OurCell.getPoint().cell);
-	//		point.cell = OurCell;
+//			Debug.Log(point);
 		}
 
 //		foreach (var item in Global.binder)

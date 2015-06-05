@@ -27,6 +27,7 @@ namespace AssemblyCSharp
 				techBtn2.image.color = Color.white;
 				techBtn3.image.color = Color.white;
 				techBtn4.image.color = Color.white;
+				Global.players[Global.currentPlayer].TechSelected = true;
 			});
 		}
 		
