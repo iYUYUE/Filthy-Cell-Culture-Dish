@@ -29,7 +29,6 @@ public class Main : GLMonoBehaviour
 	private DiamondGrid<SpriteCell> grid;
 	private IMap3D<DiamondPoint> map;
 	private DiamondPoint historyPoint;
-	private Color historyColor;
 
 	public Text cellDetail;
 	
@@ -130,7 +129,6 @@ public class Main : GLMonoBehaviour
 				Global.binder.TryGetValue (point, out tempCell);
 
 				tempCell.explore (Global.players [Global.currentPlayer]);
-				historyColor = grid [point].GetComponent<SpriteCell> ().Color;
 				Global.update ();
 			}
 
@@ -139,13 +137,12 @@ public class Main : GLMonoBehaviour
 				//Debug.Log (Global.players [Global.numberOfPlayers - 1].getPop ());\
 
 				if (grid.Contains (historyPoint))
-					grid [historyPoint].GetComponent<SpriteCell> ().Color = historyColor;
+					grid [historyPoint].GetComponent<SpriteCell> ().HighlightOn = false;
 			
 				if (grid.Contains (point)) {
 					historyPoint = point;
-					historyColor = grid [point].GetComponent<SpriteCell> ().Color;
 					//Toggle the highlight
-					grid [point].GetComponent<SpriteCell> ().Color = Formula.ColorLighter (grid [point].GetComponent<SpriteCell> ().Color, 0.9f);
+					grid [point].GetComponent<SpriteCell> ().HighlightOn = true;
 
 					// show the cell detail
 					Cell tempCell;
