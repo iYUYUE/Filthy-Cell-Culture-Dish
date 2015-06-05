@@ -5,6 +5,7 @@
 //----------------------------------------------//
 
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEditor;
 using UnityEngine.EventSystems;
 using AssemblyCSharp;
@@ -29,6 +30,8 @@ public class Main : GLMonoBehaviour
 	private IMap3D<DiamondPoint> map;
 	private DiamondPoint historyPoint;
 	private Color historyColor;
+
+	public Text cellDetail;
 	
 	void AddPlayers ()
 	{
@@ -108,10 +111,13 @@ public class Main : GLMonoBehaviour
 				Global.drawAll = false;
 				return;
 			}
+
 			if (Global.block)
 				return;
+
 			Vector2 worldPosition = GridBuilderUtils.ScreenToWorld (root, Input.mousePosition, cam);
 			DiamondPoint point = map [worldPosition];
+
 			if (Global.players [Global.currentPlayer].TechSelected && Input.GetMouseButtonDown (0) && grid.Contains (point)) {
 				//		Debug.Log(Global.block.ToString());
 				//			Debug.Log("haha: "+point);
@@ -122,8 +128,9 @@ public class Main : GLMonoBehaviour
 				historyColor = grid [point].GetComponent<SpriteCell> ().Color;
 				Global.update ();
 			}
+
 			if (historyPoint != point) {
-				Debug.Log (Global.players [Global.numberOfPlayers - 1].getPop ());
+//				Debug.Log (Global.players [Global.numberOfPlayers - 1].getPop ());
 				if (grid.Contains (historyPoint))
 					grid [historyPoint].GetComponent<SpriteCell> ().Color = historyColor;
 			
@@ -132,12 +139,30 @@ public class Main : GLMonoBehaviour
 					historyColor = grid [point].GetComponent<SpriteCell> ().Color;
 					//Toggle the highlight
 					grid [point].GetComponent<SpriteCell> ().Color = Formula.ColorLighter (grid [point].GetComponent<SpriteCell> ().Color, 0.9f);
+
+					// show the cell detail
+					Cell tempCell;
+					Global.binder.TryGetValue (point, out tempCell);
+					string cellInfo = "This Cell:";
+					foreach(Player pl in tempCell.getPlayerList()) {
+						if(cellInfo.Length > 10)
+							cellInfo += "/";
+						cellInfo += " <color=\""+RGBtoHex(pl.getColor())+"\">"+pl.getPop()+"</color> ";
+					}
+					cellDetail.text = cellInfo;
+
 					//			Debug.Log(Global.currentPlayer);
 				} else {
 					historyPoint = new DiamondPoint (-1, -1);
 				}
+
 			}
 		}
+	}
+
+	public string RGBtoHex(Color input) {
+		Color32 myColor = input;
+		return "#" + myColor.r.ToString ("X2") + myColor.g.ToString ("X2") + myColor.b.ToString ("X2");
 	}
 	
 }
