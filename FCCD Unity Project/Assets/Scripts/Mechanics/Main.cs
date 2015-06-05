@@ -27,8 +27,7 @@ public class Main : GLMonoBehaviour
 	private DiamondGrid<SpriteCell> grid;
 	private IMap3D<DiamondPoint> map;
 	private DiamondPoint historyPoint;
-	private Color historyColor;
-	
+
 	void AddPlayers ()
 	{
 		for (int i = 0; i<Global.numberOfPlayers; i++) {
@@ -82,6 +81,8 @@ public class Main : GLMonoBehaviour
 			cell.Color = Color.white;
 			cell.name = point.ToString();
 
+//			cell.HighlightOn = true;
+
 			grid[point] = cell;
 
 			/////////////////////////////////////
@@ -114,27 +115,22 @@ public class Main : GLMonoBehaviour
 		Vector2 worldPosition = GridBuilderUtils.ScreenToWorld(root, Input.mousePosition);
 		DiamondPoint point = map[worldPosition];
 		if (Input.GetMouseButtonDown(0)&&grid.Contains (point)){
-			//		Debug.Log(Global.block.ToString());
-			//			Debug.Log("haha: "+point);
 			Cell tempCell;
 			Global.binder.TryGetValue (point, out tempCell);
 
 			tempCell.explore(Global.players[Global.currentPlayer]);
 			SceneView.RepaintAll();
-			historyColor = grid [point].GetComponent<SpriteCell> ().Color;
 				Global.update();
 		}
 		if (historyPoint != point) {
 			Debug.Log (Global.players[Global.numberOfPlayers-1].getPop());
 			if(grid.Contains (historyPoint))
-				grid [historyPoint].GetComponent<SpriteCell> ().Color = historyColor;
-		
+				grid [historyPoint].GetComponent<SpriteCell> ().HighlightOn = false;
 			if (grid.Contains (point)) {
 				historyPoint = point;
-				historyColor = grid [point].GetComponent<SpriteCell> ().Color;
 				//Toggle the highlight
-				grid [point].GetComponent<SpriteCell> ().Color = Formula.ColorLighter(grid [point].GetComponent<SpriteCell> ().Color, 0.9f);
-				//			Debug.Log(Global.currentPlayer);
+				grid [point].GetComponent<SpriteCell> ().HighlightOn = true;
+				//Debug.Log(Global.currentPlayer);
 			} else {
 				historyPoint = new DiamondPoint (-1, -1);
 			}
