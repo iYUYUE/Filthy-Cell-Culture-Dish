@@ -17,6 +17,7 @@ namespace AssemblyCSharp
 	public class selectTechNotify : MonoBehaviour
 	{
 		public Text nextButtonText;
+		public Button traitButton;
 		public selectTechNotify ()
 		{
 		}
@@ -25,9 +26,13 @@ namespace AssemblyCSharp
 		}
 
 		void Update () {
-			if(!Global.players[Global.currentPlayer].TechSelected)
+			if (!Global.players [Global.currentPlayer].TechSelected) {
 				nextButtonText.text = "Select Trait!";
-			else nextButtonText.text = "Next Turn";
+				traitButton.image.color = Color.red;
+			} else {
+				nextButtonText.text = "Next Turn";
+				traitButton.image.color = Color.red;
+			}
 		}
 	}
 }
