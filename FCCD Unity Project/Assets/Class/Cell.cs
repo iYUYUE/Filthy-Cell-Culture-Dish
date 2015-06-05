@@ -73,8 +73,6 @@ namespace AssemblyCSharp
 		}
 
 		public void explore(Player pl){
-			if (Global.players[Global.currentPlayer].researhDone()&&false) 
-				return;
 			pops[pl] += this.growthChecker(Formula.ExplorePop(pl), pl);
 			UpdateColor ();
 		}
