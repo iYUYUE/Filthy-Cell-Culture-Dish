@@ -53,11 +53,11 @@ public class SceneManager : MonoBehaviour {
 		    && Application.loadedLevelName != "Credits" 
 		    && !Application.loadedLevelName.Contains("Main")
 		    && Application.loadedLevelName != "normalCanvas"){
-						if (VolMusicButton == null) {
+			if (VolMusicButton == null && MainCamObj.transform.FindChild ("PauseMenu") != null) {
 								VolMusicButton = MainCamObj.transform.FindChild ("PauseMenu").FindChild ("VolMusic").FindChild ("ButtonGUI").GetComponent<ButtonEvent> ();
 								VolMusicButton.receiver = gameObject;
 						}
-						if (VolSFXButton == null) {
+			if (VolSFXButton == null && MainCamObj.transform.FindChild ("PauseMenu") != null) {
 								VolSFXButton = MainCamObj.transform.FindChild ("PauseMenu").FindChild ("VolSFX").FindChild ("ButtonGUI").GetComponent<ButtonEvent> ();
 								VolSFXButton.receiver = gameObject;
 						}
