@@ -35,7 +35,7 @@ namespace AssemblyCSharp
 		public readonly static int baseCapacity = 100;
 		public static int winPop;
 		public static int[,] techCost;
-		
+		public static bool drawAll=false;
 		public static DiamondGrid<SpriteCell> grid;
 		public static Dictionary<DiamondPoint, Cell> oldbinder;
 		public static Dictionary<DiamondPoint, Cell> binder;
@@ -63,6 +63,14 @@ namespace AssemblyCSharp
 			}
 
 		}
+		public static void UpdateAllColor(){
+			
+			foreach (Gamelogic.Grids.DiamondPoint point in grid) {
+				Cell tempCell;
+				Global.binder.TryGetValue (point, out tempCell);
+				tempCell.UpdateColor();
+			}
+		}
 		public static DiamondGrid<SpriteCell> DeepClone(DiamondGrid<SpriteCell> a)
 		{
 			using (MemoryStream stream = new MemoryStream())
@@ -83,6 +91,7 @@ namespace AssemblyCSharp
 				updateCells();
 				updateDemo();
 				updateWinStatus();
+				drawAll = true;
 			}
 		}
 		
@@ -115,7 +124,7 @@ namespace AssemblyCSharp
 
 		static void gameOver ()
 		{
-			GameStartManager.instance.SendMessage("StartLvl", "GameOver");
+		//	GameStartManager.instance.SendMessage("StartLvl", "GameOver");
 		}
 
 		public static void updateWinStatus(){

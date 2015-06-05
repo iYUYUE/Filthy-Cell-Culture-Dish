@@ -52,7 +52,7 @@ namespace AssemblyCSharp
 					pops[pl] =(int)Formula.GrowthCap(pl.getGrowthLevel());
 			}
 
-			UpdateColor ();
+		//	UpdateColor ();
 		}
 
 		public void UpdateColor() {
