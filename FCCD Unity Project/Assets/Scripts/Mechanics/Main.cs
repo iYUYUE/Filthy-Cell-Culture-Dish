@@ -109,7 +109,7 @@ public class Main : GLMonoBehaviour
 	public void Update()
 	{
 		if (!EventSystem.current.IsPointerOverGameObject()) {
-			
+
 			if (Global.drawAll) {
 				Global.UpdateAllColor ();
 				Global.drawAll = false;
@@ -123,8 +123,6 @@ public class Main : GLMonoBehaviour
 			DiamondPoint point = map [worldPosition];
 
 			if (Global.players [Global.currentPlayer].TechSelected && Input.GetMouseButtonDown (0) && grid.Contains (point)) {
-				//		Debug.Log(Global.block.ToString());
-				//			Debug.Log("haha: "+point);
 				Cell tempCell;
 				Global.binder.TryGetValue (point, out tempCell);
 
@@ -146,12 +144,13 @@ public class Main : GLMonoBehaviour
 
 					// show the cell detail
 					Cell tempCell;
-					Global.binder.TryGetValue (point, out tempCell);
 					string cellInfo = "This Cell:";
+					Global.binder.TryGetValue (point, out tempCell);
+
 					foreach(Player pl in tempCell.getPlayerList()) {
 						if(cellInfo.Length > 10)
 							cellInfo += "/";
-						cellInfo += " <color=\""+RGBtoHex(pl.getColor())+"\">"+pl.getPop()+"</color> ";
+						cellInfo += " <color=\""+RGBtoHex(pl.getColor())+"\">"+tempCell.getPop(pl)+"</color> ";
 					}
 					cellDetail.text = cellInfo;
 
