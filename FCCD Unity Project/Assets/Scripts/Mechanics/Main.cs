@@ -5,11 +5,14 @@
 //----------------------------------------------//
 
 using UnityEngine;
+using UnityEditor;
 using AssemblyCSharp;
 using Gamelogic;
 using Gamelogic.Grids;
 using Gamelogic.Grids.Examples;
 using System.Collections.Generic;
+
+using System.Threading;
 /**
 		This example shows how to use a diamond grid.
 	
@@ -96,22 +99,30 @@ public class Main : GLMonoBehaviour
 //			Debug.Log(item.Key);
 
 	}
+	
+	Thread RunUpdate;
 	public void Update()
 	{
+		
+		if (Global.drawAll) {
+			Global.UpdateAllColor ();
+			Global.drawAll = false;
+			return;
+		}
 		if(Global.block)
 			return;
 		Vector2 worldPosition = GridBuilderUtils.ScreenToWorld(root, Input.mousePosition);
-		
 		DiamondPoint point = map[worldPosition];
 		if (Input.GetMouseButtonDown(0)&&grid.Contains (point)){
-	//		Debug.Log(Global.block.ToString());
-//			Debug.Log("haha: "+point);
+			//		Debug.Log(Global.block.ToString());
+			//			Debug.Log("haha: "+point);
 			Cell tempCell;
 			Global.binder.TryGetValue (point, out tempCell);
-			
+
 			tempCell.explore(Global.players[Global.currentPlayer]);
+			SceneView.RepaintAll();
 			historyColor = grid [point].GetComponent<SpriteCell> ().Color;
-			Global.update();
+				Global.update();
 		}
 		if (historyPoint != point) {
 			Debug.Log (Global.players[Global.numberOfPlayers-1].getPop());
