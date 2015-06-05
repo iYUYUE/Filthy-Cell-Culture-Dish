@@ -15,6 +15,9 @@ namespace AssemblyCSharp
 {
 	public static class Formula
 	{
+		public static int ExplorePop(Player pl){
+			return Global.baseCapacity + pl.getExplorationLevel();
+		}
 		public static double GrowthRate(int level) {
 			return ((double) level) * 0.1 + 0.2;
 		}
@@ -22,7 +25,7 @@ namespace AssemblyCSharp
 		public static int GrowthCap(int level) {
 			if (level <= 0)
 				return Global.baseCapacity;
-			return Global.baseCapacity * level * 10;
+			return Global.baseCapacity + level * 10;
 		}
 
 		public static int LosePop(Player Player1, Player PlayerX, int Pop1, int PopX) {

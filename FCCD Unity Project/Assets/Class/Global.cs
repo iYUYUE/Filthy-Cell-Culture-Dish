@@ -8,7 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using System;
+using System.IO;
+using System.Collections;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 
+using System.Threading;
 using System.Collections.Generic;
 using Gamelogic.Grids;
 namespace AssemblyCSharp
@@ -30,8 +35,9 @@ namespace AssemblyCSharp
 		public readonly static int baseCapacity = 100;
 		public static int winPop;
 		public static int[,] techCost;
-
+		
 		public static DiamondGrid<SpriteCell> grid;
+		public static Dictionary<DiamondPoint, Cell> oldbinder;
 		public static Dictionary<DiamondPoint, Cell> binder;
 //		public static Dictionary<DiamondPoint ,int> pops;
 		public static int numTurns = 0;
@@ -45,7 +51,40 @@ namespace AssemblyCSharp
 		public static Player largestPopPlayer;
 		public static Player largestCellPlayer;
 
+		public static void makeOldBinder(){
+			foreach (var dc in binder) {
+				DiamondPoint dp = dc.Key;
+				Cell c = new Cell(dp);
 
+				foreach (Player pl in players) {
+					c.pops[pl] = dc.Value.pops[pl];
+				}
+				oldbinder[dp] = c;
+			}
+
+		}
+		public static DiamondGrid<SpriteCell> DeepClone(DiamondGrid<SpriteCell> a)
+		{
+			using (MemoryStream stream = new MemoryStream())
+			{
+				BinaryFormatter formatter = new BinaryFormatter();
+				formatter.Serialize(stream, a);
+				stream.Position = 0;
+				return  (DiamondGrid<SpriteCell>) formatter.Deserialize(stream);
+			}
+		}
+		public static void update(){
+			players [currentPlayer].update ();
+			currentPlayer = (currentPlayer + 1)%numberOfPlayers;
+			if (currentPlayer == 0) {
+				numTurns += 1;
+				makeOldBinder();
+			
+				updateCells();
+				updateDemo();
+				updateWinStatus();
+			}
+		}
 		
 		public static void updateCells(){
 			foreach (Gamelogic.Grids.DiamondPoint point in grid) {
@@ -81,7 +120,7 @@ namespace AssemblyCSharp
 
 		public static void updateWinStatus(){
 			foreach (Player pl in players) {
-				if (pl.getUltimateValue()==numTech-1||pl.getPop()>=winPop) {
+				if (pl.getUltimateLevel()==numTech-1||pl.getPop()>=winPop) {
 					winner = pl;
 					gameOver();
 				}

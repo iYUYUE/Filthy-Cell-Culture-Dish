@@ -44,12 +44,14 @@ public class Main : GLMonoBehaviour
 				Global.techCost[i,j] = (int)((double)Global.techCost[i,j-1]*1.5);
 			}
 		}
-		Global.winPop =(int)((double)(Global.WIDTH*Global.HEIGHT)*0.5);
+		Global.winPop =(int)((double)(Global.WIDTH*Global.HEIGHT*Global.baseCapacity)*0.5);
 	}
 	
 	public void Start()
 	{
 		Global.binder = new Dictionary<DiamondPoint, Cell>();
+		
+		Global.oldbinder = new Dictionary<DiamondPoint, Cell> ();
 		historyPoint = new DiamondPoint (-1, -1);
 		InitializeGlobal ();
 		BuildGrid();
@@ -96,22 +98,23 @@ public class Main : GLMonoBehaviour
 	}
 	public void Update()
 	{
+		if(Global.block)
+			return;
 		Vector2 worldPosition = GridBuilderUtils.ScreenToWorld(root, Input.mousePosition);
 		
 		DiamondPoint point = map[worldPosition];
-		if (!Global.explored &&Input.GetMouseButtonDown(0)&&grid.Contains (point)){
-			Debug.Log(Global.block.ToString());
-			if(Global.block)
-				return;
+		if (Input.GetMouseButtonDown(0)&&grid.Contains (point)){
+	//		Debug.Log(Global.block.ToString());
 //			Debug.Log("haha: "+point);
 			Cell tempCell;
 			Global.binder.TryGetValue (point, out tempCell);
 			
 			tempCell.explore(Global.players[Global.currentPlayer]);
-			Global.explored = true;
 			historyColor = grid [point].GetComponent<SpriteCell> ().Color;
+			Global.update();
 		}
 		if (historyPoint != point) {
+			Debug.Log (Global.players[Global.numberOfPlayers-1].getPop());
 			if(grid.Contains (historyPoint))
 				grid [historyPoint].GetComponent<SpriteCell> ().Color = historyColor;
 		

@@ -13,52 +13,43 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+using System.Threading;
 namespace AssemblyCSharp
 {
 	public class Cell
 	{
 		private DiamondPoint point;
-		private Dictionary<Player ,int> pops;
+		public Dictionary<Player ,int> pops;
 		public Cell (DiamondPoint DP)
 		{
 			point = DP;
-//			point.cell = this;
-//			Debug.Log(point.cell);
 			pops = new Dictionary<Player ,int>();
+			foreach (Player pl in Global.players)
+				pops.Add (pl, 0);
 		}
 
 		public void update(){
-			// Search Players Nearby
-			List<Player> PlayerNearBy = new List<Player> ();
+			// Search NearbyCells
 			foreach (Cell neighbor in this.getNeighbors()) {
-				foreach (Player player in neighbor.getPlayerList())
-					if(((double)neighbor.getPop(player) / (double)Formula.GrowthCap(player.getGrowthValue())) > 
-					   Formula.spreadThreshold(player.getExplorationValue()))
-						PlayerNearBy.Add(player);
+				foreach (Player pl in Global.players)
+					if(((double)neighbor.getPop(pl) / (double)Formula.GrowthCap(pl.getGrowthValue())) > 
+					  Formula.spreadThreshold(pl.getExplorationValue()))
+						pops[pl]+= growthChecker((int)(1.0*Formula.GrowthRate(pl.getGrowthLevel())*neighbor.pops[pl]*(Formula.GrowthCap(pl.getGrowthLevel())-pops[pl])/100.0),pl);
 			}
-
-			var GroupedNewPlayer = PlayerNearBy.GroupBy(s => s).Select(group => new { Player = group.Key, Count = group.Count() });
-			// Add New Players
-			foreach (var player in GroupedNewPlayer) {
-				if(!this.getPlayerList().Contains(player.Player))
-					pops.Add (player.Player, this.growthChecker(player.Count * Global.baseCapacity / 10, player.Player));
-				else
-					pops[player.Player] += this.growthChecker(player.Count * Global.baseCapacity / 10, player.Player);
-
-			
-			}
-
+			List<Player> keys = new List<Player> (pops.Keys);
 			// Update Population
-			foreach (var pop in pops)
+			foreach (Player pl in keys)
 			{
-				this.explore(pop.Key);
-				foreach (var popX in pops){
-					if(pop.Key.isPeaceWith(popX.Key))
-						pops[pop.Key] += this.growthChecker(PopDance(pop.Key, popX.Key, pops[pop.Key], pops[popX.Key]), pop.Key);
+				pops[pl]+= growthChecker((int)Formula.GrowthRate(pl.getGrowthLevel())*pops[pl]*(Formula.GrowthCap(pl.getGrowthLevel())-pops[pl]),pl);
+				foreach (Player epl in Global.players){
+					if(!pl.isPeaceWith(epl))
+						pops[pl] += this.growthChecker(PopDance(pl, epl, pops[pl], pops[epl]), pl);
 				}
 				// race distinction
-				if(pops[pop.Key] <= 0)
-					pops.Remove(pop.Key);
+				if(pops[pl] <= 0)
+					pops[pl] = 0;
+				if(pops[pl] >=Formula.GrowthCap(pl.getGrowthLevel()))
+					pops[pl] =(int)Formula.GrowthCap(pl.getGrowthLevel());
 			}
 
 			UpdateColor ();
@@ -81,13 +72,9 @@ namespace AssemblyCSharp
 		}
 
 		public void explore(Player pl){
-			if (Global.explored)
+			if (Global.players[Global.currentPlayer].researhDone()&&false) 
 				return;
-			Global.explored = false;
-			if (!this.getPlayerList ().Contains (pl))
-				pops.Add(pl, Global.baseCapacity / 10);
-			else
-				pops[pl] += this.growthChecker((int) (Formula.GrowthRate(pl.getGrowthValue()) * (double) ((Formula.GrowthCap(pl.getGrowthValue()) - pops[pl]) * pops[pl])), pl);
+			pops[pl] += this.growthChecker(Formula.ExplorePop(pl), pl);
 			UpdateColor ();
 		}
 
@@ -105,7 +92,7 @@ namespace AssemblyCSharp
 				else
 				{
 					Cell tempCell;
-					Global.binder.TryGetValue (neighbor, out tempCell);
+					Global.oldbinder.TryGetValue (neighbor, out tempCell);
 					ret.Add(tempCell);
 				}
 			}
@@ -128,11 +115,9 @@ namespace AssemblyCSharp
 		}
 
 		public int getPop(Player pl) {
-			int pop;
-			if (this.pops.TryGetValue (pl, out pop))
+			int pop=0;
+			pops.TryGetValue (pl, out pop);
 				return pop;
-			else
-				return -1;
 		}
 
 
