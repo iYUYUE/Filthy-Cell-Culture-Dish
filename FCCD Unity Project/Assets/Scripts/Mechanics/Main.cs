@@ -6,6 +6,7 @@
 
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.EventSystems;
 using AssemblyCSharp;
 using Gamelogic;
 using Gamelogic.Grids;
@@ -100,39 +101,41 @@ public class Main : GLMonoBehaviour
 	Thread RunUpdate;
 	public void Update()
 	{
-		
-		if (Global.drawAll) {
-			Global.UpdateAllColor ();
-			Global.drawAll = false;
-			return;
-		}
-		if(Global.block)
-			return;
-		Vector2 worldPosition = GridBuilderUtils.ScreenToWorld(root, Input.mousePosition,cam);
-		DiamondPoint point = map[worldPosition];
-		if (Global.players[Global.currentPlayer].TechSelected&&Input.GetMouseButtonDown(0)&&grid.Contains (point)){
-			//		Debug.Log(Global.block.ToString());
-			//			Debug.Log("haha: "+point);
-			Cell tempCell;
-			Global.binder.TryGetValue (point, out tempCell);
+		if (!EventSystem.current.IsPointerOverGameObject()) {
+			
+			if (Global.drawAll) {
+				Global.UpdateAllColor ();
+				Global.drawAll = false;
+				return;
+			}
+			if (Global.block)
+				return;
+			Vector2 worldPosition = GridBuilderUtils.ScreenToWorld (root, Input.mousePosition, cam);
+			DiamondPoint point = map [worldPosition];
+			if (Global.players [Global.currentPlayer].TechSelected && Input.GetMouseButtonDown (0) && grid.Contains (point)) {
+				//		Debug.Log(Global.block.ToString());
+				//			Debug.Log("haha: "+point);
+				Cell tempCell;
+				Global.binder.TryGetValue (point, out tempCell);
 
-			tempCell.explore(Global.players[Global.currentPlayer]);
-			historyColor = grid [point].GetComponent<SpriteCell> ().Color;
-				Global.update();
-		}
-		if (historyPoint != point) {
-			Debug.Log (Global.players[Global.numberOfPlayers-1].getPop());
-			if(grid.Contains (historyPoint))
-				grid [historyPoint].GetComponent<SpriteCell> ().Color = historyColor;
-		
-			if (grid.Contains (point)) {
-				historyPoint = point;
+				tempCell.explore (Global.players [Global.currentPlayer]);
 				historyColor = grid [point].GetComponent<SpriteCell> ().Color;
-				//Toggle the highlight
-				grid [point].GetComponent<SpriteCell> ().Color = Formula.ColorLighter(grid [point].GetComponent<SpriteCell> ().Color, 0.9f);
-				//			Debug.Log(Global.currentPlayer);
-			} else {
-				historyPoint = new DiamondPoint (-1, -1);
+				Global.update ();
+			}
+			if (historyPoint != point) {
+				Debug.Log (Global.players [Global.numberOfPlayers - 1].getPop ());
+				if (grid.Contains (historyPoint))
+					grid [historyPoint].GetComponent<SpriteCell> ().Color = historyColor;
+			
+				if (grid.Contains (point)) {
+					historyPoint = point;
+					historyColor = grid [point].GetComponent<SpriteCell> ().Color;
+					//Toggle the highlight
+					grid [point].GetComponent<SpriteCell> ().Color = Formula.ColorLighter (grid [point].GetComponent<SpriteCell> ().Color, 0.9f);
+					//			Debug.Log(Global.currentPlayer);
+				} else {
+					historyPoint = new DiamondPoint (-1, -1);
+				}
 			}
 		}
 	}
