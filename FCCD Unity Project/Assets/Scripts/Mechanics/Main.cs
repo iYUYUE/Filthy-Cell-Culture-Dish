@@ -41,12 +41,17 @@ public class Main : GLMonoBehaviour
 	{
 		AddPlayers ();
 		Global.techCost = new int[5,Global.numTech];
-		for (int i =0; i<5; i++) {
+		for (int i =0; i<4; i++) {
 			int j = 0;
-			Global.techCost[i,j] = 10;
+			Global.techCost[i,j] = 2*Global.baseCapacity;
 			for (j++;j<Global.numTech;j++){
-				Global.techCost[i,j] = (int)((double)Global.techCost[i,j-1]*1.5);
+				Global.techCost[i,j] = (int)((double)Global.techCost[i,j-1]*5);
 			}
+		}
+		int jj = 0;
+		Global.techCost[4,jj] = 10*Global.baseCapacity;
+		for (jj++;jj<Global.numTech;jj++){
+			Global.techCost[4,jj] = (int)((double)Global.techCost[4,jj-1]*10);
 		}
 		Global.winPop =(int)((double)(Global.WIDTH*Global.HEIGHT*Global.baseCapacity)*0.5);
 	}
