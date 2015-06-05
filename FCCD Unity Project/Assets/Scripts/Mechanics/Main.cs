@@ -110,14 +110,13 @@ public class Main : GLMonoBehaviour
 			return;
 		Vector2 worldPosition = GridBuilderUtils.ScreenToWorld(root, Input.mousePosition,cam);
 		DiamondPoint point = map[worldPosition];
-		if (Input.GetMouseButtonDown(0)&&grid.Contains (point)){
+		if (Global.players[Global.currentPlayer].TechSelected&&Input.GetMouseButtonDown(0)&&grid.Contains (point)){
 			//		Debug.Log(Global.block.ToString());
 			//			Debug.Log("haha: "+point);
 			Cell tempCell;
 			Global.binder.TryGetValue (point, out tempCell);
 
 			tempCell.explore(Global.players[Global.currentPlayer]);
-			SceneView.RepaintAll();
 			historyColor = grid [point].GetComponent<SpriteCell> ().Color;
 				Global.update();
 		}
