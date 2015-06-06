@@ -54,14 +54,14 @@ namespace AssemblyCSharp
 					if(!pl.isPeaceWith(epl)) {
 						temp[i] += this.growthChecker(PopDance(pl, epl, pops[pl], pops[epl]), pl);
 						temp[j] += this.growthChecker(PopDance(epl, pl, pops[epl], pops[pl]), epl);
-						Debug.Log("i "+temp[i]+" j "+temp[j]);
+		//				Debug.Log("i "+temp[i]+" j "+temp[j]);
 					}
 				}
 			}
 			for (int i = 0; i<Global.numberOfPlayers; i++) {
 				Player pl = Global.players [i];
 				pops[pl]+= temp[i];
-				Debug.Log("temp"+temp[i]);
+		//		Debug.Log("temp"+temp[i]);
 				if(pops[pl] <= 0) {
 				//	Debug.Log(pops[pl]);
 					pops[pl] = 0;

@@ -11,8 +11,8 @@ public class CamMouse : MonoBehaviour
 	public void Start ()
 	{
 		maxOrtho = cam.orthographicSize;
-		Debug.Log (Camera.main.Equals(cam));
-		Debug.Log("Transform Tag is: " + cam.tag);
+//		Debug.Log (Camera.main.Equals(cam));
+//		Debug.Log("Transform Tag is: " + cam.tag);
 	}
 	
 	void Update ()
