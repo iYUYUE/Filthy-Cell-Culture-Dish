@@ -1,0 +1,80 @@
+\section{Rationale for Game Elements}
+
+\subsection{Camera}
+At the very beginning stage, the game will be represented as a 2-D god-view game, in which the main camera is above and perpendicular to the map. If we have enough time, the game will be build as a 2.5-D game (the graphics will be 3-D but the gameplay is still based on 2-D) and the main camera will have an angle with the map, for example, 45 degree. 
+
+Because the game world is designed as the side surface of a cylinder, moves of the main camera on horizon directions (east and west) are unlimited but there are boundaries at ends of the map on vertical directions (north and south). To prevent windows and buttons on the HUD blinding some edge parts of the map, the range that the main camera can reach will be a little bit wider than the size of the map.
+
+The main camera can zoom in and out to help players focus on some particular cell or have an overview of the whole map. Notice that although the whole world can be seen from beginning, since we still have the property of sight, not all elements on the map are naked to players even when they zoom out the main camera to the max value and the whole world is in the screen: only elements in the sight can be seen and outside the sight there will only be the map with shadows.
+
+\subsection{Animations}
+If the time is enough, we will introduce animations as icons which represent the current events of the player.
+\subsubsection{Status Indicating Animation}
+To prevent confusions may caused by too much animations, we decide only add animations to borders of each species' territories: it would be as same as species' color during the normal situation; and their brightness will have a regular change which will make them flicker during the war time.
+
+\subsubsection{Declaration of Gaining New Traits}
+To show the new traits will have a process of spreading, a twinkling will burst from the center of species' territories and enlarge to an aperture until reaching borders.
+
+\subsection{Artificial Intelligence}
+Since this is a strategy game, the artificial intelligence will perform a same character as all human players. Therefore, it is designed to decide different behaviors based on public information which can also be seen by players such as the population and evolution progresses of each species, the encounter situations and diplomacy with other players and the environment capacities nearby its own territories. Their decisions are also affected by the difficulty setting at the beginning of one game.
+
+\subsubsection{Difficulty Choice}
+To provide players suitable hardness games, a difficulty choice is set when a game is constructed. Characteristics of AIs will be the main differences under each difficulty. Generally, AIs' behaviors under the easy mode will be friendly and less aggressive: they may not attack you although you and it is living in a same cell and have been fulfilled its capacity. AIs will choose more aggressive strategies if the hardness is higher: they may spread their species nearby other players to conquer more lands even they have already occupied a large quantity of space. Also, they will tend to choose risky behaviors on diplomacy negotiations: they will attack players in the same cell although their attacking strength may not superiorly higher than others' defensing strength.
+
+\subsubsection{Other Values' influences}
+The population and evolution progresses (in other words, the number of traits a species gathered) will significantly influent behaviors of AIs. For the convenience of design, we set all AIs will stress on short-term achievements. To demonstrate it, we assuming all AIs are friendly now: If an AI does not gain more traits than some other player, it will tend to choose traits that are related to growth to boost the speed of mutation accumulating although they have large space nearby for exploration and traits related to exploring will be very helpful for long-term population growth. 
+
+	\subsection{Sound Effects}
+	The expected sound effect in this game includes:
+	\begin{itemize}
+		\item Single Click
+		\item Double Click
+		\item Mouse Hover
+		\item Encounter
+		\item Game Start
+		\item Game Over
+		\item Result Announcement 
+	\end{itemize}
+	The sound resource is chosen from SoundBible (http://soundbible.com/) which provides a large quantity of sound resource under public sharing license.
+	
+	\subsection{Networking}
+	The networking function of this game is part of the future plan.
+	\subsection{Map}
+	The game map is a hex map (as Figure 1 shows) which is divided into small regular hexagons of identical size. Vertically, the map was bounded because of the data structure of the map which is a two-dimensional array. However, in the horizontal direction, the map will be infinite since the map will be projected onto the side of a cylinder. The player would be able to explore the map through the rotation of the cylinder and the map will be boundless horizontally
+
+	Each cell of the map can be in one of two statuses. Firstly, the cells are available to a user. In this situation, the population density of each cell will be indicated by the depth of color of that cell. The cell taken by different species will be presented by different color. There is also an exception, during the war, a cell may show mixed colors which represent the species joined the war respectively. The boundary of species will be highlighted by black lines. Secondly, the cells are disabled to a user until he or she achieve higher level of sight traits. In this situation, the cell will be shaded and untouchable. The user will not be able to get any information about the status of the cells.
+	
+	The players can zoom in or zoom out the main map on the screen as they want to explore every detail of the game world.
+	\subsection{Traits Tree}
+	Like common strategy computer games, the traits tree in this game is a hierarchical visual representation of the possible sequences of upgrades a player can take or not, such as faster population growth, broader view and free movement. The development of traits mainly relies on the population base and the habitats of species. On the one hand, the more population the species has, the faster the traits will upgrade. On the other hand, the fewer habitats the species occupies the faster the traits will evolve. The traits in this game is consisted of five main categories: Growth Trait, Explore Trait, Attack Trait, Defense Trait and Ultimate Trait.
+	
+
+	\begin{itemize}
+		\item Growth Trait
+		\begin{itemize}
+			\item Expanding pace of species' population
+			\item Roam threshold (population quantity) of species to neighbour cells.
+		\end{itemize}
+		\item Exploring Trait
+		\begin{itemize}
+			\item The wideness of the player sight. (Unknown cells are shaded and untouchable)
+			\item Movement restriction (The farthest cell player can explore)
+		\end{itemize}
+		\item Attacking Trait
+		\begin{itemize}
+			\item Positive factor for your specie during the battle among species
+		\end{itemize}
+		\item Defensive Trait
+		\begin{itemize}
+			\item Negative factor for other species during the battle among species
+		\end{itemize}
+		\item Ultimate Trait
+		\begin{itemize}
+			\item The very only approach to win the game with a special trait. This trait will enable the specie to fly out of the culture dish and earn victory
+		\end{itemize}
+	\end{itemize}
+	
+\subsection{Graphics}
+Ideally, we would like to provide both 2D and 3D mode for the game graphics. In 3D mode, some lighting condition might help with visualizing informations. That being said, development will be focused on simplified 2D mode.
+
+The scenes will be made as simple as possible. No fancy graphics will be used.
