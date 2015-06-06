@@ -74,6 +74,9 @@ namespace AssemblyCSharp {
 				    Global.techCost [techOnResearch, techAndProgress [techOnResearch, 0]]) {
 					techAndProgress [techOnResearch, 0]++;
 					techAndProgress [techOnResearch, 1] = 0;
+					Double discountedCost = Global.techCost [techOnResearch, techAndProgress [techOnResearch, 0]] * 0.9;
+					Global.techCost [techOnResearch, techAndProgress [techOnResearch, 0]] = (int) discountedCost;
+
 					techSelected = false;
 					techOnResearch = -1;
 				}
@@ -128,23 +131,23 @@ namespace AssemblyCSharp {
 		}
 		
 		public string getGrowthValueForDisplay() {
-			return techAndProgress [Global.GROWTH, 1] + " / " + Global.techCost[Global.GROWTH, 0];
+			return techAndProgress [Global.GROWTH, 1] + " / " + Global.techCost[Global.GROWTH, techAndProgress [Global.GROWTH, 0]];
 		}
 		
 		public string getExplorationValueForDisplay() {
-			return techAndProgress [Global.EXPLORATION, 1] + " / " + Global.techCost[Global.EXPLORATION, 0];
+			return techAndProgress [Global.EXPLORATION, 1] + " / " + Global.techCost[Global.EXPLORATION, techAndProgress [Global.EXPLORATION, 0]];
 		}
 		
 		public string getAttackValueForDisplay() {
-			return techAndProgress [Global.ATTACKING, 1] + " / " + Global.techCost[Global.ATTACKING, 0];
+			return techAndProgress [Global.ATTACKING, 1] + " / " + Global.techCost[Global.ATTACKING, techAndProgress [Global.ATTACKING, 0]];
 		}
 		
 		public string getDefenseValueForDisplay() {
-			return techAndProgress [Global.DEFENSING, 1] + " / " + Global.techCost[Global.DEFENSING, 0];
+			return techAndProgress [Global.DEFENSING, 1] + " / " + Global.techCost[Global.DEFENSING, techAndProgress [Global.DEFENSING, 0]];
 		}
 		
 		public string getUltimateValueForDisplay() {
-			return techAndProgress [Global.ULTIMATE, 1] + " / " + Global.techCost[Global.ULTIMATE, 0];
+			return techAndProgress [Global.ULTIMATE, 1] + " / " + Global.techCost[Global.ULTIMATE, techAndProgress [Global.ULTIMATE, 0]];
 		}
 		
 		public int getPop() {
