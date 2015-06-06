@@ -44,7 +44,7 @@ namespace AssemblyCSharp {
 
 			globalLargestPop.text = Global.largestPop.ToString ();
 			globalLargestCells.text = Global.largestTerritory.ToString () + "/" + Global.binder.Count.ToString ();
-			turnCounter.text = "Turn " + Global.numTurns.ToString ();
+			turnCounter.text = "Turn " + Global.numTurns.ToString () + "/" + Global.maxTurn;
 			selfPopAmount.text = Global.players[Global.currentPlayer].getPop ().ToString ();
 			selfCellAmount.text = Global.players [Global.currentPlayer].getCells ().ToString () + "/" + Global.binder.Count.ToString ();
 
