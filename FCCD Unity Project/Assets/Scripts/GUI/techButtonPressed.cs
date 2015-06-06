@@ -9,10 +9,10 @@ namespace AssemblyCSharp
 		public Button techBtn2;
 		public Button techBtn3;
 		public Button techBtn4;
+		private int techToResearch = -1;
 		// Use this for initialization
 		void Start () {
 			currentBtn = GetComponent<Button> ();
-			int techToResearch = -1;
 			switch (currentBtn.GetComponentInChildren<Text>().text) {
 			case "Growth": techToResearch = 0; break;
 			case "Exploration": techToResearch = 1; break;
@@ -33,7 +33,7 @@ namespace AssemblyCSharp
 		
 		// Update is called once per frame
 		void Update () {
-			
+
 		}
 	}
 }

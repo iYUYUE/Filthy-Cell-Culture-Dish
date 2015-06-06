@@ -28,6 +28,12 @@ namespace AssemblyCSharp {
 			cellIndicator.text = "Cells: " + Global.players [Global.currentPlayer].getCells ().ToString ();
 
 			//Demographics
+
+			if(!(Global.largestPopPlayer == null)){
+				globalLargestPop.color = Global.largestPopPlayer.getColor ();}
+			if(!(Global.largestCellPlayer == null)){
+				globalLargestCells.color = Global.largestCellPlayer.getColor ();}
+
 			globalLargestPop.text = Global.largestPop.ToString ();
 			globalLargestCells.text = Global.largestTerritory.ToString () + "/" + Global.binder.Count.ToString ();
 			turnCounter.text = "Turn " + Global.numTurns.ToString ();
@@ -35,11 +41,20 @@ namespace AssemblyCSharp {
 			selfCellAmount.text = Global.players [Global.currentPlayer].getCells ().ToString () + "/" + Global.binder.Count.ToString ();
 
 			//Traits
-			growthLevel.text = Global.players [Global.currentPlayer].getGrowthLevel ().ToString ();;
-			expoLevel.text = Global.players [Global.currentPlayer].getExplorationLevel ().ToString ();;
-			attackLevel.text = Global.players [Global.currentPlayer].getAttackLevel ().ToString ();;
-			defenseLevel.text = Global.players [Global.currentPlayer].getDefenseLevel ().ToString ();;
-			ultimateLevel.text = Global.players [Global.currentPlayer].getUltimateLevel ().ToString ();;
+			int growthInt = Global.players [Global.currentPlayer].TechAndProgress [0, 0];
+			growthLevel.text = growthInt < Global.numTech? growthInt.ToString () : "MAX";
+
+			int expoInt = Global.players [Global.currentPlayer].TechAndProgress [1, 0];
+			expoLevel.text = expoInt < Global.numTech? expoInt.ToString () : "MAX";
+
+			int attInt = Global.players [Global.currentPlayer].TechAndProgress [2, 0];
+			attackLevel.text = attInt < Global.numTech? attInt.ToString () : "MAX";
+
+			int defInt = Global.players [Global.currentPlayer].TechAndProgress [3, 0];
+			defenseLevel.text = defInt < Global.numTech? defInt.ToString () : "MAX";
+
+			int ultInt = Global.players [Global.currentPlayer].TechAndProgress [4, 0];
+			ultimateLevel.text = ultInt < Global.numTech? ultInt.ToString () : "MAX";
 
 
 		}
