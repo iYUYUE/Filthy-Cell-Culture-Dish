@@ -36,13 +36,13 @@ namespace AssemblyCSharp
 				foreach (Player pl in Global.players)
 					if(((double)neighbor.getPop(pl) / (double)Formula.GrowthCap(pl.getGrowthLevel())) > 
 					  Formula.spreadThreshold(pl.getExplorationLevel()))
-						pops[pl]+= growthChecker((int)(1.0*Formula.GrowthRate(pl.getGrowthLevel())*neighbor.pops[pl]*(Formula.GrowthCap(pl.getGrowthLevel())-getTotalPop())/100.0),pl);
+						pops[pl]+= growthChecker((int)(1.0*Formula.GrowthRate(pl)*neighbor.pops[pl]*(Formula.GrowthCap(pl.getGrowthLevel())-getTotalPop())/10),pl);
 			}
 			
 			// Update Population
 			for (int i = 0; i<Global.numberOfPlayers; i++) {
 				Player pl = Global.players [i];
-				pops[pl]+= growthChecker((int)(Formula.GrowthRate(pl.getGrowthLevel())*pops[pl]*(Formula.GrowthCap(pl.getGrowthLevel())-pops[pl])),pl);
+				pops[pl]+= growthChecker((int)(Formula.GrowthRate(pl)*pops[pl]*(Formula.GrowthCap(pl.getGrowthLevel())-getTotalPop())),pl);
 				
 				if(pops[pl] <= 0) {
 					//	Debug.Log(pops[pl]);

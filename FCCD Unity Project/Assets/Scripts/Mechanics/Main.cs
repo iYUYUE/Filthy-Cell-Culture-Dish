@@ -137,7 +137,7 @@ public class Main : GLMonoBehaviour
 				if (grid.Contains (point)) {
 					historyPoint = point;
 					//Toggle the highlight
-					grid [point].GetComponent<SpriteCell> ().HighlightOn = true;
+					grid [point].GetComponent<SpriteCell>().HighlightOn = true;
 
 					// show the cell detail
 					Cell tempCell;
