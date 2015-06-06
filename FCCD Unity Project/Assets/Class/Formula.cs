@@ -15,10 +15,10 @@ namespace AssemblyCSharp
 	public static class Formula
 	{
 		public static int ExplorePop(Player pl){
-			return Global.baseCapacity*Global.numTech/10 + pl.getExplorationLevel()* Global.baseCapacity/Global.numTech;
+			return (int)(Global.baseCapacity*(double)(0.5 + (double)pl.getExplorationLevel()/(double)Global.numTech));
 		}
 		public static double GrowthRate(int level) {
-			return ((double) level) * 0.01 + 0.02;
+			return (((double) level) * 0.1 + 0.2)/Global.baseCapacity;
 		}
 		public static double GrowthRate(Player pl) {
 			return GrowthRate (pl.getGrowthLevel ());
