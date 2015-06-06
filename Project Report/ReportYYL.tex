@@ -1,0 +1,308 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+%opening
+\title{
+	CSE310 Design Document\\
+	Filthy Cell-Culture Dish\\
+	}
+\author{Boyuan Yuan	1101609\\
+		Chunchuan Lv 1100600\\
+		Yue Yu	1101038\\
+		}
+\renewcommand{\baselinestretch}{1.5} 
+\begin{document}
+
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\section{Overview}
+
+This game is a strategy game. Each player creates and evolves a kind of bacteria in an effort to populate the span of a culture dish in a biological laboratory. The game uses a population model with a complex and realistic set of variables and rules to simulate the evolution and competition of the bacteria. Player will be in charge with macro manage the evolutionary path of his/her species and micro manage exploration of the small world. In addition, diplomacy issues will be brought up once two species encounter. The purpose of the game is to take the species into prosperity.
+
+The small world is represented by consecutive hexagons/cells. Individual cell has only properties of current population of species and its' environmental limit. There will be additional statistics available for player for decision making.
+
+Players will be challenged to make decisions under an environment of uncertainty. The exploration element allows player treat the game like GO, however traits element will make species asymmetry. Therefore, there might be a rich set of strategies emerge.
+
+Game will be over when the whole world is all filled by bacteria. During the competition process, the players can gain a touch of biological knowledge and skills about bacterial reproduction. Moreover, the players will be able to enjoy themselves and feel satisfied during the competition and, possibly, corporation with each other. Therefore, the player will be offered rich opportunities for getting a sense of achievement, recognition, and satisfaction at the same time.
+
+
+\section{Story}
+The background of the game is a simulation of competitions and evolutions of different species. Players will control a species and choose where to development and which traits to gain through evolution. Victory of the game is simple: being the majority of all species, or gain abilities to jump out of the give map.
+
+\subsection{Species}
+The main characters in the game. One species contains a large quantity of individuals and their behaviors are considered as one: a trait from one individual will be deployed by all individuals immediately. Same for diplomacy decisions: they will be seen as the determinations of all members of one species so situations such as in one border two species are fighting but at another border they are peacefully developing will never happen.
+
+\subsection{Game World}
+The game world is set to be flat and even: no differences on terrains and resources. Therefore the speed of spreading on the map for one particular species will be same for every cell of the map and the number of individuals that a cell can supply would be the same.
+
+\section{Gameplay Mechanics}
+
+
+	\subsection{Diplomacy}
+	At the first time when two or more than two species meet at a single cell, the players taking control of the species will be asked to make a diplomacy decision that is whether to fight against other species he or she met. Then a war between two species can only be avoided if both of the players between these two species choose to make peace. Either the war between two species happened or not the diplomacy decision between two species can only be changed after ten turns.
+	
+	\subsection{Upgrade Traits}
+	Once the population, mutation and other requirements are met, a player will be given choices to upgrade a specific trait or not. Once traits are upgraded the corresponding advantages will be shown immediately. Therefore, this action cannot be revoked.
+	
+	\subsection{Exploration}
+	Players can explore every cell on the map within their movement restriction. They can promote their species to give high priority on spreading at a specific direction. In other words, players will be required to chose one particular cell within sight to grow population in that cell by a certain number. This action will enable users to control the whole process of the game indirectly. The cells out of their sight will be shaded and untouchable. The user will not be able to get any information about the status of those cells.
+	
+	\subsection{War}
+	A war will happen if either party of the species encountered declares a war. During the war, the number of species in that cell will be recalculated according to the attacking trait and defensive trait of both species.
+	
+	\subsection{Make Peace}
+	The species at same cell choose to make peace and share the resource of that cell following predefined sharing rules.
+\section{Game World Behavior}
+The main focus of the game is on growing one's colony. The growth is decided by traits and population of species within the particular cell and nearby ones, and some diplomatic condition. After calculation growth, updating in traits will be done.
+
+\subsection{Growth}
+
+The growth of a species in a particular cell is determined by status of the game at the end of a turn. Every cell has an environmental limit, and the growth is supposed to be a logistic model. Ceiling function will be used, since we are handling discontinuous model. Parameters will be controlled by growth trait of the specie.
+
+When species are at war with each other, they could convert the population of other species into itself. The converting speed will be determined by their current populations, defense and offense trait. 
+
+Population in a cell could also contribute to the growth in nearby cells by a discount ratio of 6 as it is in that cell.
+ 
+\subsection{Traits Updating}
+New traits will be obtained as game progress. At the end of each turn, if enough mutation is culminated, current selected trait will be advanced into next stage. The required mutation will be determined by whether this level of trait is obtained by other species (if it does, there is a discount) and current level of the trait. 
+
+\subsection{Mutation}
+Mutation is decided by current total population and number of dominated cells. It will be proportional to population but discounted by number of cells.
+
+\subsection{Accidents}
+There might be random events happen in the game. They happen once in a few turns.
+\begin{itemize}
+\item Wipe out
+All population in a particular cell will be wiped out.
+\item Grow day
+All population in a particular cell will be doubled.
+\item Learning
+Back-warded species might obtain certain mutation points for free.
+
+\end{itemize}
+\subsection{Victory Conditions}
+There are three conditions for victory. They are domination victory, time victory, and evolution victory.
+\begin{itemize}
+\item Domination victory
+A species has over 60\% of maximum population
+\item Time victory
+Species with most population wins if game does not end within 50 turns
+\item Evolution victory
+A trait of moving out of cells is developed to ultimate level.
+\end{itemize}
+\section{Game Elements}
+
+\subsection{Camera}
+At the very beginning stage, the game will be represented as a 2-D god-view game, in which the main camera is above and perpendicular to the map. If we have enough time, the game will be build as a 2.5-D game (the graphics will be 3-D but the gameplay is still based on 2-D) and the main camera will have an angle with the map, for example, 45 degree. 
+
+Because the game world is designed as the side surface of a cylinder, moves of the main camera on horizon directions (east and west) are unlimited but there are boundaries at ends of the map on vertical directions (north and south). To prevent windows and buttons on the HUD blinding some edge parts of the map, the range that the main camera can reach will be a little bit wider than the size of the map.
+
+The main camera can zoom in and out to help players focus on some particular cell or have an overview of the whole map. Notice that although the whole world can be seen from beginning, since we still have the property of sight, not all elements on the map are naked to players even when they zoom out the main camera to the max value and the whole world is in the screen: only elements in the sight can be seen and outside the sight there will only be the map with shadows.
+
+\subsection{Animations}
+If the time is enough, we will introduce animations as icons which represent the current events of the player.
+\subsubsection{Status Indicating Animation}
+To prevent confusions may caused by too much animations, we decide only add animations to borders of each species' territories: it would be as same as species' color during the normal situation; and their brightness will have a regular change which will make them flicker during the war time.
+
+\subsubsection{Declaration of Gaining New Traits}
+To show the new traits will have a process of spreading, a twinkling will burst from the center of species' territories and enlarge to an aperture until reaching borders.
+
+\subsection{Artificial Intelligence}
+Since this is a strategy game, the artificial intelligence will perform a same character as all human players. Therefore, it is designed to decide different behaviors based on public information which can also be seen by players such as the population and evolution progresses of each species, the encounter situations and diplomacy with other players and the environment capacities nearby its own territories. Their decisions are also affected by the difficulty setting at the beginning of one game.
+
+\subsubsection{Difficulty Choice}
+To provide players suitable hardness games, a difficulty choice is set when a game is constructed. Characteristics of AIs will be the main differences under each difficulty. Generally, AIs' behaviors under the easy mode will be friendly and less aggressive: they may not attack you although you and it is living in a same cell and have been fulfilled its capacity. AIs will choose more aggressive strategies if the hardness is higher: they may spread their species nearby other players to conquer more lands even they have already occupied a large quantity of space. Also, they will tend to choose risky behaviors on diplomacy negotiations: they will attack players in the same cell although their attacking strength may not superiorly higher than others' defensing strength.
+
+\subsubsection{Other Values' influences}
+The population and evolution progresses (in other words, the number of traits a species gathered) will significantly influent behaviors of AIs. For the convenience of design, we set all AIs will stress on short-term achievements. To demonstrate it, we assuming all AIs are friendly now: If an AI does not gain more traits than some other player, it will tend to choose traits that are related to growth to boost the speed of mutation accumulating although they have large space nearby for exploration and traits related to exploring will be very helpful for long-term population growth. 
+
+	\subsection{Sound Effects}
+	The expected sound effect in this game includes:
+	\begin{itemize}
+		\item Single Click
+		\item Double Click
+		\item Mouse Hover
+		\item Encounter
+		\item Game Start
+		\item Game Over
+		\item Result Announcement 
+	\end{itemize}
+	The sound resource is chosen from SoundBible (http://soundbible.com/) which provides a large quantity of sound resource under public sharing license.
+	
+	\subsection{Networking}
+	The networking function of this game is part of the future plan.
+	\subsection{Map}
+	\begin{figure}[h!]
+	\begin{center}
+	\includegraphics[width=10cm]{ref/hex_array}
+	\caption{The main game screen.}
+	\end{center}
+	\end{figure}
+	The game map is a hex map (as Figure 1 shows) which is divided into small regular hexagons of identical size. Vertically, the map was bounded because of the data structure of the map which is a two-dimensional array. However, in the horizontal direction, the map will be infinite since the map will be projected onto the side of a cylinder. The player would be able to explore the map through the rotation of the cylinder and the map will be boundless horizontally
+
+	Each cell of the map can be in one of two statuses. Firstly, the cells are available to a user. In this situation, the population density of each cell will be indicated by the depth of color of that cell. The cell taken by different species will be presented by different color. There is also an exception, during the war, a cell may show mixed colors which represent the species joined the war respectively. The boundary of species will be highlighted by black lines. Secondly, the cells are disabled to a user until he or she achieve higher level of sight traits. In this situation, the cell will be shaded and untouchable. The user will not be able to get any information about the status of the cells.
+	
+	The players can zoom in or zoom out the main map on the screen as they want to explore every detail of the game world.
+	\subsection{Traits Tree}
+	Like common strategy computer games, the traits tree in this game is a hierarchical visual representation of the possible sequences of upgrades a player can take or not, such as faster population growth, broader view and free movement. The development of traits mainly relies on the population base and the habitats of species. On the one hand, the more population the species has, the faster the traits will upgrade. On the other hand, the fewer habitats the species occupies the faster the traits will evolve. The traits in this game is consisted of five main categories: Growth Trait, Explore Trait, Attack Trait, Defense Trait and Ultimate Trait.
+	
+
+	\begin{itemize}
+		\item Growth Trait
+		\begin{itemize}
+			\item Expanding pace of species' population
+			\item Roam threshold (population quantity) of species to neighbour cells.
+		\end{itemize}
+		\item Exploring Trait
+		\begin{itemize}
+			\item The wideness of the player sight. (Unknown cells are shaded and untouchable)
+			\item Movement restriction (The farthest cell player can explore)
+		\end{itemize}
+		\item Attacking Trait
+		\begin{itemize}
+			\item Positive factor for your specie during the battle among species
+		\end{itemize}
+		\item Defensive Trait
+		\begin{itemize}
+			\item Negative factor for other species during the battle among species
+		\end{itemize}
+		\item Ultimate Trait
+		\begin{itemize}
+			\item The very only approach to win the game with a special trait. This trait will enable the specie to fly out of the culture dish and earn victory
+		\end{itemize}
+	\end{itemize}
+	
+\subsection{Graphics}
+Ideally, we would like to provide both 2D and 3D mode for the game graphics. In 3D mode, some lighting condition might help with visualizing informations. That being said, development will be focused on simplified 2D mode.
+
+The scenes will be made as simple as possible. No fancy graphics will be used.
+
+\section{Game Progression}
+Player starts  at a small portion in the map, and progress to dominate the whole map.
+\subsection{Game Settings}
+Before the game beginnings, players are allowed to choose number of species, difficulty level and number of human players. The size or shape of the map should also be made changeable if time allows. It will also be possible to turn on/off accidents in the game to remove randomness.
+\subsection{Early Game}
+The game begins small amount of population in a randomly selected cell. The player will only has a sight within a radius of two near the cell. The population and territory of controlled species will grow as game progress. The main task in this period of the game is to develop a suitable set of traits and expand quickly.
+\subsection{Middle Game}
+At this stage of the game, players have already encountered other opponents. The main task in this period is to establish diplomatic relationship and define border against opponents. Diplomatic relationship is about whether try to attack opponent. In terms of traits development, the focus might shift from focusing on growth, exploration to offense and defense. In addition, advanced species might consider develop ability to move out of the world to achieve evolution victory.
+\subsection{Late Game}
+In late period, there is most likely no empty space left. The focus of the game will shift to direct conflicts between different species. Players will be making choices of whether to ally with others,  whether to focus on evolution and how to allocate population every turn as way to defend and offend.
+\subsection{End Game}
+One species achieved one of victories. Since there is time victory where population at the particular turn decides winner, the game will always end.
+
+\section{User Interface}
+The game will have two main game screens: the title screen and the in-game screen.
+
+\subsection{Title Screen}
+The title screen is the first view players will see when the game is executed. Some functional buttons will be listed there with a background image and text including the game title. Detailed information about buttons can be seen in the Menu section.
+
+After pressing new game button from the title screen, a game setting screen will be shown with configurations including the name, color and bias of the player, the size of the map, and the number and hardness of AIs.
+
+\begin{figure}[h!]
+	\begin{center}
+	\includegraphics[width=10cm]{ref/revised_gui}
+	\caption{The main game screen.}
+	\end{center}
+\end{figure}
+
+\subsection{In-Game Screen}
+As shown in Figure 1, the main game screen is constructed by 5 parts: the game map, the player status bar, the menu bar, the mini map and the status window.
+
+\subsubsection{Game Map}
+The game map will be the main component of the in-game screen since all microcosmic operations including selecting the main direction of spreading are happened here and properties of cells will directly shown on the map such as the ownership of a cell. Detailed information including the setting of shadows can be referred in Map subsection under Game elements.
+
+\subsubsection{Player Status Bar}
+Important value will shown in the player status bar including: the total population of the player, the population growth ratio per turn, the turn counter and an information box which shows the latest event notification. Only the information box is click-able, which pops up a list of all notifications since the game starts.
+
+\subsubsection{Menu Bar}
+The menu bar contains a series of buttons which give players access to not only game system functions such as saving and loading, but also information windows including demographics and traits. A tree structure of all provided functions is presented in the Menu section.
+
+\subsubsection{Mini Map}
+The mini map provides players a shortcut for quick navigating on the whole game world by clicking points on it. Cells occupied by each species will be colored as same style on the mini map. Cells where wars are happening will be filled as a mix color of all species who are contributing to the war. Notice that all elements that are hidden by shadows in the main game world will be also not shown on the mini map.
+
+\subsubsection{Status Window}
+The status window will be transparent and only shown when some cell is selected by mouse clicking. Information related to the selected cell will be presented in the window including the total capacity of the cell, population of different species in the cell. It will be helpful for players to monitoring the process of wars or conquests.
+
+\subsection{Game Controls}
+The game is generally controlled by mouse, which can be mainly divided into two different parts: drags and clicks.
+
+\subsubsection{Drag Operations}
+It is obvious that moves of main camera on the map need to involve drag operations, which are defined as pressing down the left button of the mouse and move the cursor.
+
+\subsubsection {Click Operations}
+Mouse clicks will be the major method to control the whole game. Clicking on buttons will trigger functions binding with the pressed button such as jump to the option, demographics, or traits screen.
+
+When clicking on map cells, the information window will pop-up from the left bottom conner.
+
+Details about other screens and the information window triggered by buttons will in the user interface section.
+
+
+\section{Menus, Options and Screen}
+\subsection{System Menu}
+\begin{itemize}
+\item New Game
+\begin{itemize}
+\item Start\hfill Start a new game
+\item Game setting \hfill Go to game setting
+\end{itemize}
+\item Load \hfill Go to loading screen
+\item Quit \hfill End game
+\end{itemize}
+\subsection{In Game Menu}
+\begin{itemize}
+\item Main menu 
+\begin{itemize}
+\item Back \hfill Go to system menu
+\item Load \hfill Go to loading screen
+\item Save \hfill Go to save screen
+\item Quit \hfill End game
+\item Settings \hfill Go to environmental settings
+\end{itemize}
+\item Demographics \hfill Go to demographics screen
+\item Trait \hfill Go to trait screen
+\item Diplomacy \hfill Gl to diplomacy screen
+\end{itemize}
+\subsection{Option}
+Environmental settings
+\begin{itemize}
+\item Music volume
+\item Show score list or not
+\item Auto save \hfill turns
+\end{itemize}
+Game settings
+\begin{itemize}
+\item Number of players
+\item Difficulty level
+\item Map size
+\end{itemize}
+\subsection{Screens}
+\begin{itemize}
+\item Demographics 
+\begin{itemize}
+\item Total population
+\item Total dominated cell
+\item Total traits
+\item Progress of moving out
+\end{itemize}
+\item Traits 
+\begin{itemize}
+\item Ability of moving out
+\item Growth
+\item Exploration
+\item Defense
+\item Offense
+\end{itemize}
+\item Diplomacy 
+\begin{itemize}
+\item Playerx \hfill War/peace offer
+\item etc
+\end{itemize}
+\end{itemize}
+
+\end{document}
