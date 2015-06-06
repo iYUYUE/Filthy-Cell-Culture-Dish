@@ -8,14 +8,22 @@ namespace AssemblyCSharp {
 		public Text globalLargestPop;
 		public Text selfCellAmount;
 		public Text globalLargestCells;
+
 		public Text turnCounter;
+		public Text popIndicator;
+		public Text cellIndicator;
+
 		public Text growthLevel;
 		public Text expoLevel;
 		public Text attackLevel;
 		public Text defenseLevel;
 		public Text ultimateLevel;
-		public Text popIndicator;
-		public Text cellIndicator;
+
+		public Text growthProc;
+		public Text expoProc;
+		public Text attackProc;
+		public Text defenseProc;
+		public Text ultimateProc;
 		// Use this for initialization
 		void Start () {
 
@@ -56,7 +64,11 @@ namespace AssemblyCSharp {
 			int ultInt = Global.players [Global.currentPlayer].TechAndProgress [4, 0];
 			ultimateLevel.text = ultInt < Global.numTech? ultInt.ToString () : "MAX";
 
-
+			growthProc.text = Global.players [Global.currentPlayer].getGrowthValueForDisplay ();
+			expoProc.text = Global.players [Global.currentPlayer].getExplorationValueForDisplay ();
+			attackProc.text = Global.players [Global.currentPlayer].getAttackValueForDisplay ();
+			defenseProc.text = Global.players [Global.currentPlayer].getDefenseValueForDisplay ();
+			ultimateProc.text = Global.players [Global.currentPlayer].getUltimateValueForDisplay ();
 		}
 	}
 }

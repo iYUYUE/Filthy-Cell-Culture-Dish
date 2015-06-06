@@ -16,6 +16,8 @@ using System.Runtime.Serialization;
 using System.Threading;
 using System.Collections.Generic;
 using Gamelogic.Grids;
+using UnityEngine.UI;
+
 namespace AssemblyCSharp
 {
 	public class Global
