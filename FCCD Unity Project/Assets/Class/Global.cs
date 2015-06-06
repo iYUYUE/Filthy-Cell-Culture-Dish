@@ -27,12 +27,12 @@ namespace AssemblyCSharp
 		public readonly static int ATTACKING = 2;
 		public readonly static int DEFENSING = 3;
 		public readonly static int ULTIMATE = 4;
-		public static int WIDTH =20;
-		public static int HEIGHT =15;
-		public static int maxTurn = 100;
+		public static int WIDTH =10;
+		public static int HEIGHT =10;
+		public static int maxTurn = 10;
 		public static Boolean explored = false;
 		public static Boolean block = false;
-		public static int numberOfPlayers = 2;
+		public static int numberOfPlayers = 3;
 		public readonly static int numTech = 5;
 		public readonly static int baseCapacity = 100;
 		public static int winPop;
