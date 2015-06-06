@@ -15,12 +15,19 @@ namespace AssemblyCSharp
 	public static class Formula
 	{
 		public static int ExplorePop(Player pl){
-			return Global.baseCapacity*Global.numTech/10 + pl.getExplorationLevel()* Global.baseCapacity/10;
+			return (int)(Global.baseCapacity*(double)(0.5 + (double)pl.getExplorationLevel()/(double)Global.numTech));
 		}
 		public static double GrowthRate(int level) {
-			return ((double) level) * 0.01 + 0.02;
+			return (((double) level) * 0.1 + 0.2)/Global.baseCapacity;
 		}
-		
+		public static double GrowthRate(Player pl) {
+			return GrowthRate (pl.getGrowthLevel ());
+		}
+		public static int GrowthCap(Player pl){
+			int level = pl.getGrowthLevel ();
+			return  GrowthCap (level);
+
+		}
 		public static int GrowthCap(int level) {
 			if (level <= 0)
 				return Global.baseCapacity;
@@ -29,12 +36,12 @@ namespace AssemblyCSharp
 		
 		public static int LosePop(Player Player1, Player PlayerX, int Pop1, int PopX) {
 			return Math.Min((int)(((double)(Player1.getDefenseLevel() - PlayerX.getAttackLevel())/
-			                       (double)(Player1.getAttackLevel() + PlayerX.getAttackLevel() + Player1.getDefenseLevel() + PlayerX.getDefenseLevel()+Global.numTech*2) ) * (double)(Pop1 * PopX)),(int)(- 0.05* (double)(Pop1 * PopX)))/Global.baseCapacity;
+			                       (double)(PlayerX.getAttackLevel() + Player1.getDefenseLevel() +1) ) * (double)(Pop1 * PopX)),(int)(- 0.05* (double)(Pop1 * PopX)))/Global.baseCapacity;
 		}
 		
 		public static int GainPop(Player Player1, Player PlayerX, int Pop1, int PopX) {
 			return Math.Max ((int)(((double)(Player1.getAttackLevel() - PlayerX.getDefenseLevel())/
-			                        (double)(Player1.getAttackLevel() + PlayerX.getAttackLevel() + Player1.getDefenseLevel() + PlayerX.getDefenseLevel()+Global.numTech*2) - 0.05) * (double)(Pop1 * PopX)),0)/Global.baseCapacity;
+			                        (double)(Player1.getAttackLevel() + PlayerX.getDefenseLevel()+1) ) * (double)(Pop1 * PopX)),0)/Global.baseCapacity;
 		}
 		
 		public static double spreadThreshold(int level) {
@@ -45,7 +52,13 @@ namespace AssemblyCSharp
 			else
 				return Global.numTech*0.1 - ((double) level) * 0.1+0.3;
 		}
+
 		
+		public static double spreadThreshold(Player pl) {
+			int level = pl.getExplorationLevel ();
+			return spreadThreshold (level);
+		}
+
 		// float r range from 0 ~ 1 (100%)
 		public static Color ColorLighter(Color origin, float r) {
 			if (r == 0.0f)

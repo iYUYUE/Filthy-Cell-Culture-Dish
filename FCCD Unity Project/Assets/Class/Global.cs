@@ -29,7 +29,7 @@ namespace AssemblyCSharp
 		public readonly static int ULTIMATE = 4;
 		public static int WIDTH =10;
 		public static int HEIGHT =10;
-		public static int maxTurn = 100;
+		public static int maxTurn = 10;
 		public static Boolean explored = false;
 		public static Boolean block = false;
 		public static int numberOfPlayers = 2;
