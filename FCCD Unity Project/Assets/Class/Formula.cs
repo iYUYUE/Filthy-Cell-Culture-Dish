@@ -36,12 +36,12 @@ namespace AssemblyCSharp
 		
 		public static int LosePop(Player Player1, Player PlayerX, int Pop1, int PopX) {
 			return Math.Min((int)(((double)(Player1.getDefenseLevel() - PlayerX.getAttackLevel())/
-			                       (double)(Player1.getAttackLevel() + PlayerX.getAttackLevel() + Player1.getDefenseLevel() + PlayerX.getDefenseLevel()+1) ) * (double)(Pop1 * PopX)),(int)(- 0.05* (double)(Pop1 * PopX)))*50/Global.baseCapacity;
+			                       (double)(PlayerX.getAttackLevel() + Player1.getDefenseLevel() +1) ) * (double)(Pop1 * PopX)),(int)(- 0.05* (double)(Pop1 * PopX)))/Global.baseCapacity;
 		}
 		
 		public static int GainPop(Player Player1, Player PlayerX, int Pop1, int PopX) {
 			return Math.Max ((int)(((double)(Player1.getAttackLevel() - PlayerX.getDefenseLevel())/
-			                        (double)(Player1.getAttackLevel() + PlayerX.getAttackLevel() + Player1.getDefenseLevel() + PlayerX.getDefenseLevel()+1) - 0.05) * (double)(Pop1 * PopX)),0)*50/Global.baseCapacity;
+			                        (double)(Player1.getAttackLevel() + PlayerX.getDefenseLevel()+1) ) * (double)(Pop1 * PopX)),0)/Global.baseCapacity;
 		}
 		
 		public static double spreadThreshold(int level) {

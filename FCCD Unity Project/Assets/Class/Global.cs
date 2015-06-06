@@ -32,7 +32,7 @@ namespace AssemblyCSharp
 		public static int maxTurn = 10;
 		public static Boolean explored = false;
 		public static Boolean block = false;
-		public static int numberOfPlayers = 3;
+		public static int numberOfPlayers = 2;
 		public readonly static int numTech = 5;
 		public readonly static int baseCapacity = 100;
 		public static int winPop;
