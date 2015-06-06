@@ -10,7 +10,6 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
-
 namespace AssemblyCSharp
 {
 	public static class Formula
@@ -21,23 +20,23 @@ namespace AssemblyCSharp
 		public static double GrowthRate(int level) {
 			return ((double) level) * 0.01 + 0.02;
 		}
-
+		
 		public static int GrowthCap(int level) {
 			if (level <= 0)
 				return Global.baseCapacity;
 			return Global.baseCapacity + level * 10;
 		}
-
+		
 		public static int LosePop(Player Player1, Player PlayerX, int Pop1, int PopX) {
-			return (int)(((double)(Player1.getDefenseValue() - PlayerX.getAttackValue())/
-			              (double)(Player1.getAttackValue() + PlayerX.getAttackValue() + Player1.getDefenseValue() + PlayerX.getDefenseValue()) - 0.05) * (double)(Pop1 * PopX));
+			return Math.Min((int)(((double)(Player1.getDefenseLevel() - PlayerX.getAttackLevel())/
+			                       (double)(Player1.getAttackLevel() + PlayerX.getAttackLevel() + Player1.getDefenseLevel() + PlayerX.getDefenseLevel()+5) ) * (double)(Pop1 * PopX)),(int)(- 0.05* (double)(Pop1 * PopX)));
 		}
-
+		
 		public static int GainPop(Player Player1, Player PlayerX, int Pop1, int PopX) {
-			return (int)(((double)(Player1.getAttackValue() - PlayerX.getDefenseValue())/
-			        (double)(Player1.getAttackValue() + PlayerX.getAttackValue() + Player1.getDefenseValue() + PlayerX.getDefenseValue()) + 0.05) * (double)(Pop1 * PopX));
+			return Math.Max ((int)(((double)(Player1.getAttackLevel() - PlayerX.getDefenseLevel())/
+			                        (double)(Player1.getAttackLevel() + PlayerX.getAttackLevel() + Player1.getDefenseLevel() + PlayerX.getDefenseLevel()+5) - 0.05) * (double)(Pop1 * PopX)),0);
 		}
-
+		
 		public static double spreadThreshold(int level) {
 			if (level < 0)
 				return 0.9;
@@ -46,7 +45,7 @@ namespace AssemblyCSharp
 			else
 				return Global.numTech*0.1 - ((double) level) * 0.1+0.3;
 		}
-
+		
 		// float r range from 0 ~ 1 (100%)
 		public static Color ColorLighter(Color origin, float r) {
 			if (r == 0.0f)
@@ -58,31 +57,31 @@ namespace AssemblyCSharp
 			float newb = (origin.b * rate > 1.0f) ? 1.0f : origin.b * rate;
 			return new Color(newr, newg, newb);
 		}
-
+		
 		public static Color ColorMixer(List<Color> origins) {
 			float newr = 0.0f;
 			float newg = 0.0f;
 			float newb = 0.0f;
 			int count = 0;
-
+			
 			foreach (Color color in origins) {
 				newr += color.r;
 				newg += color.g;
 				newb += color.b;
 				count ++;
 			}
-
+			
 			if(count == 0)
 				return new Color(1.0f, 1.0f, 1.0f);
-
+			
 			newr = newr / (float)count;
 			newg = newg / (float)count;
 			newb = newb / (float)count;
-//			Debug.LogError ("newb: "+newb);
-
+			//			Debug.LogError ("newb: "+newb);
+			
 			return new Color(newr, newg, newb);
 		}
-
+		
 	}
 }
 

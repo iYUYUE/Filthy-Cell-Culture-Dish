@@ -32,25 +32,44 @@ namespace AssemblyCSharp
 			// Search NearbyCells
 			foreach (Cell neighbor in this.getNeighbors()) {
 				foreach (Player pl in Global.players)
-					if(((double)neighbor.getPop(pl) / (double)Formula.GrowthCap(pl.getGrowthValue())) > 
-					  Formula.spreadThreshold(pl.getExplorationValue()))
-						pops[pl]+= growthChecker((int)(1.0*Formula.GrowthRate(pl.getGrowthLevel())*neighbor.pops[pl]*(Formula.GrowthCap(pl.getGrowthLevel())-pops[pl])/100.0),pl);
+					if(((double)neighbor.getPop(pl) / (double)Formula.GrowthCap(pl.getGrowthLevel())) > 
+					  Formula.spreadThreshold(pl.getExplorationLevel()))
+						pops[pl]+= growthChecker((int)(1.0*Formula.GrowthRate(pl.getGrowthLevel())*neighbor.pops[pl]*(Formula.GrowthCap(pl.getGrowthLevel())-getTotalPop())/100.0),pl);
 			}
-			List<Player> keys = new List<Player> (pops.Keys);
+	
 			// Update Population
-			foreach (Player pl in Global.players)
-			{
+			for (int i = 0; i<Global.numberOfPlayers; i++) {
+				Player pl = Global.players [i];
 				pops[pl]+= growthChecker((int)(Formula.GrowthRate(pl.getGrowthLevel())*pops[pl]*(Formula.GrowthCap(pl.getGrowthLevel())-pops[pl])),pl);
-				foreach (Player epl in Global.players){
-					if(!pl.isPeaceWith(epl))
-						pops[pl] += this.growthChecker(PopDance(pl, epl, pops[pl], pops[epl]), pl);
+				
+			
+			}
+			// Update Population
+			int [] temp = new int[Global.numberOfPlayers];
+			for (int i = 0; i<Global.numberOfPlayers; i++) {
+				Player pl = Global.players [i];
+		
+				for (int j = i+1; j<Global.numberOfPlayers; j++) {
+				Player epl = Global.players [j];
+					if(!pl.isPeaceWith(epl)) {
+						temp[i] += this.growthChecker(PopDance(pl, epl, pops[pl], pops[epl]), pl);
+						temp[j] += this.growthChecker(PopDance(epl, pl, pops[epl], pops[pl]), epl);
+						Debug.Log("i "+temp[i]+" j "+temp[j]);
+					}
 				}
-				// race distinction
-				if(pops[pl] <= 0)
+			}
+			for (int i = 0; i<Global.numberOfPlayers; i++) {
+				Player pl = Global.players [i];
+				pops[pl]+= temp[i];
+				Debug.Log("temp"+temp[i]);
+				if(pops[pl] <= 0) {
+				//	Debug.Log(pops[pl]);
 					pops[pl] = 0;
-				if(pops[pl] >=Formula.GrowthCap(pl.getGrowthLevel()))
+				}
+				if(pops[pl] >=Formula.GrowthCap(pl.getGrowthLevel())){
+					Debug.Log(pops[pl]);
 					pops[pl] =(int)Formula.GrowthCap(pl.getGrowthLevel());
-
+				}
 			}
 
 		//	UpdateColor ();
@@ -60,7 +79,7 @@ namespace AssemblyCSharp
 			List<Color> colorList = new List<Color> ();
 			// Update Color
 			foreach (Player player in this.getPlayerList())
-				colorList.Add (Formula.ColorLighter(player.getColor(), ((float)this.getPop (player)/(float)Formula.GrowthCap (player.getGrowthValue ()))));
+				colorList.Add (Formula.ColorLighter(player.getColor(), ((float)this.getPop (player)/(float)Formula.GrowthCap (player.getGrowthLevel()))));
 			foreach (Color item in colorList)
 				Debug.Log (item);
 			//			Debug.Log ("ha: "+Formula.ColorMixer(colorList));
@@ -100,6 +119,9 @@ namespace AssemblyCSharp
 		}
 
 		private int growthChecker(int growth, Player pl) {
+			if((pops[pl] + growth)<0){
+				return -pops[pl];
+			}
 			if ((pops[pl] + growth) <= Formula.GrowthCap (pl.getGrowthLevel ()))
 				return growth;
 			else
@@ -119,7 +141,15 @@ namespace AssemblyCSharp
 				return pop;
 		}
 
-
+		public int getTotalPop(){
+			int tpop=0;
+			foreach (Player pl in Global.players) {
+				int pop = 0;
+				if (pops.TryGetValue (pl, out pop))
+					tpop += pop;
+			}
+			return tpop;
+		}
 
 	}
 }

@@ -124,7 +124,7 @@ namespace AssemblyCSharp
 
 		static void gameOver ()
 		{
-		//	GameStartManager.instance.SendMessage("StartLvl", "GameOver");
+			GameStartManager.instance.SendMessage("StartLvl", "GameOver");
 		}
 
 		public static void updateWinStatus(){

@@ -45,13 +45,13 @@ public class Main : GLMonoBehaviour
 			int j = 0;
 			Global.techCost[i,j] = 2*Global.baseCapacity;
 			for (j++;j<Global.numTech;j++){
-				Global.techCost[i,j] = (int)((double)Global.techCost[i,j-1]*5);
+				Global.techCost[i,j] = (int)((double)Global.techCost[i,j-1]*10);
 			}
 		}
 		int jj = 0;
 		Global.techCost[4,jj] = 10*Global.baseCapacity;
 		for (jj++;jj<Global.numTech;jj++){
-			Global.techCost[4,jj] = (int)((double)Global.techCost[4,jj-1]*10);
+			Global.techCost[4,jj] = (int)((double)Global.techCost[4,jj-1]*20);
 		}
 		Global.winPop =(int)((double)(Global.WIDTH*Global.HEIGHT*Global.baseCapacity)*0.5);
 	}
@@ -128,7 +128,7 @@ public class Main : GLMonoBehaviour
 				Global.update ();
 			}
 			if (historyPoint != point) {
-				Debug.Log (Global.players [Global.numberOfPlayers - 1].getPop ());
+//				Debug.Log (Global.players [Global.numberOfPlayers - 1].getPop ());
 				if (grid.Contains (historyPoint))
 					grid [historyPoint].GetComponent<SpriteCell> ().Color = historyColor;
 			
