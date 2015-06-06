@@ -20,7 +20,14 @@ namespace AssemblyCSharp
 		public static double GrowthRate(int level) {
 			return ((double) level) * 0.01 + 0.02;
 		}
-	
+		public static double GrowthRate(Player pl) {
+			return GrowthRate (pl.getGrowthLevel ());
+		}
+		public static int GrowthCap(Player pl){
+			int level = pl.getGrowthLevel ();
+			return  GrowthCap (level);
+
+		}
 		public static int GrowthCap(int level) {
 			if (level <= 0)
 				return Global.baseCapacity;
@@ -29,12 +36,12 @@ namespace AssemblyCSharp
 		
 		public static int LosePop(Player Player1, Player PlayerX, int Pop1, int PopX) {
 			return Math.Min((int)(((double)(Player1.getDefenseLevel() - PlayerX.getAttackLevel())/
-			                       (double)(Player1.getAttackLevel() + PlayerX.getAttackLevel() + Player1.getDefenseLevel() + PlayerX.getDefenseLevel()+Global.numTech) ) * (double)(Pop1 * PopX)),(int)(- 0.05* (double)(Pop1 * PopX)))*50/Global.baseCapacity;
+			                       (double)(Player1.getAttackLevel() + PlayerX.getAttackLevel() + Player1.getDefenseLevel() + PlayerX.getDefenseLevel()+1) ) * (double)(Pop1 * PopX)),(int)(- 0.05* (double)(Pop1 * PopX)))*50/Global.baseCapacity;
 		}
 		
 		public static int GainPop(Player Player1, Player PlayerX, int Pop1, int PopX) {
 			return Math.Max ((int)(((double)(Player1.getAttackLevel() - PlayerX.getDefenseLevel())/
-			                        (double)(Player1.getAttackLevel() + PlayerX.getAttackLevel() + Player1.getDefenseLevel() + PlayerX.getDefenseLevel()+Global.numTech) - 0.05) * (double)(Pop1 * PopX)),0)*50/Global.baseCapacity;
+			                        (double)(Player1.getAttackLevel() + PlayerX.getAttackLevel() + Player1.getDefenseLevel() + PlayerX.getDefenseLevel()+1) - 0.05) * (double)(Pop1 * PopX)),0)*50/Global.baseCapacity;
 		}
 		
 		public static double spreadThreshold(int level) {
@@ -45,7 +52,13 @@ namespace AssemblyCSharp
 			else
 				return Global.numTech*0.1 - ((double) level) * 0.1+0.3;
 		}
+
 		
+		public static double spreadThreshold(Player pl) {
+			int level = pl.getExplorationLevel ();
+			return spreadThreshold (level);
+		}
+
 		// float r range from 0 ~ 1 (100%)
 		public static Color ColorLighter(Color origin, float r) {
 			if (r == 0.0f)
