@@ -50,7 +50,8 @@ public class SceneManager : MonoBehaviour {
 		if (!Application.loadedLevelName.Contains ("LevelSelect") 
 		    && Application.loadedLevelName != "Start" 
 		    && Application.loadedLevelName != "HowToPlay" 
-		    && Application.loadedLevelName != "Credits" 
+		    && Application.loadedLevelName != "Credits"
+		    && Application.loadedLevelName != "GameOver" 
 		    && !Application.loadedLevelName.Contains("Main")
 		    && Application.loadedLevelName != "normalCanvas"){
 			if (VolMusicButton == null && MainCamObj.transform.FindChild ("PauseMenu") != null) {
