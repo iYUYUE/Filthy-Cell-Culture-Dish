@@ -141,13 +141,14 @@ public class Main : GLMonoBehaviour
 
 					// show the cell detail
 					Cell tempCell;
-					string cellInfo = "This Cell:";
+//					string cellInfo = "This Cell:";
+					string cellInfo = "";
 					Global.binder.TryGetValue (point, out tempCell);
 
 					foreach(Player pl in tempCell.getPlayerList()) {
 						if(cellInfo.Length > 10)
 							cellInfo += "/";
-						cellInfo += " <color=\""+RGBtoHex(pl.getColor())+"\">"+tempCell.getPop(pl)+"</color> ";
+						cellInfo += " <color=\"" + RGBtoHex(pl.getColor()) + "\">" + tempCell.getPop(pl) + ((tempCell.getPop(pl) >= Formula.GrowthCap(pl)) ? "(FULL)" : "") + "</color> ";
 					}
 					cellDetail.text = cellInfo;
 
