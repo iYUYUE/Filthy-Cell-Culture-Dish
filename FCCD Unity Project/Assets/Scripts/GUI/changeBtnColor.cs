@@ -22,7 +22,7 @@ namespace AssemblyCSharp
 				ultimate.image.color = Color.white;
 
 				//disable buttons that player reaches maximum level
-				Debug.Log(Global.players [Global.currentPlayer].TechAndProgress [0, 0] + "\t" + Global.numTech);
+//				Debug.Log(Global.players [Global.currentPlayer].TechAndProgress [0, 0] + "\t" + Global.numTech);
 				growth.interactable = 
 					(Global.players [Global.currentPlayer].TechAndProgress [0, 0] < Global.numTech) ?
 						true : false;

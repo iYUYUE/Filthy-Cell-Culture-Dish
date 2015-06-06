@@ -49,7 +49,7 @@ namespace AssemblyCSharp
 					pops[pl] = 0;
 				}
 				if(pops[pl] >=Formula.GrowthCap(pl.getGrowthLevel())){
-					Debug.Log(pops[pl]);
+//					Debug.Log(pops[pl]);
 					pops[pl] =(int)Formula.GrowthCap(pl.getGrowthLevel());
 				}
 			}

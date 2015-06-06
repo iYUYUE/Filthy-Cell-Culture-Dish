@@ -63,9 +63,9 @@ namespace AssemblyCSharp {
 			netPop = tmpNetPop;
 			numCell = tmpNumCell;
 			if (TechOnResearch >= 0) {
-				Debug.Log ("Player " + Global.players.IndexOf (this) + "'s pop = " 
-				           + netPop + "\tnumCells = " + numCell + "\ttech = " + TechOnResearch
-				           + " \ttechLevel = " + techAndProgress [TechOnResearch, 0]);
+//				Debug.Log ("Player " + Global.players.IndexOf (this) + "'s pop = " 
+//				           + netPop + "\tnumCells = " + numCell + "\ttech = " + TechOnResearch
+//				           + " \ttechLevel = " + techAndProgress [TechOnResearch, 0]);
 				
 				//update teches
 				techAndProgress [techOnResearch, 1] += netPop;
