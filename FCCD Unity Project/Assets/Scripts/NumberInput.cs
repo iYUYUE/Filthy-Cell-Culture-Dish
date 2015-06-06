@@ -8,25 +8,36 @@ using UnityEngine.UI;
 using AssemblyCSharp;
 
 public class NumberInput : MonoBehaviour {
-	public InputField numberInput;
+	public InputField PlayerNumber;
+	public InputField MaxTurns;
+	public InputField MapWidth;
+	public InputField MapHeight;
 	// Use this for initialization
 	void Start () {
-		numberInput.Select ();
+		PlayerNumber.Select ();
 		var se= new InputField.SubmitEvent();
 		se.AddListener(SubmitName);
-		numberInput.onEndEdit = se;
-
+		PlayerNumber.onEndEdit = se;
+		MaxTurns.onEndEdit = se;
+		MapWidth.onEndEdit = se;
+		MapHeight.onEndEdit = se;
 	}
 
 	private void SubmitName(string arg0)
 	{
-		Debug.Log("User Number: "+arg0);
 		try
 		{
-			int playerNumber = Int32.Parse(arg0);
-			if(playerNumber > 1) {
+			int playerNumber = Int32.Parse(PlayerNumber.text);
+			int maxTurns = Int32.Parse(MaxTurns.text);
+			int mapWidth = Int32.Parse(MapWidth.text);
+			int mapHeight = Int32.Parse(MapHeight.text);
+			if(playerNumber > 1 && maxTurns > 9 && mapWidth > 9 && mapHeight > 9) {
 				Global.numberOfPlayers = playerNumber;
-				GameStartManager.instance.SendMessage("StartLvl", "DiamondTest");
+				Global.maxTurn = maxTurns;
+				Global.WIDTH = mapWidth;
+				Global.HEIGHT = mapHeight;
+				if(GameStartManager.instance != null && Input.GetKeyDown(KeyCode.Return))
+					GameStartManager.instance.SendMessage("StartLvl", "DiamondTest");
 			}
 		}
 		catch (FormatException e)
