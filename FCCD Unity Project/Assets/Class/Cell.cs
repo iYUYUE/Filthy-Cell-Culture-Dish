@@ -29,6 +29,26 @@ namespace AssemblyCSharp
 		}
 
 		public void update(){
+			
+			// Update Population
+			int [] temp = new int[Global.numberOfPlayers];
+			for (int i = 0; i<Global.numberOfPlayers; i++) {
+				Player pl = Global.players [i];
+				
+				for (int j = i+1; j<Global.numberOfPlayers; j++) {
+					Player epl = Global.players [j];
+					if(!pl.isPeaceWith(epl)) {
+						temp[i] += this.growthChecker(PopDance(pl, epl, pops[pl], pops[epl]), pl);
+						temp[j] += this.growthChecker(PopDance(epl, pl, pops[epl], pops[pl]), epl);
+						//				Debug.Log("i "+temp[i]+" j "+temp[j]);
+					}
+				}
+			}
+			for (int i = 0; i<Global.numberOfPlayers; i++) {
+				Player pl = Global.players [i];
+				pops[pl]+= temp[i];
+				//		Debug.Log("temp"+temp[i]);
+			}
 			// Search NearbyCells
 			foreach (Cell neighbor in this.getNeighbors()) {
 				foreach (Player pl in Global.players)
@@ -36,34 +56,14 @@ namespace AssemblyCSharp
 					  Formula.spreadThreshold(pl.getExplorationLevel()))
 						pops[pl]+= growthChecker((int)(1.0*Formula.GrowthRate(pl.getGrowthLevel())*neighbor.pops[pl]*(Formula.GrowthCap(pl.getGrowthLevel())-getTotalPop())/100.0),pl);
 			}
-	
+			
 			// Update Population
 			for (int i = 0; i<Global.numberOfPlayers; i++) {
 				Player pl = Global.players [i];
 				pops[pl]+= growthChecker((int)(Formula.GrowthRate(pl.getGrowthLevel())*pops[pl]*(Formula.GrowthCap(pl.getGrowthLevel())-pops[pl])),pl);
 				
-			
-			}
-			// Update Population
-			int [] temp = new int[Global.numberOfPlayers];
-			for (int i = 0; i<Global.numberOfPlayers; i++) {
-				Player pl = Global.players [i];
-		
-				for (int j = i+1; j<Global.numberOfPlayers; j++) {
-				Player epl = Global.players [j];
-					if(!pl.isPeaceWith(epl)) {
-						temp[i] += this.growthChecker(PopDance(pl, epl, pops[pl], pops[epl]), pl);
-						temp[j] += this.growthChecker(PopDance(epl, pl, pops[epl], pops[pl]), epl);
-		//				Debug.Log("i "+temp[i]+" j "+temp[j]);
-					}
-				}
-			}
-			for (int i = 0; i<Global.numberOfPlayers; i++) {
-				Player pl = Global.players [i];
-				pops[pl]+= temp[i];
-		//		Debug.Log("temp"+temp[i]);
 				if(pops[pl] <= 0) {
-				//	Debug.Log(pops[pl]);
+					//	Debug.Log(pops[pl]);
 					pops[pl] = 0;
 				}
 				if(pops[pl] >=Formula.GrowthCap(pl.getGrowthLevel())){
