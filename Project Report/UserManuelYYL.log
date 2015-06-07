@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.26)  7 JUN 2015 20:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.26)  7 JUN 2015 20:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -490,12 +490,12 @@ Package pdftex.def Info: images/start3.png used on input line 167.
 [9 <./images/start3.png>] 
 AED: lastpage setting LastPage
 [10]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 178.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 178.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 186.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 186.
  (./UserManuelYYL.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 178.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 178.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 178.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 186.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 186.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 186.
  ) 
 Here is how much of TeX's memory you used:
  7992 strings out of 493109
@@ -509,7 +509,7 @@ Here is how much of TeX's memory you used:
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
 /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb>
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on UserManuelYYL.pdf (10 pages, 719191 bytes).
+Output written on UserManuelYYL.pdf (10 pages, 719110 bytes).
 PDF statistics:
  170 PDF objects out of 1000 (max. 8388607)
  144 compressed objects within 2 object streams
