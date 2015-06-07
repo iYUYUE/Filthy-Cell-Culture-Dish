@@ -12,6 +12,7 @@ public class backToTitle : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		quitBtn.onClick.AddListener (() => {
+			//Application.LoadLevel("Start");
 			Application.Quit();
 		});
 	}
