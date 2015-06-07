@@ -147,7 +147,7 @@ The first scene will be shown is the main menu of the game. In this
 menu, players can start the game, review credits and turn on or off the
 sound effect.
 
-![Main menu of the game](start1)
+![Main menu of the game](/Project Report/images/start1.png)
 
 Difficulty Level
 ----------------
@@ -156,7 +156,7 @@ The following scene will allow the user to choose a difficulty level for
 the game. In this demo version, the difficulty of all three levels will
 be the same.
 
-![Main menu of the game](start2)
+![Main menu of the game](/Project Report/images/start2.png)
 
 Game Options
 ------------
@@ -167,7 +167,7 @@ maximum turns allowed, the width of the map and the height of the map.
 It should be noticed that, the last three parameters should be equal or
 larger than 10.
 
-![Main menu of the game](start3)
+![Main menu of the game](/Project Report/images/start3.png)
 
 Press \[Enter\], after finishing the configuration, to start the game.
 
