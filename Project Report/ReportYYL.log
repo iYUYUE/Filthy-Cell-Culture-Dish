@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.10.19)  6 JUN 2015 23:12
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.10.19)  7 JUN 2015 18:49
 entering extended mode
 **ReportYYL.tex
 
@@ -148,39 +148,46 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \WF@everypar=\toks22
 Package: wrapfig 2003/01/31  v 3.6
 )
+("C:\Program Files\MikTex\tex\latex\natbib\natbib.sty"
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip46
+\bibsep=\skip47
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count101
+)
 ("C:\Users\chunchuan_lv\Documents\GitHub\Filthy-Cell-Culture-Dish\Project Repor
 t\ReportYYL.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
  ("C:\Program Files\MikTex\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count101
+\scratchcounter=\count102
 \scratchdimen=\dimen116
 \scratchbox=\box29
-\nofMPsegments=\count102
-\nofMParguments=\count103
+\nofMPsegments=\count103
+\nofMParguments=\count104
 \everyMPshowfont=\toks23
-\MPscratchCnt=\count104
+\MPscratchCnt=\count105
 \MPscratchDim=\dimen117
-\MPnumerator=\count105
-\makeMPintoPDFobject=\count106
+\MPnumerator=\count106
+\makeMPintoPDFobject=\count107
 \everyMPtoPDFconversion=\toks24
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 20.
+LaTeX Font Info:    Try loading font information for U+msa on input line 21.
  ("C:\Program Files\MikTex\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 20.
+LaTeX Font Info:    Try loading font information for U+msb on input line 21.
 
 ("C:\Program Files\MikTex\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -192,38 +199,45 @@ t\ReportYYL.toc")
 \tf@toc=\write3
  [2]
 ("C:\Users\chunchuan_lv\Documents\GitHub\Filthy-Cell-Culture-Dish\Project Repor
-t\RationaleforGameElements.tex" [3] [4]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 30.
+t\RationaleforGameElements.tex"
+Overfull \hbox (10.53975pt too wide) in paragraph at lines 1--1
+[]\OT1/cmr/bx/n/17.28 Rationale for In-clud-ing and Ex-clud-ing Game
+ []
 
-("C:\Program Files\MikTex\tex\latex\base\omscmr.fd"
+[3]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 16.
+ ("C:\Program Files\MikTex\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 30.
- [5] [6] [7]) [8]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 16.
+ [4] [5] [6]) [7]
 ("C:\Users\chunchuan_lv\Documents\GitHub\Filthy-Cell-Culture-Dish\Project Repor
-t\PlaytestingFeedBack.tex") [9]
+t\PlaytestingFeedBack.tex") [8]
 ("C:\Users\chunchuan_lv\Documents\GitHub\Filthy-Cell-Culture-Dish\Project Repor
-t\ReflectiononDevelopmentExperience.tex") [10]
+t\ReflectiononDevelopmentExperience.tex") [9]
 ("C:\Users\chunchuan_lv\Documents\GitHub\Filthy-Cell-Culture-Dish\Project Repor
-t\EthicalIssues.tex") [11]
+t\EthicalIssues.tex") [10]
+("C:\Users\chunchuan_lv\Documents\GitHub\Filthy-Cell-Culture-Dish\Project Repor
+t\ReportYYL.bbl") [11]
 ("C:\Users\chunchuan_lv\Documents\GitHub\Filthy-Cell-Culture-Dish\Project Repor
 t\ReportYYL.aux") ) 
 Here is how much of TeX's memory you used:
- 2163 strings out of 493921
- 27862 string characters out of 3148864
- 79308 words of memory out of 3000000
- 5437 multiletter control sequences out of 15000+200000
- 12403 words of font info for 48 fonts, out of 3000000 for 9000
+ 2504 strings out of 493921
+ 32040 string characters out of 3148864
+ 86248 words of memory out of 3000000
+ 5770 multiletter control sequences out of 15000+200000
+ 12750 words of font info for 49 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,6n,24p,833b,235s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,6n,24p,764b,237s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmbx
 12.pfb><C:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Pr
 ogram Files/MikTex/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/M
-ikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on ReportYYL.pdf (11 pages, 72628 bytes).
+ikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MikTex/fonts/
+type1/public/amsfonts/cm/cmti12.pfb>
+Output written on ReportYYL.pdf (11 pages, 80263 bytes).
 PDF statistics:
- 54 PDF objects out of 1000 (max. 8388607)
+ 58 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
