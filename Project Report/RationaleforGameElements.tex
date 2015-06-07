@@ -1,41 +1,43 @@
 \section{Implemented and Excluded Game Elements}
 
-\subsection{Included}
+\subsection{Implemented}
 Those included elements might have slight change, comparing to original design.
-\subsection{Game Setting}
+\subsubsection{Game Setting}
 We allow player to set parameters including number of players, map size and maximum turns.
-\subsection{Exploration}
+\subsubsection{Exploration}
 Player will need to deploy certain population at one cell each turn. 
-\subsection{Demographics}
+\subsubsection{Demographics}
 Players will be able to know basic information about him/herself and other players.
-\subsection{Information about Individual Cell}
+\subsubsection{Information about Individual Cell}
 Player will know the detailed population composition in a given cell when they put the mouse over that cell.
 
-	\subsection{Map}
+	\subsubsection{Map}
 	We used Diamond map instead of Hexmap, because budget constraint. The Hexmap package costs 50 dollars per computer. The game map is limited to be a pure square world instead of cylinder. This is due to data structure constraint. Other aspects are implemented.
-	\subsection{Traits Tree}
+	\subsubsection{Traits Tree}
 	We implemented this elements faithfully in most cases, since this is the essential part of gameplay. However, for exploration trait, we use it for deciding population obtained by per exploration and threshold for expanding to nearby cells. The reason is that we did not implement an shadow system.
-	\subsection{Camera}
+	\subsubsection{Camera}
 	Zooming in/out and translation of map are all implemented.
 
-	\subsection{Sound Effects}
+	\subsubsection{Sound Effects}
 	We have put a piece of music at the entering of the game, and at the time of winning.
-\subsection{Graphics}
+\subsubsection{Graphics}
 We successfully implemented an simple 2D graphical system for our game.
 
 \subsection{Excluded}
 Those elements are largely not implemented, mostly because of time limitation.
-\subsection{System menu}
+\subsubsection{System menu}
 We degraded our system menu to pressing esc key will trigger the option to leave the game.
-\subsection{Animations}
+\subsubsection{Animations}
 We have some sort of ppt like animation for scene besides the main game scene. The two subsection mentioned are not implemented.
-\subsubsection{Status Indicating Animation}
+\begin{itemize}
+\item Status Indicating Animation\\
 We believe it is sufficient to use mixture of color and numerical information to indicate status.
-
-\subsubsection{Declaration of Gaining New Traits}
+\item Declaration of Gaining New Traits\\
 We achieved this through color and text.
+\end{itemize}
 
-\subsection{Artificial Intelligence}
+
+\subsubsection{Artificial Intelligence}
 After some discussions, we found that it should technically feasible to implement it using convolutional network as~\cite{ClarkS14} did for GO.
 However, we found it hard to implement an A.I. for this game within the time constraint. 
 
@@ -45,6 +47,6 @@ We did not make A.I., therefore it makes little sense to setup difficulty level.
 \subsubsection{Other Values' influences}
 Again, we don't have A.I..
 
-	\subsection{Networking}
+	\subsubsection{Networking}
 		Not essential to gameplay, therefore we excluded this given time constraint.
 	

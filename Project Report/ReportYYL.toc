@@ -1,29 +1,27 @@
 \contentsline {section}{\numberline {1}Implemented and Excluded Game Elements}{4}
-\contentsline {subsection}{\numberline {1.1}Included}{4}
-\contentsline {subsection}{\numberline {1.2}Game Setting}{4}
-\contentsline {subsection}{\numberline {1.3}Exploration}{4}
-\contentsline {subsection}{\numberline {1.4}Demographics}{4}
-\contentsline {subsection}{\numberline {1.5}Information about Individual Cell}{4}
-\contentsline {subsection}{\numberline {1.6}Map}{4}
-\contentsline {subsection}{\numberline {1.7}Traits Tree}{5}
-\contentsline {subsection}{\numberline {1.8}Camera}{5}
-\contentsline {subsection}{\numberline {1.9}Sound Effects}{5}
-\contentsline {subsection}{\numberline {1.10}Graphics}{5}
-\contentsline {subsection}{\numberline {1.11}Excluded}{5}
-\contentsline {subsection}{\numberline {1.12}System menu}{6}
-\contentsline {subsection}{\numberline {1.13}Animations}{6}
-\contentsline {subsubsection}{\numberline {1.13.1}Status Indicating Animation}{6}
-\contentsline {subsubsection}{\numberline {1.13.2}Declaration of Gaining New Traits}{6}
-\contentsline {subsection}{\numberline {1.14}Artificial Intelligence}{6}
-\contentsline {subsubsection}{\numberline {1.14.1}Difficulty Choice}{6}
-\contentsline {subsubsection}{\numberline {1.14.2}Other Values' influences}{6}
-\contentsline {subsection}{\numberline {1.15}Networking}{7}
-\contentsline {section}{\numberline {2}Testing Player Feedback}{8}
-\contentsline {subsection}{\numberline {2.1}Live Demo}{8}
-\contentsline {subsection}{\numberline {2.2}Tester 1}{8}
-\contentsline {subsection}{\numberline {2.3}Tester 2}{8}
-\contentsline {section}{\numberline {3}Reflection on Development Experience}{9}
-\contentsline {subsection}{\numberline {3.1}Group Working}{9}
-\contentsline {subsection}{\numberline {3.2}Developing Tools}{9}
-\contentsline {subsection}{\numberline {3.3}Scheduling}{9}
-\contentsline {section}{\numberline {4}Ethical Issues}{11}
+\contentsline {subsection}{\numberline {1.1}Implemented}{4}
+\contentsline {subsubsection}{\numberline {1.1.1}Game Setting}{4}
+\contentsline {subsubsection}{\numberline {1.1.2}Exploration}{4}
+\contentsline {subsubsection}{\numberline {1.1.3}Demographics}{4}
+\contentsline {subsubsection}{\numberline {1.1.4}Information about Individual Cell}{4}
+\contentsline {subsubsection}{\numberline {1.1.5}Map}{4}
+\contentsline {subsubsection}{\numberline {1.1.6}Traits Tree}{5}
+\contentsline {subsubsection}{\numberline {1.1.7}Camera}{5}
+\contentsline {subsubsection}{\numberline {1.1.8}Sound Effects}{5}
+\contentsline {subsubsection}{\numberline {1.1.9}Graphics}{5}
+\contentsline {subsection}{\numberline {1.2}Excluded}{5}
+\contentsline {subsubsection}{\numberline {1.2.1}System menu}{5}
+\contentsline {subsubsection}{\numberline {1.2.2}Animations}{6}
+\contentsline {subsubsection}{\numberline {1.2.3}Artificial Intelligence}{6}
+\contentsline {subsubsection}{\numberline {1.2.4}Difficulty Choice}{6}
+\contentsline {subsubsection}{\numberline {1.2.5}Other Values' influences}{6}
+\contentsline {subsubsection}{\numberline {1.2.6}Networking}{6}
+\contentsline {section}{\numberline {2}Testing Player Feedback}{7}
+\contentsline {subsection}{\numberline {2.1}Live Demo}{7}
+\contentsline {subsection}{\numberline {2.2}Tester 1}{7}
+\contentsline {subsection}{\numberline {2.3}Tester 2}{7}
+\contentsline {section}{\numberline {3}Reflection on Development Experience}{8}
+\contentsline {subsection}{\numberline {3.1}Group Working}{8}
+\contentsline {subsection}{\numberline {3.2}Developing Tools}{8}
+\contentsline {subsection}{\numberline {3.3}Scheduling}{8}
+\contentsline {section}{\numberline {4}Ethical Issues}{10}
