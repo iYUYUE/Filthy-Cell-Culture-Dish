@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Gamelogic/Plugins/Grids/Maps/PolygonGridMap.cs">
+    <Files>
+      <File FileName="Assets/Scripts/SceneManager.cs" Line="27" Column="18" />
+      <File FileName="Assets/Gamelogic/Plugins/Common/Extensions/GLMonoBehaviour.cs" Line="56" Column="1" />
+      <File FileName="Assets/Gamelogic/Plugins/Grids/Maps/PolygonGridMap.cs" Line="66" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
