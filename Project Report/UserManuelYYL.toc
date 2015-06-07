@@ -7,5 +7,8 @@
 \contentsline {section}{\numberline {3}Download the Game}{7}{section.3}
 \contentsline {section}{\numberline {4}Start the Game}{7}{section.4}
 \contentsline {subsection}{\numberline {4.1}Screen Resolution Choice}{7}{subsection.4.1}
-\contentsline {section}{\numberline {5}Exit the Game}{7}{section.5}
-\contentsline {section}{\numberline {6}Victory Conditions}{8}{section.6}
+\contentsline {subsection}{\numberline {4.2}Main Menu}{7}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Difficulty Level}{8}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Game Options}{9}{subsection.4.4}
+\contentsline {section}{\numberline {5}Exit the Game}{9}{section.5}
+\contentsline {section}{\numberline {6}Victory Conditions}{10}{section.6}
