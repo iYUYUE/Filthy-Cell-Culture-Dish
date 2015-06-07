@@ -131,11 +131,21 @@ namespace AssemblyCSharp
 		}
 
 		public static void updateWinStatus(){
+			List<Player> winners = new List<Player>(); 
 			foreach (Player pl in players) {
-				if (pl.getUltimateLevel()==numTech-1||pl.getPop()>=winPop) {
+				if (pl.getUltimateLevel()==numTech||pl.getPop()>=winPop) {
+					winners.Add(pl);
 					winner = pl;
 					gameOver();
 				}
+			}
+			if (winners.Count > 0) {
+				foreach (Player pl in winners) {
+					if (pl.getPop()>winner.getPop()) {
+						winner = pl;
+					}
+				}
+				gameOver();
 			}
 			winner = players [0];
 			if (numTurns == maxTurn) {
