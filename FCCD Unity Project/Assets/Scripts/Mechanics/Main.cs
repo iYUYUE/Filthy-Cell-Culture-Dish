@@ -121,7 +121,8 @@ public class Main : GLMonoBehaviour
 			if (Global.players [Global.currentPlayer].TechSelected && Input.GetMouseButtonDown (0) && grid.Contains (point)) {
 				Cell tempCell;
 				Global.binder.TryGetValue (point, out tempCell);
-
+				if (tempCell.getPop(Global.players [Global.currentPlayer])==Formula.GrowthCap(Global.players [Global.currentPlayer])) 
+					return;
 				tempCell.explore (Global.players [Global.currentPlayer]);
 				Global.update ();
 			}
