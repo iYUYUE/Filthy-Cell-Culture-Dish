@@ -66,19 +66,27 @@ namespace AssemblyCSharp {
 //				Debug.Log ("Player " + Global.players.IndexOf (this) + "'s pop = " 
 //				           + netPop + "\tnumCells = " + numCell + "\ttech = " + TechOnResearch
 //				           + " \ttechLevel = " + techAndProgress [TechOnResearch, 0]);
-				
-				//update teches
-				techAndProgress [techOnResearch, 1] += netPop;
-				//tech done
-				if (techAndProgress [techOnResearch, 1] >= 
-				    Global.techCost [techOnResearch, techAndProgress [techOnResearch, 0]]) {
-					techAndProgress [techOnResearch, 0]++;
-					techAndProgress [techOnResearch, 1] = 0;
-					Double discountedCost = Global.techCost [techOnResearch, techAndProgress [techOnResearch, 0]] * 0.9;
-					Global.techCost [techOnResearch, techAndProgress [techOnResearch, 0]] = (int) discountedCost;
 
+
+				//tech max
+				if(techAndProgress [techOnResearch, 0] >= Global.numTech) {
 					techSelected = false;
 					techOnResearch = -1;
+				}
+				else {
+					//update teches
+					techAndProgress [techOnResearch, 1] += netPop;
+					//tech done
+					if (techAndProgress [techOnResearch, 1] >= 
+					    Global.techCost [techOnResearch, techAndProgress [techOnResearch, 0]]) {
+						Double discountedCost = Global.techCost [techOnResearch, techAndProgress [techOnResearch, 0]] * 0.9;
+						Global.techCost [techOnResearch, techAndProgress [techOnResearch, 0]] = (int) discountedCost;
+						techAndProgress [techOnResearch, 0]++;
+						techAndProgress [techOnResearch, 1] = 0;
+
+						techSelected = false;
+						techOnResearch = -1;
+					}
 				}
 			}
 		}

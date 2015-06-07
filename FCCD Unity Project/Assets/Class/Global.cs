@@ -29,11 +29,11 @@ namespace AssemblyCSharp
 		public readonly static int ULTIMATE = 4;
 		public static int WIDTH =12;
 		public static int HEIGHT =12;
-		public static int maxTurn = 30;
+		public static int maxTurn = 20;
 		public static int numberOfPlayers = 2;
 		public static Boolean explored = false;
 		public static Boolean block = false;
-		public readonly static int numTech = 5;
+		public readonly static int numTech = 2;
 		public readonly static int baseCapacity = 100;
 		public static int winPop;
 		public static int[,] techCost;
@@ -84,10 +84,11 @@ namespace AssemblyCSharp
 			}
 		}
 		public static void update(){
-			players [currentPlayer].update ();
 			currentPlayer = (currentPlayer + 1)%numberOfPlayers;
 			if (currentPlayer == 0) {
 				numTurns += 1;
+				foreach(Player pl in Global.players)
+					pl.update ();
 				makeOldBinder();
 			
 				updateCells();

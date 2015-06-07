@@ -64,11 +64,24 @@ namespace AssemblyCSharp {
 			int ultInt = Global.players [Global.currentPlayer].TechAndProgress [4, 0];
 			ultimateLevel.text = ultInt < Global.numTech? ultInt.ToString () + "/" + Global.numTech : "MAX";
 
-			growthProc.text = Global.players [Global.currentPlayer].getGrowthValueForDisplay ();
-			expoProc.text = Global.players [Global.currentPlayer].getExplorationValueForDisplay ();
-			attackProc.text = Global.players [Global.currentPlayer].getAttackValueForDisplay ();
-			defenseProc.text = Global.players [Global.currentPlayer].getDefenseValueForDisplay ();
-			ultimateProc.text = Global.players [Global.currentPlayer].getUltimateValueForDisplay ();
+			if (!growthLevel.text.Equals ("MAX"))
+				growthProc.text = Global.players [Global.currentPlayer].getGrowthValueForDisplay ();
+			else
+				growthProc.text = "";
+			if (!expoLevel.text.Equals ("MAX"))
+				expoProc.text = Global.players [Global.currentPlayer].getExplorationValueForDisplay ();
+			else
+				expoProc.text = "";
+			if (!attackLevel.text.Equals ("MAX"))
+				attackProc.text = Global.players [Global.currentPlayer].getAttackValueForDisplay ();
+			else
+				attackProc.text = "";
+			if (!defenseLevel.text.Equals ("MAX"))
+				defenseProc.text = Global.players [Global.currentPlayer].getDefenseValueForDisplay ();
+			else
+				defenseProc.text = "";
+			if(!ultimateLevel.text.Equals("MAX"))
+				ultimateProc.text = Global.players [Global.currentPlayer].getUltimateValueForDisplay ();
 		}
 	}
 }
