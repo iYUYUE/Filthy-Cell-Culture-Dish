@@ -7,6 +7,7 @@ Direct3D:
     VRAM:     912 MB (via DXGI)
     Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 INTZ=1 RAWZ=0 NULL=1 RESZ=1 SlowINTZ=0
 Begin MonoManager ReloadAssembly
+<<<<<<< HEAD
 Platform assembly: C:\Users\chunchuan_lv\Documents\GitHub\Filthy-Cell-Culture-Dish\FCCD Unity Project\Builds\testBuild_Data\Managed\UnityEngine.dll (this message is harmless)
 Loading C:\Users\chunchuan_lv\Documents\GitHub\Filthy-Cell-Culture-Dish\FCCD Unity Project\Builds\testBuild_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: C:\Users\chunchuan_lv\Documents\GitHub\Filthy-Cell-Culture-Dish\FCCD Unity Project\Builds\testBuild_Data\Managed\Assembly-CSharp.dll (this message is harmless)
@@ -1505,3 +1506,15 @@ Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty seri
 Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 417.
 Total: 1.232923 ms (FindLiveObjects: 0.011546 ms CreateObjectMapping: 0.014540 ms MarkObjects: 0.329720 ms  DeleteObjects: 0.002565 ms)
 
+=======
+Platform assembly: C:\Users\Elence\OneDrive\workspace\Filthy-Cell-Culture-Dish\FCCD Unity Project\Builds\testBuild_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Elence\OneDrive\workspace\Filthy-Cell-Culture-Dish\FCCD Unity Project\Builds\testBuild_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Elence\OneDrive\workspace\Filthy-Cell-Culture-Dish\FCCD Unity Project\Builds\testBuild_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Elence\OneDrive\workspace\Filthy-Cell-Culture-Dish\FCCD Unity Project\Builds\testBuild_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Elence\OneDrive\workspace\Filthy-Cell-Culture-Dish\FCCD Unity Project\Builds\testBuild_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Elence\OneDrive\workspace\Filthy-Cell-Culture-Dish\FCCD Unity Project\Builds\testBuild_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.200 seconds
+desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+>>>>>>> 0246aed34fd05b54a7693223fa2ce8a7393033ea
