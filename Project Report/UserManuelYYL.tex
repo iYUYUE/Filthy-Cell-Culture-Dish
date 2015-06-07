@@ -91,13 +91,13 @@ This game is a strategy game. Each player creates and evolves a kind of bacteria
 
 \section{Game Terms}
 
-\subsection{Cell} 
+\subsection{Cell}
 
 The world in the game is represented by consecutive cells. Individual cell has properties of current population of species and its' environmental limit. There will be additional statistics available for player for decision making.
 
 \subsection{Turn}
 
-Players take turns when playing. For demonstration
+Players take turns when playing. During each turn, a player can choose a cell to explore, select a trait to upgrade (if available) and check the status of the current game session. For demonstration, all the players will play on the same host.
 
 \subsection{Explore}
 
@@ -105,11 +105,48 @@ During every turn, each player can choose a cell to explore by clicking that cel
 
 \subsection{Traits}
 
-The traits element will make species asymmetry. Therefore, there might be a rich set of strategies emerge.
+New traits will be obtained as game progress. At the end of each turn, if enough mutation is culminated, current selected trait will be advanced into next stage. The required mutation will be determined by whether this level of trait is obtained by other species (if it does, there is a discount) and current level of the trait. 
 
-\section{How to Play}
+The traits in this game is consisted of five main categories: Growth Trait, Explore Trait, Attack Trait, Defense Trait and Ultimate Trait.
 
-\section{Game Over}
+
+\begin{itemize}
+	\item Growth Trait
+	\begin{itemize}
+		\item Expanding pace of species' population in a cell
+	\end{itemize}
+	\item Exploring Trait
+	\begin{itemize}
+		\item Population advantage of exploration act
+		\item Threshold for expanding to neighbor cells
+	\end{itemize}
+	\item Attacking Trait
+	\begin{itemize}
+		\item Positive factor for your specie during the battle among species
+	\end{itemize}
+	\item Defensive Trait
+	\begin{itemize}
+		\item Negative factor for other species during the battle among species
+	\end{itemize}
+	\item Ultimate Trait
+	\begin{itemize}
+		\item The very only approach to win the game with a special trait. This trait will enable the specie to fly out of the culture dish and earn victory
+	\end{itemize}
+\end{itemize}
+
+\section{Download the Game}
+
+\section{Start the Game}
+This game is build by Unity and no installation procedure is needed before running the game. Just unzip the downloaded game package and double click the main program, the game will run.
+
+\subsection{Screen Resolution Choice}
+
+$1024\times640$ and other 16:9 screens with higher resolution are suggested. 
+
+\section{Exit the Game}
+During the game session, players can press [esc] at any time to exit the game. All the user data of current session will be lost.
+
+\section{Victory Conditions}
 Game will be over when the whole world is all filled with bacteria. During the competition process, the players can gain a touch of biological knowledge and skills about bacterial reproduction. Moreover, the players will be able to enjoy themselves and feel satisfied during the competition and, possibly, corporation with each other. Therefore, the player will be offered rich opportunities for getting a sense of achievement, recognition, and satisfaction at the same time.
 
 \end{document}
