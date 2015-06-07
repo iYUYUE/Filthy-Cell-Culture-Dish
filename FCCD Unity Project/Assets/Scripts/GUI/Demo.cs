@@ -50,19 +50,19 @@ namespace AssemblyCSharp {
 
 			//Traits
 			int growthInt = Global.players [Global.currentPlayer].TechAndProgress [0, 0];
-			growthLevel.text = growthInt < Global.numTech? growthInt.ToString () : "MAX";
+			growthLevel.text = growthInt < Global.numTech? growthInt.ToString () + "/" + Global.numTech : "MAX";
 
 			int expoInt = Global.players [Global.currentPlayer].TechAndProgress [1, 0];
-			expoLevel.text = expoInt < Global.numTech? expoInt.ToString () : "MAX";
+			expoLevel.text = expoInt < Global.numTech? expoInt.ToString () + "/" + Global.numTech : "MAX";
 
 			int attInt = Global.players [Global.currentPlayer].TechAndProgress [2, 0];
-			attackLevel.text = attInt < Global.numTech? attInt.ToString () : "MAX";
+			attackLevel.text = attInt < Global.numTech? attInt.ToString () + "/" + Global.numTech : "MAX";
 
 			int defInt = Global.players [Global.currentPlayer].TechAndProgress [3, 0];
-			defenseLevel.text = defInt < Global.numTech? defInt.ToString () : "MAX";
+			defenseLevel.text = defInt < Global.numTech? defInt.ToString () + "/" + Global.numTech : "MAX";
 
 			int ultInt = Global.players [Global.currentPlayer].TechAndProgress [4, 0];
-			ultimateLevel.text = ultInt < Global.numTech? ultInt.ToString () : "MAX";
+			ultimateLevel.text = ultInt < Global.numTech? ultInt.ToString () + "/" + Global.numTech : "MAX";
 
 			growthProc.text = Global.players [Global.currentPlayer].getGrowthValueForDisplay ();
 			expoProc.text = Global.players [Global.currentPlayer].getExplorationValueForDisplay ();
