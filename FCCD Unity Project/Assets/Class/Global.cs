@@ -33,7 +33,7 @@ namespace AssemblyCSharp
 		public static int numberOfPlayers = 2;
 		public static Boolean explored = false;
 		public static Boolean block = false;
-		public readonly static int numTech = 2;
+		public readonly static int numTech = 5;
 		public readonly static int baseCapacity = 100;
 		public static int winPop;
 		public static int[,] techCost;
