@@ -31,7 +31,8 @@ public class NumberInput : MonoBehaviour {
 			int maxTurns = Int32.Parse(MaxTurns.text);
 			int mapWidth = Int32.Parse(MapWidth.text);
 			int mapHeight = Int32.Parse(MapHeight.text);
-			if(playerNumber > 1 && maxTurns > 9 && mapWidth > 9 && mapHeight > 9) {
+			if(playerNumber > 1 && playerNumber<5&&maxTurns > 9 && mapWidth > 9 && mapHeight > 9) {
+				Global.reInitial();
 				Global.numberOfPlayers = playerNumber;
 				Global.maxTurn = maxTurns;
 				Global.WIDTH = mapWidth;

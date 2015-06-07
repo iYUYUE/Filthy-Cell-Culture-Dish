@@ -12,7 +12,7 @@ using System.IO;
 using System.Collections;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
-
+using UnityEngine;
 using System.Threading;
 using System.Collections.Generic;
 using Gamelogic.Grids;
@@ -27,9 +27,9 @@ namespace AssemblyCSharp
 		public readonly static int ATTACKING = 2;
 		public readonly static int DEFENSING = 3;
 		public readonly static int ULTIMATE = 4;
-		public static int WIDTH =12;
-		public static int HEIGHT =12;
-		public static int maxTurn = 20;
+		public static int WIDTH =20;
+		public static int HEIGHT =20;
+		public static int maxTurn = 50;
 		public static int numberOfPlayers = 2;
 		public static Boolean explored = false;
 		public static Boolean block = false;
@@ -53,6 +53,12 @@ namespace AssemblyCSharp
 		public static Player largestPopPlayer;
 		public static Player largestCellPlayer;
 
+		public static void reInitial(){
+			WIDTH =20;HEIGHT =20;maxTurn = 50;numberOfPlayers = 2;explored = false;block = false;
+			drawAll=false;players = new List<Player>();cells = new List<Cell>();
+			largestPop = 0;largestTerritory = 0;
+
+		}
 		public static void makeOldBinder(){
 			foreach (var dc in binder) {
 				DiamondPoint dp = dc.Key;
@@ -135,8 +141,6 @@ namespace AssemblyCSharp
 			foreach (Player pl in players) {
 				if (pl.getUltimateLevel()==numTech||pl.getPop()>=winPop) {
 					winners.Add(pl);
-					winner = pl;
-					gameOver();
 				}
 			}
 			if (winners.Count > 0) {
@@ -145,6 +149,7 @@ namespace AssemblyCSharp
 						winner = pl;
 					}
 				}
+	//			Debug.Log("Tech or Pop");
 				gameOver();
 			}
 			winner = players [0];
@@ -154,6 +159,7 @@ namespace AssemblyCSharp
 						winner = pl;
 					}
 				}
+	//			Debug.Log("Turn");
 				gameOver();
 			}
 		}
