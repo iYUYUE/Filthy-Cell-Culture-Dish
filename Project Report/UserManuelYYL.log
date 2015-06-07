@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.26)  7 JUN 2015 20:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.26)  7 JUN 2015 21:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -465,54 +465,55 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ] [5
 
 ]
-[6] <images/start1.png, id=72, 1445.4pt x 903.375pt>
+[6] <images/start1.png, id=73, 1445.4pt x 903.375pt>
 File: images/start1.png Graphic file (type png)
  <use images/start1.png>
-Package pdftex.def Info: images/start1.png used on input line 150.
+Package pdftex.def Info: images/start1.png used on input line 154.
 (pdftex.def)             Requested size: 289.07487pt x 180.6718pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/start2.png, id=73, 1445.4pt x 903.375pt>
+<images/start2.png, id=74, 1445.4pt x 903.375pt>
 File: images/start2.png Graphic file (type png)
  <use images/start2.png>
-Package pdftex.def Info: images/start2.png used on input line 158.
+Package pdftex.def Info: images/start2.png used on input line 162.
 (pdftex.def)             Requested size: 289.07487pt x 180.6718pt.
 
 [7] [8 <./images/start1.png> <./images/start2.png>]
-<images/start3.png, id=89, 1445.4pt x 903.375pt>
+<images/start3.png, id=91, 1445.4pt x 903.375pt>
 File: images/start3.png Graphic file (type png)
  <use images/start3.png>
-Package pdftex.def Info: images/start3.png used on input line 167.
+Package pdftex.def Info: images/start3.png used on input line 171.
 (pdftex.def)             Requested size: 289.07487pt x 180.6718pt.
 
 [9 <./images/start3.png>] 
 AED: lastpage setting LastPage
 [10]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 186.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 186.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 190.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 190.
  (./UserManuelYYL.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 186.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 186.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 186.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 190.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 190.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 190.
  ) 
 Here is how much of TeX's memory you used:
- 7992 strings out of 493109
- 121292 string characters out of 6135004
+ 7994 strings out of 493109
+ 121315 string characters out of 6135004
  256600 words of memory out of 5000000
- 11338 multiletter control sequences out of 15000+600000
- 8345 words of font info for 32 fonts, out of 8000000 for 9000
+ 11339 multiletter control sequences out of 15000+600000
+ 8514 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,10n,48p,527b,442s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
 /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb>
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on UserManuelYYL.pdf (10 pages, 719110 bytes).
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
+/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on UserManuelYYL.pdf (10 pages, 723822 bytes).
 PDF statistics:
- 170 PDF objects out of 1000 (max. 8388607)
- 144 compressed objects within 2 object streams
+ 175 PDF objects out of 1000 (max. 8388607)
+ 148 compressed objects within 2 object streams
  30 named destinations out of 1000 (max. 500000)
  141 words of extra memory for PDF output out of 10000 (max. 10000000)
 
