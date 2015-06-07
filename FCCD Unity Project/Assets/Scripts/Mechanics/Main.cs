@@ -6,7 +6,7 @@
 
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
+//using UnityEditor;
 using UnityEngine.EventSystems;
 using AssemblyCSharp;
 using Gamelogic;
