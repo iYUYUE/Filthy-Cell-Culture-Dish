@@ -1,33 +1,36 @@
 ---
 
-![image](/Project Report/images/title2.png) **Filthy Cell-Culture Dish\
-User Manuel\
-** (c) YYL Team\
-Based on Version 1.0.0
+![image](/Project Report/images/title2.png) **Filthy Cell-Culture Dish User Manuel**
+  
+  (c) YYL Team
+  
+  Based on Version 1.0.0
 
+---
 **Project Team**
 
 -   Boyuan Yuan
 
-    Developer\
-    Storyteller\
-    Graphic Designer\
-    Artwork\
+    Developer \
+    Storyteller \
+    Graphic Designer \
+    Artwork
 
 -   Chunchuan Lv
 
-    Developer\
-    Tester\
-    Graphic\
-    Debugger\
+    Developer \
+    Tester \
+    Graphic \
+    Debugger
 
 -   Yue Yu
 
-    Developer\
-    Documentation\
-    Graphic Designer\
-    Artwork\
+    Developer \
+    Documentation \
+    Graphic Designer \
+    Artwork
 
+---
 **Recommended Requirements**
 
 **CPU:** 2.0GHz i3 Dual Core or equivalent
@@ -42,6 +45,8 @@ later
 **Sound Card:** Yes
 
 **Free Disk Space:** 500 MB
+
+---
 
 Introduction to The Game
 ========================
@@ -60,6 +65,7 @@ Game Terms
 
 Cell
 ----
+
 
 The world in the game is represented by consecutive cells. Individual
 cell has properties of current population of species and its’
@@ -137,7 +143,7 @@ double click the main program, the game will run.
 Screen Resolution Choice
 ------------------------
 
-$1024\times640$ and other 16:9 screens with higher resolution are
+1024 * 640 and other 16:9 screens with higher resolution are
 suggested.
 
 Main Menu
