@@ -2,11 +2,11 @@
 
 ![image](/Project Report/images/title2.png) 
 
-<p align="center"> **Filthy Cell-Culture Dish User Manuel** </p>
+<p align="center"> <b>Filthy Cell-Culture Dish User Manuel</b> </p>
   
-  (c) YYL Team
+  <p align="center">(c) YYL Team</p>
   
-  Based on Version 1.0.0
+  <p align="center">Based on Version 1.0.0</p>
 
 ---
 **Project Team**
