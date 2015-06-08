@@ -1,10 +1,12 @@
 ---
 
-![image](/Project Report/images/title2.png) **Filthy Cell-Culture Dish User Manuel**
+![image](/Project Report/images/title2.png) 
+
+-> **Filthy Cell-Culture Dish User Manuel** <-
   
-  (c) YYL Team
+-> (c) YYL Team <-
   
-  Based on Version 1.0.0
+-> Based on Version 1.0.0 <-
 
 ---
 **Project Team**
