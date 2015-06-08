@@ -2,7 +2,7 @@
 
 ![image](/Project Report/images/title2.png) 
 
-**<center> Filthy Cell-Culture Dish User Manuel </center>**
+<center> **Filthy Cell-Culture Dish User Manuel** </center>
   
   (c) YYL Team
   
