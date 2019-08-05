@@ -1,6 +1,6 @@
 ---
 
-![image](/Project Report/images/title2.png) 
+![image](https://github.com/iYUYUE/Filthy-Cell-Culture-Dish/blob/master/Project%20Report/images/title2.png) 
 
 <p align="center"> <b>Filthy Cell-Culture Dish User Manuel</b> </p>
   
